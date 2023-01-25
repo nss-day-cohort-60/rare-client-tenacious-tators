@@ -1,27 +1,55 @@
-import { useRef } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import "./NavBar.css"
-import Logo from "./rare.jpeg"
+import { useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./NavBar.css";
+import Logo from "./rare.jpeg";
 
+// Creates and exports NavBar component
+// uses Props in the argument defined in Rare.js
 export const NavBar = ({ token, setToken }) => {
-  const navigate = useNavigate()
-  const navbar = useRef()
-  const hamburger = useRef()
+  //defines navigate variable to use useNavigate hook
+  const navigate = useNavigate();
 
+  /*
+  •useRefs() hooks are used to reference previous state 
+  •Defines variable where useRef is set to an initial value of null
+  */
+  const navbar = useRef();
+  /*
+  the mobile icon used for opening a menu
+  hidden until user adjusts width
+  */
+  const hamburger = useRef();
+
+  /*
+  •Toggles mobile hamburger icon to active and opens on click (JSX)
+  */
   const showMobileNavbar = () => {
-    hamburger.current.classList.toggle('is-active')
-    navbar.current.classList.toggle('is-active')
-  }
+    hamburger.current.classList.toggle("is-active");
+    navbar.current.classList.toggle("is-active");
+  };
 
   return (
-    <nav className="navbar is-success mb-3" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar is-success mb-3"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
-          <img src={Logo} height="3rem" alt="Rare Logo" /> <h1 className="title is-4">Rare Publishing</h1>
+          <img src={Logo} height="3rem" alt="Rare Logo" />{" "}
+          <h1 className="title is-4">Rare Publishing</h1>
         </a>
 
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={showMobileNavbar} ref={hamburger}>
+        <a
+          role="button"
+          className="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+          onClick={showMobileNavbar}
+          ref={hamburger}
+        >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -31,11 +59,15 @@ export const NavBar = ({ token, setToken }) => {
       <div className="navbar-menu" ref={navbar}>
         <div className="navbar-start">
           {
-            token
-              ?
-              <Link to="/" className="navbar-item">Posts</Link>
-              :
+            // This ternary statement checks to ensure the current user is logged in
+            // If true, a link will appear in the nav bar that links to path "/" when clicked
+            token ? (
+              <Link to="/" className="navbar-item">
+                Posts
+              </Link>
+            ) : (
               ""
+            )
           }
         </div>
 
@@ -43,22 +75,33 @@ export const NavBar = ({ token, setToken }) => {
           <div className="navbar-item">
             <div className="buttons">
               {
-                token
-                  ?
-                  <button className="button is-outlined" onClick={() => {
-                    setToken('')
-                    navigate('/login')
-                  }}>Logout</button>
-                  :
+                // This ternary statement checks if the current user is logged in
+                // If true, a logout button will appear and will route back to the "/login" path when clicked
+                token ? (
+                  <button
+                    className="button is-outlined"
+                    onClick={() => {
+                      setToken("");
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </button>
+                ) : (
                   <>
-                    <Link to="/register" className="button is-link">Register</Link>
-                    <Link to="/login" className="button is-outlined">Login</Link>
+                    <Link to="/register" className="button is-link">
+                      Register
+                    </Link>
+                    <Link to="/login" className="button is-outlined">
+                      Login
+                    </Link>
                   </>
+                )
               }
             </div>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
