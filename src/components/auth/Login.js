@@ -17,7 +17,7 @@ export const Login = ({ setToken }) => {
       username: username.current.value,
       password: password.current.value
     }
-//loginUser() POSTS to login table to the API. Should this happen? Should logout delete this table?
+//loginUser() POSTS to login table to the API. Should this happen? Should logout delete this row?
     loginUser(user).then(res => {
       /*
       tests to see if the response object contains the valid property or the "valid" string
