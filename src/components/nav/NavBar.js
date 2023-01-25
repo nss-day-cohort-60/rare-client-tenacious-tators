@@ -10,7 +10,7 @@ export const NavBar = ({ token, setToken }) => {
   const navigate = useNavigate();
 
   /*
-  •useRefs() hook are used for functionality of the mobile nav bar, which appears when viewport width is decreased
+  •useRefs() hooks are used to reference previous state 
   •Defines variable where useRef is set to an initial value of null
   */
   const navbar = useRef();
@@ -58,38 +58,46 @@ export const NavBar = ({ token, setToken }) => {
 
       <div className="navbar-menu" ref={navbar}>
         <div className="navbar-start">
-          {token ? (
-            <Link to="/" className="navbar-item">
-              Posts
-            </Link>
-          ) : (
-            ""
-          )}
+          {
+            // This ternary statement checks to ensure the current user is logged in
+            // If true, a link will appear in the nav bar that links to path "/" when clicked
+            token ? (
+              <Link to="/" className="navbar-item">
+                Posts
+              </Link>
+            ) : (
+              ""
+            )
+          }
         </div>
 
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              {token ? (
-                <button
-                  className="button is-outlined"
-                  onClick={() => {
-                    setToken("");
-                    navigate("/login");
-                  }}
-                >
-                  Logout
-                </button>
-              ) : (
-                <>
-                  <Link to="/register" className="button is-link">
-                    Register
-                  </Link>
-                  <Link to="/login" className="button is-outlined">
-                    Login
-                  </Link>
-                </>
-              )}
+              {
+                // This ternary statement checks if the current user is logged in
+                // If true, a logout button will appear and will route back to the "/login" path when clicked
+                token ? (
+                  <button
+                    className="button is-outlined"
+                    onClick={() => {
+                      setToken("");
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <Link to="/register" className="button is-link">
+                      Register
+                    </Link>
+                    <Link to="/login" className="button is-outlined">
+                      Login
+                    </Link>
+                  </>
+                )
+              }
             </div>
           </div>
         </div>
