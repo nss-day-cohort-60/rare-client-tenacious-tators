@@ -1,4 +1,3 @@
-// import "./Animals.css"
 import { Link } from "react-router-dom"
 
 export const User = ({ user }) => (
