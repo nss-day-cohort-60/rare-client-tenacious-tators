@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
-import { Authorized } from "./"
+import { Authorized } from "./Authorized"
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
