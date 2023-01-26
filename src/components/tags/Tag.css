@@ -1,0 +1,9 @@
+.tags {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.tag_label, .editButton, .deleteButton {
+    margin: 2px;
+}
