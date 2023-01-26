@@ -12,11 +12,6 @@ import { Tags } from "../components/tags/Tag"
 export const ApplicationViews = ({ token, setToken }) => {
   return <>
     <Routes>
-      <Route path="/" element={
-        <>
-          <Outlet />
-        </>
-      } />
       {/* creating path for login & register */}
       {/* passing setToken prop from Rare.js to Login & Register  */}
       <Route path="/login" element={<Login setToken={setToken} />} />

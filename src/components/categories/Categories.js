@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { getCategories } from "../../managers/categories"
+import { Category } from "./Category"
 import "./Categories.css"
 
 export const Categories = () => {
@@ -15,7 +16,7 @@ export const Categories = () => {
             })
         }, [])
 
-    const sortCategoryList = [ ... categories].sort((a, b) => a.label > b.label ? 1 : -1)
+    const sortCategoryList = [...categories].sort((a, b) => a.label > b.label ? 1 : -1)
 
     return (
         <div className="categoryList">
@@ -23,16 +24,11 @@ export const Categories = () => {
             <article className="categories">
                 {
                     sortCategoryList.map(category => {
-                        return <div key={`category--${category.id}`} className="list">
-                                {category.label}
-                                <div className="buttonContainer">
-                                <button className="editButton">Edit</button>
-                                <button className="deleteButton">Delete</button>
-                                </div>
-                                </div>
+                        return <><Category category={category} key={`category--${category.id}`} />
+                        </>
                     })
                 }
-            </article>
-        </div>
+            </article >
+        </div >
     )
 }
