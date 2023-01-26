@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../managers/AuthManager"
 
 export const Register = ({setToken}) => {
+  //state variables representing the properties of the User Class
   const firstName = useRef()
   const lastName = useRef()
   const email = useRef()
@@ -16,8 +17,9 @@ export const Register = ({setToken}) => {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    
+    //confirms password and verifyPassword are the same value and data type
     if (password.current.value === verifyPassword.current.value) {
+      //initializes newUser to meet the requirements of the User class for POST request
       const newUser = {
         username: username.current.value,
         first_name: firstName.current.value,
@@ -26,21 +28,25 @@ export const Register = ({setToken}) => {
         password: password.current.value,
         bio: bio.current.value
       }
-
+//POSTs the user to the Register table
       registerUser(newUser)
         .then(res => {
+          //Tests both a javascript string "valid" and the property "valid" on the response. Does the register table add self.valid: "valid" property? Does it also add self.token to return the required keys/values for setToken?
           if ("valid" in res && res.valid) {
+            //sets registered user into local storage and sets Token state to the embedded token object returned from the api
             setToken(res.token)
             navigate("/")
           }
         })
     } else {
+      //renders a modal, I assume?
       passwordDialog.current.showModal()
     }
   }
 
   return (
     <section className="columns is-centered">
+      {/* Form that invokes handleRegister() when submitted */}
       <form className="column is-two-thirds" onSubmit={handleRegister}>
       <h1 className="title">Rare Publishing</h1>
         <p className="subtitle">Create an account</p>
