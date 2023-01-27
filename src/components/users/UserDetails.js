@@ -16,10 +16,13 @@ export const UserDetails = () => {
 
   return (
     <section className="user">
+        <img className="user__image" src={user.profile_image_url}/>
+            <article className="user__info">
       <h3 className="user__name">Name: {user.first_name} {user.last_name}</h3>
       <div className="user__breed">Username: {user.username}</div>
       <div className="user__location">Account Created: {user.created_on}</div>
       <div className="user__owner">Bio: {user.bio}</div>
+      </article>
     </section>
   )
 }

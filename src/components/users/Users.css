@@ -10,6 +10,7 @@
   }
   
   .user {
+    display: flex;
     flex-basis: 24%;
     margin: 0.5rem 1em;
     padding: 0.5rem 1rem;
@@ -18,5 +19,14 @@
   
   .users_search {
     width: 25rem;
+  }
+
+  .user__image {
+    width: 200px;
+    object-fit: cover
+  }
+
+  .user__info {
+    padding: 0.5rem 1rem
   }
   
