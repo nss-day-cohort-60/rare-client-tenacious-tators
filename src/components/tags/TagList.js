@@ -12,10 +12,7 @@ export const TagList = () => {
     useEffect(
         () => {
             getTags()
-            .then((tagArray) => {
-            setTags(tagArray.sort((a,b) => {const nameA = a.label;
-                const nameB = b.label; if (nameA < nameB){ return -1;} if (nameA > nameB) {return 1;} return 0}))
-            })
+            .then((tagArray) => setTags(tagArray))
         },
         []
     )
