@@ -13,7 +13,7 @@ export const PostList = () => {
   }, []);
 
   return (
-    <>
+    <>HI!
       <div className="post-table">
         <table class="table is-fullwidth">
           <thead>
