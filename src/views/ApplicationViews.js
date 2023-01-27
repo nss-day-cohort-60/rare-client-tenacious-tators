@@ -2,12 +2,13 @@ import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
 import { Authorized } from "./Authorized"
-import { Posts } from "../components/posts/Posts"
+import { PostList } from "../components/posts/PostList"
 import { MyPosts } from "../components/posts/MyPosts"
 import { PostDetail } from "../components/posts/PostDetail"
 import { Categories } from "../components/categories/Categories"
-import { Tags } from "../components/tags/Tag"
+import { TagList } from "../components/tags/TagList"
 import { UserList } from "../components/users/UserList"
+import { UserDetails } from "../components/users/UserDetails"
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
@@ -29,7 +30,10 @@ export const ApplicationViews = ({ token, setToken }) => {
         <Route path="/tags" element={<Tags />} />
         <Route path="/users">
           <Route index element={<UserList />} />
+          <Route path=":userId" element={<UserDetails />} />
         </Route>
+
+        
       </Route>
     </Routes>
   </>

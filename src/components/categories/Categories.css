@@ -1,0 +1,18 @@
+.categoryList { 
+    padding: 20px; 
+}
+
+.categories {
+    font-size: 25px; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.list  { 
+    flex-direction: column;
+    padding: 20px; 
+}
+
+.categoryHeader { 
+    font-size: 35px; 
+}

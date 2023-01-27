@@ -20,7 +20,6 @@ export const UserList = () => {
         <div className="users">
           {
             users
-                .sort((a, b) => a.username > b.username ? 1 : -1)
                 .map(user => <User key={user.id} user={user} />)
           }
         </div>

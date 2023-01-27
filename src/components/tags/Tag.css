@@ -1,0 +1,16 @@
+.tags {
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    align-content: flex-end;
+    margin: 5px;
+}
+
+.tag {
+    padding: 5px;
+    width: 250px;
+}
+
+.tag_label, .editButton, .deleteButton {
+    margin: 2px;
+}
