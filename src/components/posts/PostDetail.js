@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { getSinglePost } from "../../managers/PostManager"
+import "./Posts.css"
 
 export const PostDetail = ({token}) => {
     const [post, setPost] = useState({})
@@ -9,27 +10,28 @@ export const PostDetail = ({token}) => {
 
     useEffect(()=>{
         getSinglePost(postId)
-        .then((post)=>setPost(post))
+        .then(setPost)
     }, [postId])
 
-        return <>hi</>
-    //<div>
-    //     <title>{post.title}</title>
-    //     <h2>{post.author}</h2>
-    //     <h3>{post.category}</h3>
-    //     <h3>{post.date}</h3>
-    //     <p>{post.content}</p>
-    //     {token?
-    //     <div className="buttons">
-    //         <button
-    //         onClick={
-    //             ()=>{}
-    //         }>DELETE</button>
-    //         <button
-    //         onClick={
-    //             ()=>{}
-    //         }>EDIT</button>
-    //     </div>
-    //     :"" }
-    // </div>
+        return <div className="postDetail">
+        <h1>{post.title}</h1>
+        <h2>{post?.user?.username}</h2>
+        <h3>{post?.category?.label}</h3>
+        <h3>{post.publication_date}</h3>
+        <p>{post.content}</p>
+        {token?
+        <div className="buttons">
+            <button
+            onClick={
+                ()=>{}
+            }>DELETE</button>
+            <button
+            onClick={
+                ()=>{}
+            }>EDIT</button>
+        </div>
+        :"" }
+    </div>
 }
+
+//click on user name, it should be routed to user detail
