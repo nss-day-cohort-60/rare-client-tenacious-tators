@@ -1,0 +1,7 @@
+.post-table {
+  display: flex;
+  justify-content: center;
+  padding-top: 10em;
+  overflow: auto;
+  padding-left: 14rem;
+}
