@@ -3,8 +3,8 @@
   }
   
   .users {
-    display: flex;
-    flex-wrap: wrap;
+    width: 50vw;
+    min-width: fit-content;
     justify-content: space-between;
     margin-top: 1rem;
   }
