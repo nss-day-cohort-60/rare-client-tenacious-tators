@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import "./Categories.css"
 
 export const Category = ({ category }) => (
-    <section className="category" key={category.id}>
+    <section className="category">
         <div>
             <Link to={`/categories/${category.id}`}>
                 <h3>{category.label}</h3>
@@ -13,3 +13,5 @@ export const Category = ({ category }) => (
             </div>
         </div>
     </section>)
+
+
