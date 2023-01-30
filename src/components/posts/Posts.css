@@ -1,8 +1,8 @@
-.postDetail{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+.postDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 }
 .post-table {
   display: flex;

@@ -59,53 +59,58 @@ export const NavBar = ({ token, setToken }) => {
             token ? (
               <>
                 <Link to="/posts" className="navbar-item">
-                  Posts</Link>
-                <Link to="/myposts" className="navbar-item">
-                  My Posts</Link>
+                  Posts
+                </Link>
+                <Link to="posts/myposts" className="navbar-item">
+                  My Posts
+                </Link>
                 <Link to="/categories" className="navbar-item">
-                  Category Manager</Link>
+                  Category Manager
+                </Link>
                 <Link to="/tags" className="navbar-item">
-                  Tag Manager</Link>
+                  Tag Manager
+                </Link>
                 <Link to="/users" className="navbar-item">
-                  User Management</Link>
-           </>
-        ) : (
-        ""
-        )
+                  User Management
+                </Link>
+              </>
+            ) : (
+              ""
+            )
           }
-      </div>
+        </div>
 
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <div className="buttons">
-            {
-              // This ternary statement checks if the current user is logged in
-              // If true, a logout button will appear and will route back to the "/login" path when clicked
-              token ? (
-                <button
-                  className="button is-outlined"
-                  onClick={() => {
-                    setToken("");
-                    navigate("/login");
-                  }}
-                >
-                  Logout
-                </button>
-              ) : (
-                <>
-                  <Link to="/register" className="button is-link">
-                    Register
-                  </Link>
-                  <Link to="/login" className="button is-outlined">
-                    Login
-                  </Link>
-                </>
-              )
-            }
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="buttons">
+              {
+                // This ternary statement checks if the current user is logged in
+                // If true, a logout button will appear and will route back to the "/login" path when clicked
+                token ? (
+                  <button
+                    className="button is-outlined"
+                    onClick={() => {
+                      setToken("");
+                      navigate("/login");
+                    }}
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <Link to="/register" className="button is-link">
+                      Register
+                    </Link>
+                    <Link to="/login" className="button is-outlined">
+                      Login
+                    </Link>
+                  </>
+                )
+              }
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </nav >
+    </nav>
   );
 };
