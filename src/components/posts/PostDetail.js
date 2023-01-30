@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
-<<<<<<< HEAD
 import { getSinglePost } from "../../managers/Posts"
-=======
-import { getSinglePost } from "../../managers/PostManager"
 import { deletePosts } from "../../managers/Posts"
->>>>>>> main
 import "./Posts.css"
 
 export const PostDetail = ({token,}) => {

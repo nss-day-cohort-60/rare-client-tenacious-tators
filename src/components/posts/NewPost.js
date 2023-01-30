@@ -1,18 +1,12 @@
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from 'react-router-dom'
 import { getCategories } from "../../managers/categories"
-import { getUsers } from "../../managers/users"
 import { addNewPost } from "../../managers/Posts"
-import { Navigate } from "react-router-dom"
 
 export const NewPost = ({ token }) => {
-    const user = useRef(null)
-
     const [post, setNewPost] = useState({})
     const [categories, setCategories] = useState([])
-    const [users, setUsers] = useState([])
 
-    // const tokenInt = parseInt(token);
     const navigate = useNavigate()
     
     const handleNewPostInfo = (event) => {
@@ -24,11 +18,11 @@ export const NewPost = ({ token }) => {
     useEffect(
         () => {
             getCategories().then((categoryData) => setCategories(categoryData))
-            getUsers().then((userData) => setUsers(userData))
         }, [])
 
     const publishNewArticle = () => {
         const categoryId = parseInt(post.categoryId)
+        // const tokenInt = parseInt(token)
 
         if (categoryId === 0) {
             window.alert("Please select a category.")
@@ -39,10 +33,9 @@ export const NewPost = ({ token }) => {
                 imageUrl: post.imageUrl,
                 content: post.content,
                 userId: parseInt(token),
-                publicationDate: post.date, 
                 approved: 1
             })
-                .then(() => Navigate("/myposts"))
+                .then(() => navigate("/myposts"))
         }
     }
 
