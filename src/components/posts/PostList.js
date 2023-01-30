@@ -14,7 +14,7 @@ export const PostList = () => {
 
   return (
     <>
-      <div className="addPostButton">Add Post <button onClick={() => navigate("/newpost")}>+</button></div>
+      <div className="addPostButton">Add Post <button onClick={() => navigate("newpost")}>+</button></div>
       <div className="post-table">
         <table class="table is-fullwidth">
           <thead>
