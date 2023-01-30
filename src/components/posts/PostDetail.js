@@ -13,7 +13,7 @@ export const PostDetail = ({token,}) => {
     useEffect(()=>{
         getSinglePost(postId)
         .then(setPost)
-    }, [postId])
+    }, [,postId])
 
         return <div className="postDetail">
         <h1>{post.title}</h1>
@@ -23,7 +23,7 @@ export const PostDetail = ({token,}) => {
         <h3>{post?.category?.label}</h3>
         <h3>{post.publication_date}</h3>
         <p>{post.content}</p>
-        {token?
+        {parseInt(token) === post.user_id?
         <div className="buttons">
             <button
             onClick={
