@@ -16,3 +16,9 @@ export const addNewPost = post => {
     body: JSON.stringify(post)
   })
 }
+
+export const getCurrentUserPosts = (id) => {
+  return fetch(`http://localhost:8088/posts?user_id=${id}`).then((res) =>
+    res.json()
+  );
+};

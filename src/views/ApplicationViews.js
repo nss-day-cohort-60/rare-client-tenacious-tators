@@ -1,16 +1,16 @@
-import { Route, Routes } from "react-router-dom"
-import { Login } from "../components/auth/Login"
-import { Register } from "../components/auth/Register"
-import { Authorized } from "./Authorized"
-import { PostList } from "../components/posts/PostList"
-import { MyPosts } from "../components/posts/MyPosts"
-import { PostDetail } from "../components/posts/PostDetail"
-import { NewPost } from "../components/posts/NewPost"
-import { Categories } from "../components/categories/Categories"
-import { TagList } from "../components/tags/TagList"
-import { UserList } from "../components/users/UserList"
-import { UserDetails } from "../components/users/UserDetails"
-import { CommentList } from "../components/comments/CommentList"
+import { Route, Routes } from "react-router-dom";
+import { Login } from "../components/auth/Login";
+import { Register } from "../components/auth/Register";
+import { Authorized } from "./Authorized";
+import { PostList } from "../components/posts/PostList";
+import { MyPosts } from "../components/posts/MyPosts";
+import { NewPost } from "../components/posts/NewPost";
+import { PostDetail } from "../components/posts/PostDetail";
+import { Categories } from "../components/categories/Categories";
+import { TagList } from "../components/tags/TagList";
+import { UserList } from "../components/users/UserList";
+import { UserDetails } from "../components/users/UserDetails";
+import { CommentList } from "../components/comments/CommentList";
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
