@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import { getSinglePost } from "../../managers/PostManager"
+import { deletePosts } from "../../managers/Posts"
 import "./Posts.css"
 
-export const PostDetail = ({token}) => {
+export const PostDetail = ({token,}) => {
     const [post, setPost] = useState({})
     const {postId} = useParams()
     const navigate = useNavigate()
@@ -17,7 +18,7 @@ export const PostDetail = ({token}) => {
         return <div className="postDetail">
         <h1>{post.title}</h1>
         <Link to={`/users/${post.user_id}`}>
-            <h2>{ post?.user?.username }</h2>
+            <h2>{ post?.author?.username }</h2>
         </Link>
         <h3>{post?.category?.label}</h3>
         <h3>{post.publication_date}</h3>
@@ -26,7 +27,11 @@ export const PostDetail = ({token}) => {
         <div className="buttons">
             <button
             onClick={
-                ()=>{}
+                (e)=>{
+                    e.preventDefault()
+                    deletePosts(postId)
+                    .then(()=>navigate("/posts"))
+                }
             }>DELETE</button>
             <button
             onClick={
