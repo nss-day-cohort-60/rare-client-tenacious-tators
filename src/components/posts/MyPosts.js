@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getCurrentUserPosts } from "../../managers/Posts";
+import { useNavigate } from "react-router-dom";
+import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
 import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
   const [posts, setPosts] = useState([]);
   const tokenInt = parseInt(token);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getCurrentUserPosts(tokenInt).then((postData) => {
@@ -23,7 +25,11 @@ export const MyPosts = ({ token }) => {
           <p>{post.content}</p>
 
           <div className="buttons">
-            <button onClick={() => {}}>DELETE</button>
+            <button onClick={(e) => {
+              e.preventDefault()
+              deletePosts(post.id)
+              .then(()=>navigate("/posts"))
+            }}>DELETE</button>
             <button onClick={() => {}}>EDIT</button>
           </div>
         </>
