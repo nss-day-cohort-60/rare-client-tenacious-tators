@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate"
+import { SearchByAuthor } from "./SearchByAuthor"
 
 export const Posts = ({ post }) => (
   <tr>

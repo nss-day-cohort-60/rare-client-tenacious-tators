@@ -23,7 +23,10 @@ export const getCurrentUserPosts = (id) => {
   );
 };
 
-
 export const deletePosts = (id) => {
   return fetch(`http://localhost:8088/posts/${id}`, {method: "DELETE"})
+}
+
+export const getPostsByAuthor = (id) => {
+  return fetch(`http://localhost:8088/posts?user_id=${id}`).then(res=>res.json())
 }
