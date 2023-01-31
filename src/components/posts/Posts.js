@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HumanDate } from "../utils/HumanDate"
 
 export const Posts = ({ post }) => (
   <tr>
@@ -8,7 +9,7 @@ export const Posts = ({ post }) => (
     <td>
       {post?.user?.first_name} {post?.user?.last_name}
     </td>
-    <td>{post.publication_date}</td>
+    <td><HumanDate date={post.publication_date}/></td>
     <td>{post?.category?.label}</td>
   </tr>
 );

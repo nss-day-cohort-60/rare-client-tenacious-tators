@@ -4,6 +4,7 @@ import { Register } from "../components/auth/Register";
 import { Authorized } from "./Authorized";
 import { PostList } from "../components/posts/PostList";
 import { MyPosts } from "../components/posts/MyPosts";
+import { NewPost } from "../components/posts/NewPost";
 import { PostDetail } from "../components/posts/PostDetail";
 import { Categories } from "../components/categories/Categories";
 import { TagList } from "../components/tags/TagList";
@@ -15,6 +16,7 @@ import { SubscriptionList } from "../components/subscriptions/SubscriptionList";
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
 export const ApplicationViews = ({ token, setToken }) => {
+<<<<<<< HEAD
   return (
     <>
       <Routes>
@@ -39,8 +41,30 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route index element={<UserList />} />
             <Route path=":userId" element={<UserDetails />} />
           </Route>
+=======
+  return <>
+    <Routes>
+      {/* creating path for login & register */}
+      {/* passing setToken prop from Rare.js to Login & Register  */}
+      <Route path="/login" element={<Login setToken={setToken} />}  />
+      <Route path="/register" element={<Register setToken={setToken} />}  />
+      <Route element={<Authorized token={token} />}>
+        {/* Add Routes here */}
+        <Route path="/posts" >
+          <Route index element={<PostList />} />
+          <Route path="myposts" element={<MyPosts />} />
+          <Route path=":postId" element={<PostDetail token={token} />} />
+          <Route path="newpost" element={<NewPost token={token}/>}/>
+          <Route path=":postId/comments" element={<CommentList />} />
+>>>>>>> main
         </Route>
-      </Routes>
-    </>
-  );
-};
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/tags" element={<TagList />} />
+        <Route path="/users">
+          <Route index element={<UserList />} />
+          <Route path=":userId" element={<UserDetails />} />
+        </Route>
+      </Route>
+    </Routes>
+  </>
+}
