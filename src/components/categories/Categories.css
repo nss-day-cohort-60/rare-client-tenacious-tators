@@ -1,11 +1,18 @@
 .categoryList { 
     padding: 20px; 
+    display: flex; 
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 .categories {
+    display: flex;
+    flex-direction: row;
     font-size: 25px; 
-    display: flex; 
-    flex-direction: column;
+    width: 40vw;
+    padding-left: 10px
+    /* display: flex; 
+    flex-direction: column; */
 }
 
 .list  { 
@@ -15,4 +22,21 @@
 
 .categoryHeader { 
     font-size: 35px; 
+}
+
+.category {
+    justify-content: center;
+    align-items:flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.category__create {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    padding: 50px
 }

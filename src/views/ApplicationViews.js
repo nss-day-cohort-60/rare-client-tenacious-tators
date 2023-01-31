@@ -12,6 +12,7 @@ import { UserList } from "../components/users/UserList";
 import { UserDetails } from "../components/users/UserDetails";
 import { CommentList } from "../components/comments/CommentList";
 import { SubscriptionList } from "../components/subscriptions/SubscriptionList";
+import { NewCategory } from "../components/categories/NewCategory";
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
@@ -35,7 +36,10 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route path=":postId" element={<PostDetail token={token} />} />
             <Route path=":postId/comments" element={<CommentList />} />
           </Route>
-          <Route path="/categories" element={<Categories />} />
+          <Route path="/categories">
+            <Route index element={<Categories />} />
+            <Route path="create" element={<NewCategory />} />
+          </Route>
           <Route path="/tags" element={<TagList />} />
           <Route path="/users">
             <Route index element={<UserList />} />
