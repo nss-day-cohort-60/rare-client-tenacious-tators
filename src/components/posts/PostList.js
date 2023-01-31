@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post, Posts, TableRow } from "./Posts";
 import { getPosts } from "../../managers/Posts";
-import { SearchByAuthor } from "./SearchByAuthor"
+import { SearchByAuthor } from "./PostByAuthor"
 import "./Posts.css";
 
-export const PostList = () => {
+export const PostList = ({token}) => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export const PostList = () => {
   return (
     <>
       <div className="addPostButton">Add Post <button onClick={() => navigate("newpost")}>+</button></div>
-      <SearchByAuthor posts={getPosts}/>
+      <SearchByAuthor posts={posts}/>
       <div className="post-table">
         <table class="table is-fullwidth">
           <thead>
