@@ -1,0 +1,19 @@
+.subscribe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.subscribe__text {
+    font-size: 2.5rem
+}
+
+.subscribe__posts {
+    display: flex;
+    width: 80vw;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin: 1rem;
+}

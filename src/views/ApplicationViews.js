@@ -10,6 +10,7 @@ import { TagList } from "../components/tags/TagList";
 import { UserList } from "../components/users/UserList";
 import { UserDetails } from "../components/users/UserDetails";
 import { CommentList } from "../components/comments/CommentList";
+import { SubscriptionList } from "../components/subscriptions/SubscriptionList";
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
@@ -21,6 +22,9 @@ export const ApplicationViews = ({ token, setToken }) => {
         {/* passing setToken prop from Rare.js to Login & Register  */}
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
+        <Route path="/">
+          <Route index element={<SubscriptionList token={token}/>} />
+        </Route>
         <Route element={<Authorized token={token} />}>
           {/* Add Routes here */}
           <Route path="/posts">
