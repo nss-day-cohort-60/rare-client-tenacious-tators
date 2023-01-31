@@ -16,8 +16,6 @@ export const SubscriptionForm = ({ token, authorId }) => {
     .then(res=>res.json())
     .then(res=>{
       const filteredCopy = res.filter(obj=>obj.author_id === parseInt(authorId))
-      console.log(filteredCopy)
-      
       setUserSubscriptions(filteredCopy[0])
     })}
   , [token])
@@ -32,7 +30,7 @@ export const SubscriptionForm = ({ token, authorId }) => {
     deleteSubscription(id)
     .then(()=>{navigate(`/`)})
   }
-console.log(userSubscriptions)
+
     return <>
       {userSubscriptions
       ?<button 
