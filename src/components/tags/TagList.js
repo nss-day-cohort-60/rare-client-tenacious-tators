@@ -10,25 +10,20 @@ export const TagList = () => {
 
     useEffect(
         () => {
-            getTags()
-            .then((tagArray) => setTags(tagArray))
-        },
-        []
-    )
+            getTags().then((tagArray) => setTags(tagArray))
+        },[])
 
-    return (
-        <>
-        <div style={{ marginTop: "2rem" }}>
-            <div className="tags">
+    return (<section className="tagContainer">
+                <section className="tagList">
+                    <h1 className="tagHeader">Tags</h1>
                         {
                             tags.map(tag => <Tag key={tag.id} tag={tag} />)
                         }
-            </div>
-            <section className="category__create">
-                    <h1 className="">Create a New Tag</h1>
-                        <button className="category__button" onClick={() => navigate("create")}>+Add Category</button>
-            </section>
-        </div>
-        </>
+                        </section >            
+                        <section className="tag__create">
+                                <h1 className="">Create a New Tag</h1>
+                                    <button className="tag__button" onClick={() => navigate("create")}>+Add Tag</button>
+                        </section>
+        </section>
     )
-    }
+}

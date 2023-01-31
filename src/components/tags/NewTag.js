@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from 'react-router-dom'
-import { addNewCategory } from "../../managers/categories"
+import { addNewTag } from "../../managers/tags"
 
 export const NewTag = () => {
     const [tag, setNewTag] = useState({})
@@ -12,7 +12,7 @@ export const NewTag = () => {
         setNewTag(newTag)
     }
 
-    const createNewTag = () => {addNewCategory({label: category.label}).then(() => navigate("/tags"))}
+    const createNewTag = () => {addNewTag({label: tag.label}).then(() => navigate("/tags"))}
 
     return (
         <form className="addNewTagForm">
