@@ -31,6 +31,7 @@ export const SubscriptionForm = ({ token, authorId }) => {
     .then(()=>{navigate(`/`)})
   }
 
+  
     return <>
       {userSubscriptions
       ?<button 
