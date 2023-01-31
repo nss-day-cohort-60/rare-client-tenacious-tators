@@ -19,14 +19,15 @@ export const TagList = () => {
     return (
         <>
         <div style={{ marginTop: "2rem" }}>
-            <button onClick={() => navigate("/tags/create")}>
-            Create Tag
-            </button>
             <div className="tags">
                         {
                             tags.map(tag => <Tag key={tag.id} tag={tag} />)
                         }
             </div>
+            <section className="category__create">
+                    <h1 className="">Create a New Tag</h1>
+                        <button className="category__button" onClick={() => navigate("create")}>+Add Category</button>
+            </section>
         </div>
         </>
     )
