@@ -11,32 +11,42 @@ import { TagList } from "../components/tags/TagList";
 import { UserList } from "../components/users/UserList";
 import { UserDetails } from "../components/users/UserDetails";
 import { CommentList } from "../components/comments/CommentList";
+import { SubscriptionList } from "../components/subscriptions/SubscriptionList";
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
 export const ApplicationViews = ({ token, setToken }) => {
-  return <>
-    <Routes>
-      {/* creating path for login & register */}
-      {/* passing setToken prop from Rare.js to Login & Register  */}
-      <Route path="/login" element={<Login setToken={setToken} />}  />
-      <Route path="/register" element={<Register setToken={setToken} />}  />
-      <Route element={<Authorized token={token} />}>
-        {/* Add Routes here */}
-        <Route path="/posts" >
-          <Route index element={<PostList />} />
-          <Route path="myposts" element={<MyPosts />} />
-          <Route path=":postId" element={<PostDetail token={token} />} />
-          <Route path="newpost" element={<NewPost token={token}/>}/>
-          <Route path=":postId/comments" element={<CommentList />} />
+  return (
+    <>
+      <Routes>
+        {/* creating path for login & register */}
+        {/* passing setToken prop from Rare.js to Login & Register  */}
+        <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route path="/register" element={<Register setToken={setToken} />} />
+        <Route path="/">
+          <Route index element={<SubscriptionList token={token}/>} />
         </Route>
+        <Route element={<Authorized token={token} />}>
+          {/* Add Routes here */}
+          <Route path="/posts">
+            <Route index element={<PostList />} />
+            <Route path="myposts" element={<MyPosts token={token} />} />
+            <Route path=":postId" element={<PostDetail token={token} />} />
+            <Route path=":postId/comments" element={<CommentList />} />
+          </Route>
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/tags" element={<TagList />} />
+          <Route path="/users">
+            <Route index element={<UserList />} />
+            <Route path=":userId" element={<UserDetails />} />
+          </Route>
         <Route path="/categories" element={<Categories />} />
         <Route path="/tags" element={<TagList />} />
         <Route path="/users">
           <Route index element={<UserList />} />
-          <Route path=":userId" element={<UserDetails token={token}/>} />
+          <Route path=":userId" element={<UserDetails />} />
         </Route>
       </Route>
     </Routes>
-  </>
+  </>)
 }
