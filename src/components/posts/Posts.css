@@ -13,3 +13,28 @@
   padding-left: 14rem;
   width: 75%
 }
+
+.form-group { 
+  padding: 20px;
+}
+
+.addPostButton { 
+  float: right; 
+  padding: 20px; 
+}
+
+.addNewPostForm { 
+  margin-left: 20px; 
+
+}
+
+.categoryGroup { 
+  display: flex; 
+  
+}
+
+.categoryList { 
+  display: flex; 
+  flex-direction: row;
+}
+

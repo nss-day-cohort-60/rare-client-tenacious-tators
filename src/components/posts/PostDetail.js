@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import { getSinglePost } from "../../managers/PostManager"
+import { getSinglePost } from "../../managers/Posts"
 import { deletePosts } from "../../managers/Posts"
 import "./Posts.css"
 
@@ -9,7 +9,6 @@ export const PostDetail = ({token,}) => {
     const {postId} = useParams()
     const navigate = useNavigate()
     
-
     useEffect(()=>{
         getSinglePost(postId)
         .then(setPost)
