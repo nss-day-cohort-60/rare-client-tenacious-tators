@@ -1,39 +1,26 @@
-import { useState, useEffect } from "react"
 import { addSubscription } from "../../managers/subscriptions"
-import { getUserById } from "../../managers/users"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const SubscriptionForm = ({ token, authorObject}) => {
-  const [follower, setFollower] = useState({});
-  const tokenInt = parseInt(token);
-  const navigate = useNavigate()
-  const [newSubscription, updateNewSubscription] = useState({
-    followerId: 0,
-    authorId: 0,
-    date: ""
-})
 
-  useEffect(() => {
-    getUserById(tokenInt)
-    .then(setFollower)
-}, [token])
+  const tokenInt = parseInt(token)
+  const navigate = useNavigate()
+  const subscription = {
+    follower_id: tokenInt,
+    author_id: authorObject.id
+  }
 
   const createNewSubscription = () => {
-    const authorId = parseInt(authorObject.id)
-    const followerId = follower.id
+        const copy = {...subscription}
+        copy.created_on = Date.now()
 
-        // POST
-        addSubscription({
-          followerId: newSubscription.followerId,
-          authorId: newSubscription.authorId,
-          createdOn: Date.now()
-        })
-          .then(() => navigate("/users"))
+          addSubscription(copy)
+          .then(() => navigate(`/`))
     }
     return <button type="submit"
     onClick={evt => {
         evt.preventDefault()
         createNewSubscription()
     }}
-    className="btn btn-primary">Subscribe</button>
+    className="subscribeBtn">Subscribe</button>
 }
