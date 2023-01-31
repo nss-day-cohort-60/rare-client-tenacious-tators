@@ -23,19 +23,21 @@ export const NewPost = ({ token }) => {
     const publishNewArticle = () => {
         const categoryId = parseInt(post.categoryId)
         // const tokenInt = parseInt(token)
+        const date = new Date()
 
         if (categoryId === 0) {
             window.alert("Please select a category.")
         } else {
             addNewPost({
-                categoryId: categoryId,
+                category_id: categoryId,
                 title: post.title,
-                imageUrl: post.imageUrl,
+                image_url: post.imageUrl,
                 content: post.content,
-                userId: parseInt(token),
+                user_id: parseInt(token),
+                publication_date: `${date}`,
                 approved: 1
             })
-                .then(() => navigate("/myposts"))
+                .then(() => navigate("/posts"))
         }
     }
 
