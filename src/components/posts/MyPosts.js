@@ -33,7 +33,13 @@ export const MyPosts = ({ token }) => {
             >
               DELETE
             </button>
-            <button onClick={() => {}}>EDIT</button>
+            <button
+              onClick={() => {
+                navigate(`/posts/editpost/${post.id}`);
+              }}
+            >
+              EDIT
+            </button>
           </div>
         </>
       ))}

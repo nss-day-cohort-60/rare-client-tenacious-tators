@@ -1,18 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
-import { addNewPost } from "../../managers/Posts";
+import { editPost, getSinglePost } from "../../managers/Posts";
 
 export const EditPost = ({ token }) => {
-  const [post, setEditPost] = useState({});
+  const [post, setPost] = useState({});
   const [categories, setCategories] = useState([]);
-
+  const { postId } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getSinglePost(postId).then((Data) => setPost(Data));
+  }, [postId]);
 
   const handleNewPostInfo = (event) => {
     const newPost = Object.assign({}, post);
     newPost[event.target.name] = event.target.value;
-    setNewPost(newPost);
+    setPost(newPost);
   };
 
   useEffect(() => {
@@ -20,28 +24,12 @@ export const EditPost = ({ token }) => {
   }, []);
 
   const publishNewArticle = () => {
-    const categoryId = parseInt(post.categoryId);
-    // const tokenInt = parseInt(token)
-    const date = new Date();
-
-    if (categoryId === 0) {
-      window.alert("Please select a category.");
-    } else {
-      addNewPost({
-        category_id: categoryId,
-        title: post.title,
-        image_url: post.imageUrl,
-        content: post.content,
-        user_id: parseInt(token),
-        publication_date: `${date}`,
-        approved: 1,
-      }).then(() => navigate("/posts"));
-    }
+    editPost(postId, post).then(() => navigate("/posts"));
   };
 
   return (
     <form className="addNewPostForm">
-      <h2>New Post</h2>
+      <h2>Edit Post</h2>
       <fieldset>
         <div className="form-group">
           <input
@@ -49,6 +37,7 @@ export const EditPost = ({ token }) => {
             name="title"
             required
             autoFocus
+            defaultValue={post.title}
             className="form-control"
             placeholder="Title"
             onChange={handleNewPostInfo}
@@ -61,6 +50,7 @@ export const EditPost = ({ token }) => {
             type="text"
             name="imageUrl"
             required
+            defaultValue={post.image_url}
             autoFocus
             className="form-control"
             placeholder="ImageURL"
@@ -76,6 +66,7 @@ export const EditPost = ({ token }) => {
             cols="30"
             name="content"
             required
+            defaultValue={post.content}
             autoFocus
             className="form-control"
             placeholder="Article Content"
@@ -92,10 +83,12 @@ export const EditPost = ({ token }) => {
             onChange={(event) => {
               const copy = { ...post };
               copy.categoryId = parseInt(event.target.value);
-              setNewPost(copy);
+              setPost(copy);
             }}
           >
-            <option value="0">Category Select</option>
+            <option defaultValue={post.category_id}>
+              {post?.category?.label}
+            </option>
             {categories.map((category) => (
               <option key={`category--${category.id}`} value={category.id}>
                 {category.label}

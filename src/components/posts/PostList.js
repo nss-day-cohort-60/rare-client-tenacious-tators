@@ -4,7 +4,7 @@ import { Post, Posts, TableRow } from "./Posts";
 import { getPosts } from "../../managers/Posts";
 import "./Posts.css";
 
-export const PostList = () => {
+export const PostList = ({ token }) => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ export const PostList = () => {
           </thead>
           <tbody>
             {posts.map((post) => (
-              <Posts key={post.id} post={post} />
+              <Posts key={post.id} post={post} token={token} />
             ))}
           </tbody>
         </table>
