@@ -4,7 +4,7 @@ import { Post, Posts, TableRow } from "./Posts";
 import { getPosts } from "../../managers/Posts";
 import "./Posts.css";
 
-export const PostList = () => {
+export const PostList = ({ token }) => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
 
@@ -14,11 +14,14 @@ export const PostList = () => {
 
   return (
     <>
-      <div className="addPostButton">Add Post <button onClick={() => navigate("newpost")}>+</button></div>
+      <div className="addPostButton">
+        Add Post <button onClick={() => navigate("newpost")}>+</button>
+      </div>
       <div className="post-table">
         <table class="table is-fullwidth">
           <thead>
             <tr>
+              <th></th>
               <th>Title</th>
               <th>Author</th>
               <th>Date</th>
@@ -28,7 +31,7 @@ export const PostList = () => {
           </thead>
           <tbody>
             {posts.map((post) => (
-              <Posts key={post.id} post={post} />
+              <Posts key={post.id} post={post} token={token} />
             ))}
           </tbody>
         </table>
