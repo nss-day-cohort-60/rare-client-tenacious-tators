@@ -17,7 +17,7 @@ export const MyPosts = ({ token }) => {
   return (
     <div className="user-posts" key={posts.id}>
       {posts.map((post) => (
-        <>
+        <div key={post.id}>
           <h1>{post.title}</h1>
           <h2>{post?.user?.username}</h2>
           <h3>{post?.category?.label}</h3>
@@ -42,7 +42,7 @@ export const MyPosts = ({ token }) => {
               EDIT
             </button>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
