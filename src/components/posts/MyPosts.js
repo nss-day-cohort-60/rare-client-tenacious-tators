@@ -8,16 +8,28 @@ export const MyPosts = ({ token }) => {
   const tokenInt = parseInt(token);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const getMyPosts = () => {
     getCurrentUserPosts(tokenInt).then((postData) => {
       setPosts(postData);
-    });
+    })
+  }
+
+  useEffect(() => {
+    getMyPosts();
   }, []);
+
+  const deleteWindow = (postId) => {
+    if (window.confirm("Do you really want there to be one less potato post in the world?")){
+      deletePosts(postId).then(() => {
+        {getMyPosts()}})
+    } else {
+      navigate(`/posts/myposts`)}
+  }
 
   return (
     <div className="user-posts">
       {posts.map((post) => (
-        <div key={post.id}>
+        <div key={post.id} className="single-my-post">
           <h1>{post.title}</h1>
           <h2>{post?.user?.username}</h2>
           <h3>{post?.category?.label}</h3>
@@ -25,14 +37,13 @@ export const MyPosts = ({ token }) => {
           <p>{post.content}</p>
 
           <div className="buttons">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                deletePosts(post.id).then(() => navigate("/posts"));
-              }}
-            >
-              DELETE
-            </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              deleteWindow(post.id)
+            }}
+          >DELETE
+          </button>
             <button
               onClick={() => {
                 navigate(`/posts/editpost/${post.id}`);
