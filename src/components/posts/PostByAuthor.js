@@ -6,21 +6,21 @@ export const PostByAuthor = ({ posts }) => {
 
     const [users, setUsers] = useState([]);
     const [filteredPosts, setFilteredPosts] = useState([])
-    const [authorChoice, setPostByAuthor] = useState(0)
+    const [authorChoice, setPostByAuthor] = useState(false)
 
     useEffect(() => {
         getUsers().then((userData) => setUsers(userData))
     }, [])
 
     useEffect(() => {
-        if (authorChoice === 0) {
+        if (authorChoice === false) {
             setFilteredPosts(posts)
         } else {
             const filteredPostList = posts.filter(post => post.user_id === parseInt(authorChoice))
             setFilteredPosts(filteredPostList)
         }
     }
-        , [posts, authorChoice])
+        , [authorChoice])
 
     return (
         <>
