@@ -15,7 +15,7 @@ export const MyPosts = ({ token }) => {
   }, []);
 
   return (
-    <div className="user-posts">
+    <div className="user-posts" key={posts.id}>
       {posts.map((post) => (
         <>
           <h1>{post.title}</h1>

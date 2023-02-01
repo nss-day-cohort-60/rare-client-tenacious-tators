@@ -103,6 +103,7 @@ export const NewPost = ({ token }) => {
                     {tags.map(tag => (
                         <div className="tags">
                             <input
+                                name="tagId"
                                 type="checkbox"
                                 required autoFocus
                                 className="form-control"
@@ -111,7 +112,7 @@ export const NewPost = ({ token }) => {
                                 onChange={(event) => {
                                     const copy = { ...post }
                                     copy.tagId = parseInt(event.target.value)
-                                    handleNewPostInfo(copy)
+                                    setNewPost(copy)
                                 }}
                             />
                             <label className="tagLabel">
