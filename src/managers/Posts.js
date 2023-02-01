@@ -35,3 +35,8 @@ export const editPost = (id, postBody) => {
     body: JSON.stringify(postBody),
   });
 };
+
+export const getSubscribedPosts = (id) => {
+  return fetch(`http://localhost:8088/posts?follower_id=${id}`)
+      .then(res => res.json())
+}
