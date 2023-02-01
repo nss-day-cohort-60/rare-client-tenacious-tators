@@ -8,15 +8,20 @@ export const MyPosts = ({ token }) => {
   const tokenInt = parseInt(token);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const getMyPosts = () => {
     getCurrentUserPosts(tokenInt).then((postData) => {
       setPosts(postData);
-    });
+    })
+  }
+
+  useEffect(() => {
+    getMyPosts();
   }, []);
 
   const deleteWindow = (postId) => {
     if (window.confirm("Do you really want there to be one less potato post in the world?")){
-      deletePosts(postId).then(() => navigate("/posts/myposts"))
+      deletePosts(postId).then(() => {
+        {getMyPosts()}})
     } else {
       navigate(`/posts/myposts`)}
   }
