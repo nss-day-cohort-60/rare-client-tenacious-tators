@@ -23,7 +23,7 @@ export const UserDetails = ({token}) => {
       <div className="user__username">Username: {user.username}</div>
       <div className="user__created">Account Created: {user.created_on}</div>
       <div className="user__bio">Bio: {user.bio}</div>
-      <SubscriptionForm authorObject={user} token={token}/>
+      <SubscriptionForm authorId = {userId} />
       </article>
     </section>
   )

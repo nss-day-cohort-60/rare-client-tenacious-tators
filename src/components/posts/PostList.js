@@ -18,7 +18,7 @@ export const PostList = ({ token }) => {
     () => {
         getCategories().then((categoryData) => setCategories(categoryData))
         getPosts().then((postData) => setPosts(postData))
-        getPostTags().then((postTagData) => setPosts(posttagData));
+        getPostTags().then((postTagData) => setPosts(postTagData));
     }, [])
 
   useEffect(

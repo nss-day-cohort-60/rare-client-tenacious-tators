@@ -13,6 +13,13 @@ export const PostDetail = ({ token }) => {
     getSinglePost(postId).then(setPost);
   }, [, postId]);
 
+  const deleteWindow = () => {
+    if (window.confirm("Do you really want there to be one less potato post in the world?")){
+      deletePosts(postId).then(() => navigate("/posts"))
+    } else {
+      navigate(`/posts/${post.id}`)}
+  }
+
   return (
     <div className="postDetail">
       <h1>{post.title}</h1>
@@ -27,10 +34,9 @@ export const PostDetail = ({ token }) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              deletePosts(postId).then(() => navigate("/posts"));
+              deleteWindow()
             }}
-          >
-            DELETE
+          >DELETE
           </button>
           <button
             onClick={() => {
