@@ -1,9 +1,11 @@
 import { addSubscription, deleteSubscription } from "../../managers/subscriptions"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react"
 
-export const SubscriptionForm = ({ token, authorId }) => {
+export const SubscriptionForm = ({ authorId }) => {
   const [userSubscriptions, setUserSubscriptions] = useState({})
+  const authToken = localStorage.getItem("auth_token")
+  const token = JSON.parse(authToken)
   const tokenInt = parseInt(token)
   const navigate = useNavigate()
   const subscription = {
@@ -12,13 +14,15 @@ export const SubscriptionForm = ({ token, authorId }) => {
   }
 
   useEffect(()=>{
-    fetch(`http://localhost:8088/subscriptions?follower_id=${token}`)
+    fetch(`http://localhost:8088/subscriptions?follower_id=${tokenInt}`)
     .then(res=>res.json())
     .then(res=>{
       const filteredCopy = res.filter(obj=>obj.author_id === parseInt(authorId))
-      setUserSubscriptions(filteredCopy[0])
+      if(filteredCopy.length>0){
+        setUserSubscriptions(filteredCopy[0])
+      }
     })}
-  , [token])
+  , [tokenInt])
 
   const createNewSubscription = () => {
     const copy = {...subscription}
@@ -31,9 +35,8 @@ export const SubscriptionForm = ({ token, authorId }) => {
     .then(()=>{navigate(`/`)})
   }
 
-  
     return <>
-      {userSubscriptions
+      {userSubscriptions.hasOwnProperty("id")
       ?<button 
       type="submit"
       className="subscribeBtn"
