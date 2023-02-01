@@ -23,9 +23,9 @@ export const getCurrentUserPosts = (id) => {
 };
 
 export const deletePosts = (id) => {
-  return fetch(`http://localhost:8088/posts/${id}`, { method: "DELETE" });
-};
-
+  return fetch(`http://localhost:8088/posts/${id}`, {method: "DELETE"})
+}
+  
 export const editPost = (id, postBody) => {
   return fetch(`http://localhost:8088/posts/${id}`, {
     method: "PUT",
