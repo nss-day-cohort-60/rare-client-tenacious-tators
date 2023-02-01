@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../managers/AuthManager"
 
-export const Register = ({setToken}) => {
+export const Register = ({ setToken }) => {
   //state variables representing the properties of the User Class
   const firstName = useRef()
   const lastName = useRef()
@@ -26,18 +26,17 @@ export const Register = ({setToken}) => {
         last_name: lastName.current.value,
         email: email.current.value,
         password: password.current.value,
-        bio: bio.current.value
+        bio: bio.current.value,
       }
-//POSTs the user to the Register table
-      registerUser(newUser)
-        .then(res => {
-          //Tests both a javascript string "valid" and the property "valid" on the response. Does the register table add self.valid: "valid" property? Does it also add self.token to return the required keys/values for setToken?
-          if ("valid" in res && res.valid) {
-            //sets registered user into local storage and sets Token state to the embedded token object returned from the api
-            setToken(res.token)
-            navigate("/")
-          }
-        })
+      //POSTs the user to the Register table
+      registerUser(newUser).then((res) => {
+        //Tests both a javascript string "valid" and the property "valid" on the response. Does the register table add self.valid: "valid" property? Does it also add self.token to return the required keys/values for setToken?
+        if ("valid" in res && res.valid) {
+          //sets registered user into local storage and sets Token state to the embedded token object returned from the api
+          setToken(res.token)
+          navigate("/")
+        }
+      })
     } else {
       //renders a modal, I assume?
       passwordDialog.current.showModal()
@@ -48,7 +47,7 @@ export const Register = ({setToken}) => {
     <section className="columns is-centered">
       {/* Form that invokes handleRegister() when submitted */}
       <form className="column is-two-thirds" onSubmit={handleRegister}>
-      <h1 className="title">Rare Publishing</h1>
+        <h1 className="title">Rare Publishing</h1>
         <p className="subtitle">Create an account</p>
         <div className="field">
           <label className="label">First Name</label>
@@ -83,13 +82,23 @@ export const Register = ({setToken}) => {
           <div className="field-body">
             <div className="field">
               <p className="control is-expanded">
-                <input className="input" type="password" placeholder="Password" ref={password} />
+                <input
+                  className="input"
+                  type="password"
+                  placeholder="Password"
+                  ref={password}
+                />
               </p>
             </div>
 
             <div className="field">
               <p className="control is-expanded">
-                <input className="input" type="password" placeholder="Verify Password" ref={verifyPassword} />
+                <input
+                  className="input"
+                  type="password"
+                  placeholder="Verify Password"
+                  ref={verifyPassword}
+                />
               </p>
             </div>
           </div>
@@ -98,19 +107,26 @@ export const Register = ({setToken}) => {
         <div className="field">
           <label className="label">Bio</label>
           <div className="control">
-            <textarea className="textarea" placeholder="Tell us about yourself..." ref={bio}></textarea>
+            <textarea
+              className="textarea"
+              placeholder="Tell us about yourself..."
+              ref={bio}
+            ></textarea>
           </div>
         </div>
 
         <div className="field is-grouped">
           <div className="control">
-            <button className="button is-link" type="submit">Submit</button>
+            <button className="button is-link" type="submit">
+              Submit
+            </button>
           </div>
           <div className="control">
-            <Link to="/login" className="button is-link is-light">Cancel</Link>
+            <Link to="/login" className="button is-link is-light">
+              Cancel
+            </Link>
           </div>
         </div>
-
       </form>
     </section>
   )
