@@ -14,6 +14,13 @@ export const MyPosts = ({ token }) => {
     });
   }, []);
 
+  const deleteWindow = (postId) => {
+    if (window.confirm("Do you really want there to be one less potato post in the world?")){
+      deletePosts(postId).then(() => navigate("/posts"))
+    } else {
+      navigate(`/posts/myposts`)}
+  }
+
   return (
     <div className="user-posts">
       {posts.map((post) => (
@@ -25,14 +32,13 @@ export const MyPosts = ({ token }) => {
           <p>{post.content}</p>
 
           <div className="buttons">
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                deletePosts(post.id).then(() => navigate("/posts"));
-              }}
-            >
-              DELETE
-            </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              deleteWindow(post.id)
+            }}
+          >DELETE
+          </button>
             <button
               onClick={() => {
                 navigate(`/posts/editpost/${post.id}`);
