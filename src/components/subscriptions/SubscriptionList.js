@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { getSubscribedPosts } from "../../managers/Posts";
 import "./subscriptions.css"
 import "../posts/Posts.css"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { HumanDate } from "../utils/HumanDate";
 
 
 export const SubscriptionList = ({ token }) => {
@@ -14,26 +15,35 @@ export const SubscriptionList = ({ token }) => {
       getSubscribedPosts(tokenInt).then((postData) => setPosts(postData));
     }, []);
 
-  return <>
-  <div className="addPostButton">
+  return <><article className="subscribe__container">
+  <section className="addPostButton">
       New Post <button onClick={() => navigate("posts/newpost")}>+</button>
-  </div>
+  </section>
   <section className="subscribe">
     { 
       (posts.length) 
         ? <>
             {posts.map((post) => (
               <div className="subscribe__posts">
-                <h1>{post.title}</h1>
-                <h2>{post?.user?.username}</h2>
+                <img className="subscribe__image" src={post?.image_url}/>
+                <section className="subscribe__content">
+                <span style={{ fontWeight: 'bold' }}>
+                  <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: <HumanDate date={post.publication_date} /></div></section>
+                </span>
                 <h3>{post?.category?.label}</h3>
-                <h3>{post.publication_date}</h3>
-                <p>{post.content}</p>
+                <section className="subscribe__postbody"><p>{post.content}</p></section>
+                <section><h3>Author: <Link to={`/users/${post.user.id}`}>
+                    {post?.user?.username}
+                </Link></h3>
+                </section>
+                </section>
                 </div>
               )
             )}
             </>
         : <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
     }
-   </section> </>
+   </section> 
+   </article>
+   </>
   }
