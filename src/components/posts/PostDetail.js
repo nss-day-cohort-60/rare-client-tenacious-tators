@@ -14,7 +14,10 @@ export const PostDetail = ({ token }) => {
   }, [, postId]);
 
   const deleteWindow = () => {
-    if (window.confirm(""))
+    if (window.confirm("Do you really want there to be one less potato post in the world?")){
+      deletePosts(postId).then(() => navigate("/posts"))
+    } else {
+      navigate(`/posts/${post.id}`)}
   }
 
   return (
@@ -31,10 +34,9 @@ export const PostDetail = ({ token }) => {
           <button
             onClick={(e) => {
               e.preventDefault();
-              deletePosts(postId).then(() => navigate("/posts"));
+              deleteWindow()
             }}
-          >
-            DELETE
+          >DELETE
           </button>
           <button
             onClick={() => {
