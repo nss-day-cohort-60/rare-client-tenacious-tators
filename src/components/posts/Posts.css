@@ -5,6 +5,16 @@
   align-items: center;
   padding-top: 20px;
 }
+
+.buttons {
+  padding: 3px;
+  margin: 5px;
+}
+
+.single-my-post {
+  margin: 15px;
+}
+
 .post-table {
   display: flex;
   justify-content: center;
