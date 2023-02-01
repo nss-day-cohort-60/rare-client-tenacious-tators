@@ -9,12 +9,16 @@ import "../posts/Posts.css"
 export const SubscriptionList = ({ token }) => {
     const [posts, setPosts] = useState([]);
     const tokenInt = parseInt(token);
+    const navigate = useNavigate()
 
     useEffect(() => {
         getSubscriptions(tokenInt).then((postData) => setPosts(postData));
     }, []);
 
   return <>
+  <div className="addPostButton">
+      New Post <button onClick={() => navigate("posts/newpost")}>+</button>
+  </div>
   <section className="subscribe">
     { 
       (posts.length) 
