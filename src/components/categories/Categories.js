@@ -18,8 +18,7 @@ export const Categories = () => {
                 <section className="categoryList">
                     <h1 className="categoryHeader">Categories</h1>
                         {
-                            categories.map(category => <Category category={category} key={category.id} />
-                            )
+                            categories.map(category => <Category category={category} key={category.id} />)
                         }
                 </section >
                 <section className="category__create">
