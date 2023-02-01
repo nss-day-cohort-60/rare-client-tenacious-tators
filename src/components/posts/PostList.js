@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post, Posts, TableRow } from "./Posts";
 import { getPosts } from "../../managers/Posts";
+import { getPostTags } from "../../managers/PostTags"
 import "./Posts.css";
 import { getCategories } from "../../managers/categories";
 
 export const PostList = ({ token }) => {
   const [posts, setPosts] = useState([]);
+  const [postTags, setPostTags] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState(0)
@@ -15,11 +17,9 @@ export const PostList = ({ token }) => {
   useEffect(
     () => {
         getCategories().then((categoryData) => setCategories(categoryData))
+        getPosts().then((postData) => setPosts(postData))
+        getPostTags().then((postTagData) => setPosts(posttagData));
     }, [])
-
-  useEffect(() => {
-    getPosts().then((postData) => setPosts(postData));
-  }, []);
 
   useEffect(
     () => {
