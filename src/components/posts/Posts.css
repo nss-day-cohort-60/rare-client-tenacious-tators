@@ -5,6 +5,7 @@
   align-items: center;
   padding-top: 20px;
 }
+
 .post-table {
   display: flex;
   justify-content: center;
@@ -14,27 +15,38 @@
   width: 75%
 }
 
-.form-group { 
+.form-group {
   padding: 20px;
 }
 
-.addPostButton { 
-  float: right; 
-  padding: 20px; 
+.addPostButton {
+  float: right;
+  padding: 20px;
 }
 
-.addNewPostForm { 
-  margin-left: 20px; 
+.addNewPostForm {
+  margin-left: 20px;
 
 }
 
-.categoryGroup { 
+.tags {
   display: flex; 
-  
+  flex-direction: column;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+
 }
 
-.categoryList { 
-  display: flex; 
+.tagLabel {
+  margin-right: 15px;
+  line-height: 32px;
+  display: flex;
   flex-direction: row;
+  margin-left: 10px;
 }
 
