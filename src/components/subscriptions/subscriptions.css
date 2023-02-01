@@ -1,3 +1,13 @@
+.subscribe__container {
+    width: 80vw;
+    display: flex;
+    margin:auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .subscribe {
     display: flex;
     flex-direction: column;
@@ -11,9 +21,32 @@
 
 .subscribe__posts {
     display: flex;
-    width: 80vw;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 1rem;
     margin: 1rem;
+    border: 1px dotted black
+}
+
+.subscribe__image {
+    width: 200px;
+    object-fit: cover;
+    padding-right: 10px
+}
+
+.subscribe__postheader{
+    display: flex;
+    flex-direction: nowrap;
+    font-weight: bolder;
+    justify-content: space-between;
+}
+
+.subscribe__postbody {
+    padding: 1rem;
+    margin: 1rem
+}
+
+.addPostButton {
+    align-self: flex-end;
+    width:max-content;
 }
