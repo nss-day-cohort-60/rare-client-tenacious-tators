@@ -1,47 +1,39 @@
 import { useEffect, useState } from "react";
-import { getPosts, getPostsByAuthor } from "../../managers/Posts";
 import { getUsers } from "../../managers/users"
 import "./Posts.css"
 
-export const SearchByAuthor = ({ posts }) => {
+export const PostByAuthor = ({ posts }) => {
 
     const [users, setUsers] = useState([]);
     const [filteredPosts, setFilteredPosts] = useState([])
-    const [postByAuthor, setPostByAuthor] = useState(false)
+    const [authorChoice, setPostByAuthor] = useState(0)
 
     useEffect(() => {
-        getUsers().then((userData) => setUsers(userData));
+        getUsers().then((userData) => setUsers(userData))
     }, [])
 
     useEffect(() => {
-        if (postByAuthor) {
-            const postsByAuthor = posts.filter(post => post.userId === users.id)
-            setFilteredPosts(postsByAuthor)
-        } else { 
+        if (authorChoice === 0) {
             setFilteredPosts(posts)
+        } else {
+            const filteredPostList = posts.filter(post => post.user_id === parseInt(authorChoice))
+            setFilteredPosts(filteredPostList)
         }
     }
-        , [postByAuthor]);
+        , [posts, authorChoice])
 
     return (
-        <div className="dropdownMenu">
-            <select id="users"
-                onClick={() => { 
-                    setPostByAuthor(true)
-                }}>
-                <option value="0">Search By Author</option>
-                {
-                    users.map(
-                        (user) => {
-                            return <option
-                                key={`user--${user.id}`}
-                                value={user.id}
-                            >{user.first_name}{user.last_name}</option>
-                        }
-                    )
-                }
+        <>
+            <label htmlFor="users">Search By Author</label>
+            <select onChange={(event) => { setPostByAuthor(parseInt(event.target.value)) }}>
+                <option value="0" name="user_id" className="form-control">All Posts</option>
+                {users.map(user => (
+                    <option key={`user--${user.id}`} value={user.id}>
+                        {user.first_name} {user.last_name}
+                    </option>
+                ))}
             </select>
-        </div>
+        </>
     )
 }
 

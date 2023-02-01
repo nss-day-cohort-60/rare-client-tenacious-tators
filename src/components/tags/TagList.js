@@ -4,30 +4,28 @@ import { getTags } from "../../managers/tags"
 import { Tag } from "./Tag"
 import "./Tag.css"
 
-export const TagList = () => {
-    const [tags, setTags] = useState([])
-    const navigate = useNavigate()
+export const TagList = ({ token }) => {
+  const [tags, setTags] = useState([])
+  const navigate = useNavigate()
 
-    useEffect(
-        () => {
-            getTags()
-            .then((tagArray) => setTags(tagArray))
-        },
-        []
-    )
+  useEffect(() => {
+    getTags().then((tagArray) => setTags(tagArray))
+  }, [])
 
-    return (
-        <>
-        <div style={{ marginTop: "2rem" }}>
-            <button onClick={() => navigate("/tags/create")}>
-            Create Tag
-            </button>
-            <div className="tags">
-                        {
-                            tags.map(tag => <Tag key={tag.id} tag={tag} />)
-                        }
-            </div>
-        </div>
-        </>
-    )
-    }
+  return (
+    <section className="tagContainer">
+      <section className="tagList">
+        <h1 className="tagHeader">Tags</h1>
+        {tags.map((tag) => (
+          <Tag key={tag.id} tag={tag} />
+        ))}
+      </section>
+      <section className="tag__create">
+        <h1 className="">Create a New Tag</h1>
+        <button className="tag__button" onClick={() => navigate("create")}>
+          +Add Tag
+        </button>
+      </section>
+    </section>
+  )
+}
