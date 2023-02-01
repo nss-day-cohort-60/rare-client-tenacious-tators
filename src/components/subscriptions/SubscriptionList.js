@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getSubscriptions } from "../../managers/subscriptions";
-import { PostDetail } from "../posts/PostDetail";
-import { Posts } from "../posts/Posts";
+import { getSubscribedPosts } from "../../managers/Posts";
 import "./subscriptions.css"
 import "../posts/Posts.css"
+import { useNavigate } from "react-router-dom";
+
 
 export const SubscriptionList = ({ token }) => {
     const [posts, setPosts] = useState([]);
@@ -12,7 +11,7 @@ export const SubscriptionList = ({ token }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        getSubscriptions(tokenInt).then((postData) => setPosts(postData));
+      getSubscribedPosts(tokenInt).then((postData) => setPosts(postData));
     }, []);
 
   return <>
