@@ -35,27 +35,6 @@ export const PostList = ({ token, authorChoice , selectedCategory }) => {
       },
       [posts, selectedCategory, authorChoice]
     )
-
-//   useEffect(
-//     () => {
-//       if (selectedCategory === 0) { setFilteredPosts(posts) }
-//       else {
-//         const filteredCopy = posts.filter(post => post.category_id === parseInt(selectedCategory))
-//         setFilteredPosts(filteredCopy)
-//       }
-//     },
-//     [posts, selectedCategory]
-//   )
-
-//   useEffect(() => {
-//     if (authorChoice === 0) {
-//         setFilteredPosts(posts)
-//     } else {
-//         const filteredPostList = posts.filter(post => post.user_id === parseInt(authorChoice))
-//         setFilteredPosts(filteredPostList)
-//     }
-// }
-//     , [posts, authorChoice])
     
   return (
     <>
