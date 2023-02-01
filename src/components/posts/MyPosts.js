@@ -16,7 +16,7 @@ export const MyPosts = ({ token }) => {
 
   const deleteWindow = (postId) => {
     if (window.confirm("Do you really want there to be one less potato post in the world?")){
-      deletePosts(postId).then(() => navigate("/posts"))
+      deletePosts(postId).then(() => navigate("/posts/myposts"))
     } else {
       navigate(`/posts/myposts`)}
   }
