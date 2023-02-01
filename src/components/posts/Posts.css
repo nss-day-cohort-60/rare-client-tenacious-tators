@@ -6,6 +6,18 @@
   padding-top: 20px;
 }
 
+<<<<<<< HEAD
+=======
+.buttons {
+  padding: 3px;
+  margin: 5px;
+}
+
+.single-my-post {
+  margin: 15px;
+}
+
+>>>>>>> main
 .post-table {
   display: flex;
   justify-content: center;
