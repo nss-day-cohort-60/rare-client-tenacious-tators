@@ -25,6 +25,7 @@ export const Posts = ({ post, token }) => {
         <HumanDate date={post.publication_date} />
       </td>
       <td>{post?.category?.label}</td>
+      <td>{post?.tag?.label}</td>
     </tr>
   );
 };
