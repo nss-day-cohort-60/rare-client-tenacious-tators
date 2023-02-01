@@ -2,37 +2,25 @@ import { useEffect, useState } from "react";
 import { getUsers } from "../../managers/users"
 import "./Posts.css"
 
-export const PostByAuthor = ({ posts }) => {
-
+export const PostByAuthor = ({ setPostByAuthor }) => {
     const [users, setUsers] = useState([]);
-    const [filteredPosts, setFilteredPosts] = useState([])
-    const [authorChoice, setPostByAuthor] = useState(false)
 
     useEffect(() => {
         getUsers().then((userData) => setUsers(userData))
     }, [])
 
-    useEffect(() => {
-        if (authorChoice === false) {
-            setFilteredPosts(posts)
-        } else {
-            const filteredPostList = posts.filter(post => post.user_id === parseInt(authorChoice))
-            setFilteredPosts(filteredPostList)
-        }
-    }
-        , [authorChoice])
-
     return (
         <>
-            <label htmlFor="users">Search By Author</label>
-            <select onChange={(event) => { setPostByAuthor(parseInt(event.target.value)) }}>
-                <option value="0" name="user_id" className="form-control">All Posts</option>
+            <label htmlFor="users">Search By Author</label><br></br>
+            <select onChange={(event) => {setPostByAuthor(parseInt(event.target.value))}}>
+                <option value="0" name="user_id" className="form-control">View All</option>
                 {users.map(user => (
                     <option key={`user--${user.id}`} value={user.id}>
                         {user.first_name} {user.last_name}
                     </option>
                 ))}
             </select>
+            <br></br>
         </>
     )
 }
