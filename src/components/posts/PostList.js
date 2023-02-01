@@ -56,7 +56,7 @@ export const PostList = ({ token, authorChoice , selectedCategory }) => {
             </thead>
             <tbody>
               {filteredPosts.map((post) => (
-                <Posts key={post.id} post={post} token={token} posttag={postTags}/>
+                <Posts key={post.id} posts={post} token={token} posttag={postTags}/>
               ))}
             </tbody>
           </table>
