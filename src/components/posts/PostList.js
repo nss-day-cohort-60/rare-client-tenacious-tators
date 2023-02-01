@@ -32,9 +32,9 @@ export const PostList = ({ token }) => {
     [posts, selectedCategory]
 )
   return (
-    <>
-        <select name="categoryId" className="form-control" value="category_id" onChange={(event) => {setSelectedCategory(event.target.value)}}>
-          <option value="0">Search by Category</option>
+    <><label htmlFor="categories">Search By Category</label><br></br>
+        <select onChange={(event) => {setSelectedCategory(parseInt(event.target.value))}}>
+          <option value="0" name="category_id" className="form-control" >View All</option>
           {categories.map(category => (
               <option key={`category--${category.id}`} value={category.id}>
                   {category.label}

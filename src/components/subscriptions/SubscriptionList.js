@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getSubscribedPosts } from "../../managers/Posts";
 import "./subscriptions.css"
 import "../posts/Posts.css"
+import { useNavigate } from "react-router-dom";
 
 
 export const SubscriptionList = ({ token }) => {
