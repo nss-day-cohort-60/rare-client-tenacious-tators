@@ -2,12 +2,24 @@ import { useState, useEffect, useRef } from "react"
 import { useNavigate } from 'react-router-dom'
 import { getCategories } from "../../managers/categories"
 import { addNewPost } from "../../managers/Posts"
+import { addNewTag, getPostTags } from "../../managers/posttags"
 import { getTags } from "../../managers/tags"
 
 export const NewPost = ({ token }) => {
+
     const [post, setNewPost] = useState({})
     const [categories, setCategories] = useState([])
     const [tags, setTags] = useState([])
+    const [tagsToAPI, setTagsToAPI] = useState([])
+
+    const tagPromise = (body) => { 
+        return fetch(`http://localhost:8088/posttags`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+          })
+    }
 
     const navigate = useNavigate()
 
@@ -25,7 +37,6 @@ export const NewPost = ({ token }) => {
 
     const publishNewArticle = () => {
         const categoryId = parseInt(post.categoryId)
-        const tagId = parseInt(post.tagId)
         const date = new Date()
 
         if (categoryId === 0) {
@@ -36,11 +47,22 @@ export const NewPost = ({ token }) => {
                 title: post.title,
                 image_url: post.imageUrl,
                 content: post.content,
-                tag_id: tagId,
                 user_id: parseInt(token),
                 publication_date: `${date}`,
                 approved: 1
             })
+                .then((res) => res.json())
+                .then((res) => { 
+                    let APITags = tagsToAPI.map(tag => { 
+                        return {
+                            tag_id: tag, 
+                            post_id: res.id
+                        }
+                    })
+                    Promise.all(APITags.map(tag => { 
+                        tagPromise(tag)
+                    }))
+                })
                 .then(() => navigate("/posts"))
         }
     }
@@ -99,7 +121,6 @@ export const NewPost = ({ token }) => {
             </fieldset>
             <fieldset>
                 <div className="form-group tagGroup">
-
                     {tags.map(tag => (
                         <div className="tags">
                             <input
@@ -110,9 +131,16 @@ export const NewPost = ({ token }) => {
                                 placeholder="tag"
                                 value={tag.id}
                                 onChange={(event) => {
-                                    const copy = { ...post }
-                                    copy.tagId = parseInt(event.target.value)
-                                    setNewPost(copy)
+                                    if(event.target.checked) { 
+                                        let copy = [...tagsToAPI]
+                                        copy.push(parseInt(event.target.value))
+                                        setTagsToAPI(copy)
+                                    } else { 
+                                        let copy = [...tagsToAPI] 
+                                        let index = copy.indexOf(parseInt(event.target.value))
+                                        copy.splice(index)
+                                        setTagsToAPI(copy)
+                                    }
                                 }}
                             />
                             <label className="tagLabel">
