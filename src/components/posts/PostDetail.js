@@ -13,6 +13,10 @@ export const PostDetail = ({ token }) => {
     getSinglePost(postId).then(setPost);
   }, [, postId]);
 
+  const deleteWindow = () => {
+    if (window.confirm(""))
+  }
+
   return (
     <div className="postDetail">
       <h1>{post.title}</h1>
