@@ -1,16 +1,42 @@
+.tagList { 
+    padding: 20px; 
+    display: flex; 
+    flex-direction: column;
+    align-content: flex-start;
+}
+
 .tags {
     display: flex;
-    width: 40%;
+    flex-direction: row;
+    font-size: 25px; 
+    width: 40vw;
+    padding-left: 10px
+    /* display: flex; 
+    flex-direction: column; */
+}
+
+.list  { 
     flex-direction: column;
-    align-content: flex-end;
-    margin: 5px;
+    padding: 20px; 
 }
 
-.tag {
-    padding: 5px;
-    width: 250px;
+.tagHeader { 
+    font-size: 35px; 
 }
 
-.tag_label, .editButton, .deleteButton {
-    margin: 2px;
+.tagContainer {
+    justify-content: center;
+    align-items:flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.tag__create {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-items: center;
+    padding: 50px
 }

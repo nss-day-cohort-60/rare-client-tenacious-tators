@@ -1,0 +1,39 @@
+import { useEffect, useState } from "react";
+import { getSubscribedPosts } from "../../managers/Posts";
+import "./subscriptions.css"
+import "../posts/Posts.css"
+import { useNavigate } from "react-router-dom";
+
+
+export const SubscriptionList = ({ token }) => {
+    const [posts, setPosts] = useState([]);
+    const tokenInt = parseInt(token);
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      getSubscribedPosts(tokenInt).then((postData) => setPosts(postData));
+    }, []);
+
+  return <>
+  <div className="addPostButton">
+      New Post <button onClick={() => navigate("posts/newpost")}>+</button>
+  </div>
+  <section className="subscribe">
+    { 
+      (posts.length) 
+        ? <>
+            {posts.map((post) => (
+              <div className="subscribe__posts">
+                <h1>{post.title}</h1>
+                <h2>{post?.user?.username}</h2>
+                <h3>{post?.category?.label}</h3>
+                <h3>{post.publication_date}</h3>
+                <p>{post.content}</p>
+                </div>
+              )
+            )}
+            </>
+        : <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+    }
+   </section> </>
+  }
