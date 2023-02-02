@@ -1,30 +1,31 @@
 import { Link, useNavigate } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate";
 
-export const Posts = ({ post, token }) => {
+export const Posts = ({ posts, token, posttags }) => {
   const navigate = useNavigate();
 
   return (
     <tr className="row">
-      {parseInt(token) === post.user_id ? (
+      {parseInt(token) === posts.user_id ? (
         <button
           className="row__button"
-          onClick={() => navigate(`editpost/${post?.id}`)}
+          onClick={() => navigate(`editpost/${posts?.id}`)}
         >
           Edit
         </button>
       ) : null}
       <p>{""}</p>
       <td>
-        <Link to={`/posts/${post?.id}`}>{post?.title}</Link>
+        <Link to={`/posts/${posts?.id}`}>{posts?.title}</Link>
       </td>
       <td>
-        {post?.user?.first_name} {post?.user?.last_name}
+        {posts?.user?.first_name} {posts?.user?.last_name}
       </td>
       <td>
-        <HumanDate date={post.publication_date} />
+        <HumanDate date={posts.publication_date} />
       </td>
-      <td>{post?.category?.label}</td>
-    </tr>
+      <td>{posts?.category?.label}</td>
+      <td>{posts?.tag?.label}</td>
+    </tr >
   );
 };

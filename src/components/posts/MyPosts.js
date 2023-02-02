@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
+import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
@@ -27,33 +28,40 @@ export const MyPosts = ({ token }) => {
   }
 
   return (
-    <div className="user-posts">
-      {posts.map((post) => (
-        <div key={post.id} className="single-my-post">
-          <h1>{post.title}</h1>
-          <h2>{post?.user?.username}</h2>
-          <h3>{post?.category?.label}</h3>
-          <h3>{post.publication_date}</h3>
-          <p>{post.content}</p>
-
-          <div className="buttons">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              deleteWindow(post.id)
-            }}
-          >DELETE
-          </button>
-            <button
-              onClick={() => {
-                navigate(`/posts/editpost/${post.id}`);
-              }}
-            >
-              EDIT
-            </button>
-          </div>
-        </div>
+    <article className="posts__container">
+      <section className="posts__myposts">
+        {/* <div className="user-posts"> */}
+          {posts.map((post) => (
+            <div key={post.id} className="single-my-post">
+               <img className="myposts__image" src={post?.image_url}/>
+               <section className="myposts__content">
+                  <span style={{ fontWeight: 'bold' }}>
+                  <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: <HumanDate date={post.publication_date}/></div></section></span>
+                    <h2>Author: <Link to={`/users/${post.user.id}`}>{post?.user?.username}</Link></h2>
+                    <h3>{post?.category?.label}</h3>
+                    <h3>{post?.tag?.label}</h3>
+                    <section className="myposts__postbody"><p>{post.content}</p></section>
+                  <div className="buttons">
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteWindow(post.id)
+                      }}
+                    >DELETE
+                    </button>
+                      <button
+                        onClick={() => {
+                          navigate(`/posts/editpost/${post.id}`);
+                        }}
+                      >
+                        EDIT
+                      </button>
+                  </div>
+                </section>
+            </div>
       ))}
-    </div>
+    {/* </div> */}
+    </section>
+    </article>
   );
 };
