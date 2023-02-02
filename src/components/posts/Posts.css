@@ -6,8 +6,6 @@
   padding-top: 20px;
 }
 
-<<<<<<< HEAD
-=======
 .buttons {
   padding: 3px;
   margin: 5px;
@@ -17,14 +15,37 @@
   margin: 15px;
 }
 
->>>>>>> main
+.posts__container {
+  width: 80vw;
+  display: flex;
+  margin:auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.posts__buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+.posts__filters {
+  justify-content:space-around;
+}
+
+.posts__dropdown{
+  padding: 0.5rem
+}
+
 .post-table {
   display: flex;
   justify-content: center;
-  padding-top: 10em;
+  padding-top: 5em;
   overflow: auto;
-  padding-left: 14rem;
-  width: 75%;
+  width: 100%
 }
 
 .form-group {
@@ -32,8 +53,9 @@
 }
 
 .addPostButton {
-  float: right;
+  align-self: flex-end;
   padding: 20px;
+  border: 1px dotted black
 }
 
 .addNewPostForm {
@@ -106,4 +128,31 @@
   margin: 0;
   font: inherit;
   cursor: pointer;
+}
+
+.posts__myposts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  width: 100%
+}
+.single-my-post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px dotted black
+}
+
+.myposts__image {
+  width: 200px;
+  object-fit: cover;
+  padding-right: 10px
+}
+.myposts__postbody {
+  padding: 1rem;
+  margin: 1rem
 }

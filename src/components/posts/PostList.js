@@ -36,11 +36,8 @@ export const PostList = ({ token, authorChoice , selectedCategory }) => {
     
   return (
     <>
-        <div className="addPostButton">
-          Add Post <button onClick={() => navigate("newpost")}>+</button>
-        </div>
         <div className="post-table">
-          <table class="table is-fullwidth">
+          <table className="table is-fullwidth">
             <thead>
               <tr>
                 <th></th>

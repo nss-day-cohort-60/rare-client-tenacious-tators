@@ -10,7 +10,7 @@ export const PostByAuthor = ({ setPostByAuthor }) => {
     }, [])
 
     return (
-        <>
+        <><section className="posts__dropdown">
             <label htmlFor="users">Search By Author</label><br></br>
             <select onChange={(event) => {setPostByAuthor(parseInt(event.target.value))}}>
                 <option value="0" name="user_id" className="form-control">View All</option>
@@ -21,6 +21,7 @@ export const PostByAuthor = ({ setPostByAuthor }) => {
                 ))}
             </select>
             <br></br>
+        </section>
         </>
     )
 }
