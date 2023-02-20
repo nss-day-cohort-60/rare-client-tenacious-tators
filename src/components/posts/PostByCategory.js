@@ -11,7 +11,7 @@ export const PostByCategory = ({ setSelectedCategory }) => {
         }, [])
 
     return (
-        <>
+        <><section className="posts__dropdown">
             <label htmlFor="categories">Search By Category</label><br></br>
             <select onChange={(event) => { setSelectedCategory(parseInt(event.target.value)) }}>
                 <option value="0" name="category_id" className="form-control" >View All</option>
@@ -22,6 +22,7 @@ export const PostByCategory = ({ setSelectedCategory }) => {
                 )
                 )}
             </select>
+            </section>
         </>
     )
 }

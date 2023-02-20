@@ -1,20 +1,18 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Post, Posts, TableRow } from "./Posts";
-import { getPosts } from "../../managers/Posts";
-import {PostByAuthor} from "./PostByAuthor"
+import { getPosts } from "../../managers/Posts"
 import "./Posts.css";
-import { getCategories } from "../../managers/categories";
 
 export const PostList = ({ token, authorChoice , selectedCategory }) => {
   const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState([])
   const navigate = useNavigate();
 
   useEffect(
     () => {
-      getPosts().then((postData) => setPosts(postData))
-      setFilteredPosts(posts)
+        getPosts().then((postData) => setPosts(postData))
+        setFilteredPosts(posts)
     }, [])
 
   useEffect(
@@ -38,11 +36,8 @@ export const PostList = ({ token, authorChoice , selectedCategory }) => {
     
   return (
     <>
-        <div className="addPostButton">
-          Add Post <button onClick={() => navigate("newpost")}>+</button>
-        </div>
         <div className="post-table">
-          <table class="table is-fullwidth">
+          <table className="table is-fullwidth">
             <thead>
               <tr>
                 <th></th>
@@ -55,7 +50,7 @@ export const PostList = ({ token, authorChoice , selectedCategory }) => {
             </thead>
             <tbody>
               {filteredPosts.map((post) => (
-                <Posts key={post.id} post={post} token={token} />
+                <Posts key={post.id} posts={post} token={token} />
               ))}
             </tbody>
           </table>

@@ -14,7 +14,7 @@ export const SubscriptionForm = ({ authorId }) => {
   }
 
   useEffect(()=>{
-    fetch(`http://localhost:8088/subscriptions?follower_id=${tokenInt}`)
+    fetch(`http://localhost:8000/subscriptions?follower_id=${tokenInt}`)
     .then(res=>res.json())
     .then(res=>{
       const filteredCopy = res.filter(obj=>obj.author_id === parseInt(authorId))
