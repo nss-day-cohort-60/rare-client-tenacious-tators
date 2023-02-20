@@ -9,6 +9,7 @@ export const Register = ({ setToken }) => {
   const lastName = useRef()
   const email = useRef()
   const username = useRef()
+  const profileImage = useRef()
   const bio = useRef()
   const password = useRef()
   const verifyPassword = useRef()
@@ -27,13 +28,15 @@ export const Register = ({ setToken }) => {
         email: email.current.value,
         password: password.current.value,
         bio: bio.current.value,
+        profile_image_url: profileImage.current.value
       }
       //POSTs the user to the Register table
       registerUser(newUser).then((res) => {
         //Tests both a javascript string "valid" and the property "valid" on the response. Does the register table add self.valid: "valid" property? Does it also add self.token to return the required keys/values for setToken?
-        if ("valid" in res && res.valid) {
+        if ("token" in res) {
           //sets registered user into local storage and sets Token state to the embedded token object returned from the api
           setToken(res.token)
+          localStorage.setItem("rare_token", res.token)
           navigate("/")
         }
       })
@@ -115,6 +118,16 @@ export const Register = ({ setToken }) => {
           </div>
         </div>
 
+        <div className="field">
+          <label className="label">Profile Image</label>
+          <div className="control">
+            <textarea
+              className="textarea"
+              placeholder="Image URL"
+              ref={profileImage}
+            ></textarea>
+          </div>
+        </div>
         <div className="field is-grouped">
           <div className="control">
             <button className="button is-link" type="submit">

@@ -2,7 +2,7 @@
 // takes a single parameter of user
 // POST http request to login that will send login user resource to server 
 export const loginUser = (user) => {
-  return fetch("http://localhost:8088/login", {
+  return fetch("http://localhost:8000/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export const loginUser = (user) => {
 // takes a single parameter of newUser
 // POST http request to register that will send new user resource to server 
 export const registerUser = (newUser) => {
-  return fetch("http://localhost:8088/register", {
+  return fetch("http://localhost:8000/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

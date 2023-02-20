@@ -18,12 +18,13 @@ export const Login = ({ setToken }) => {
       password: password.current.value
     }
 //loginUser() POSTS to login table to the API. Should this happen? Should logout delete this row?
-    loginUser(user).then(res => {
+    loginUser(user)
+      .then(res => {
       /*
       tests to see if the response object contains the valid property or the "valid" string
       setToken
       */
-      if ("valid" in res && res.valid) {
+      if ("valid" in res && res.valid && "token" in res) {
         //Sets the user into local storage and navigates to home
         setToken(res.token)
         navigate("/")

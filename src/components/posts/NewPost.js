@@ -13,7 +13,7 @@ export const NewPost = ({ token }) => {
     const [tagsToAPI, setTagsToAPI] = useState([])
 
     const tagPromise = (body) => { 
-        return fetch(`http://localhost:8088/posttags`, {
+        return fetch(`http://localhost:8000/posttags`, {
             method: "POST",
             headers: { "Content-Type": "application/json",
             },
