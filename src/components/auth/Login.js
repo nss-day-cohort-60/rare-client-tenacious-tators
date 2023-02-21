@@ -27,6 +27,7 @@ export const Login = ({ setToken }) => {
       if ("valid" in res && res.valid && "token" in res) {
         //Sets the user into local storage and navigates to home
         setToken(res.token)
+        localStorage.setItem("rare_token", res.token)
         navigate("/")
       }
       else {
