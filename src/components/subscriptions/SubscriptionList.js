@@ -32,8 +32,8 @@ export const SubscriptionList = ({ token }) => {
                 </span>
                 <h3>{post?.category?.label}</h3>
                 <section className="subscribe__postbody"><p>{post.content}</p></section>
-                <section><h3>Author: <Link to={`/users/${post.user.id}`}>
-                    {post?.user?.username}
+                <section><h3>Author: <Link to={`/users/${post.author.id}`}>
+                    {post?.author?.full_name}
                 </Link></h3>
                 </section>
                 </section>
