@@ -17,15 +17,20 @@ export const addNewPost = (post) => {
 };
 
 export const getCurrentUserPosts = (id) => {
-  return fetch(`http://localhost:8000/posts?user_id=${id}`).then((res) =>
-    res.json()
-  );
+  return fetch(`http://localhost:8000/posts?author_id=${id}`,
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }}
+  ).then((res) =>
+        res.json()
+      );
 };
 
 export const deletePosts = (id) => {
-  return fetch(`http://localhost:8000/posts/${id}`, {method: "DELETE"})
+  return fetch(`http://localhost:8000/posts/${id}`, { method: "DELETE" })
 }
-  
+
 export const editPost = (id, postBody) => {
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "PUT",
@@ -38,10 +43,11 @@ export const editPost = (id, postBody) => {
 
 
 export const getSubscribedPosts = (id) => {
-  return fetch(`http://localhost:8000/posts?follower_id=${id}` , 
-  {headers:{
-    "Authorization": `Token ${localStorage.getItem("rare_token")}`
-    }
-  })
-      .then(res => res.json())
+  return fetch(`http://localhost:8000/posts?follower_id=${id}`,
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }
+    })
+    .then(res => res.json())
 }
