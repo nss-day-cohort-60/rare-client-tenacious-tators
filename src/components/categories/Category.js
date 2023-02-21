@@ -4,24 +4,25 @@ import { getCategories, updateCategory } from "../../managers/categories.js"
 import { deleteCategory } from "../../managers/categories"
 import { useEffect, useState } from "react"
 
-export const Category = ({ category }) => {
-    const [ categories, setCategories ] = useState([
-        {id: 0,
-        label: ""
-        }
-    ])
+export const Category = ({ category, setterFunction }) => {
+    // const [ categories, setCategories ] = useState([
+    //     {id: 0,
+    //     label: ""
+    //     }
+    // ])
     const navigate = useNavigate()
     
-    useEffect(() => {
-        getCategories().then(data => setCategories(data))
-    }, [])
+    // useEffect(() => {
+    //     getCategories().then(data => setterFunction(data))
+    // }, [])
+
+    // const getAllCats
 
     const deleteButton = (id) => {
         return <button onClick={() => {
             deleteCategory(id)
             .then(() => {
-                    getCategories().then(data => setCategories(data))
-                })
+                getCategories().then((data) => setterFunction(data))}) 
         }} className="deleteButton">Delete</button>
     }
 
