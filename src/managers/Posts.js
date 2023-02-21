@@ -36,12 +36,12 @@ export const editPost = (id, postBody) => {
   });
 };
 
-
-export const getSubscribedPosts = (id) => {
-  return fetch(`http://localhost:8000/posts?follower_id=${id}`, 
+export const getSubscribedPosts = () => {
+  return fetch(`http://localhost:8000/posts?subscribed=true`, 
   {headers:{
     "Authorization": `Token ${localStorage.getItem("rare_token")}`
     }
   })
       .then(res => res.json())
 }
+
