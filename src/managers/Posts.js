@@ -37,6 +37,6 @@ export const editPost = (id, postBody) => {
 };
 
 export const getSubscribedPosts = (id) => {
-  return fetch(`http://localhost:8000/posts?follower_id=${id}`)
+  return fetch(`http://localhost:8000/posts?follower_id=${id}` )
       .then(res => res.json())
 }
