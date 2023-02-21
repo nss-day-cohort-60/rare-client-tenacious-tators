@@ -14,8 +14,12 @@ export const getUsersBySearchTerm = (searchTerm) => {
 }
 
 export const getUserById = (id) => {
-  return fetch(`http://localhost:8000/users/${id}`)
-      .then(res => res.json())
+  return fetch(`http://localhost:8000/users/${id}`, {
+    headers:{
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
+  }
+  })
+    .then(res => res.json())
 }
 
 export const addUser = user => {
