@@ -7,7 +7,12 @@ export const getPosts = () => {
 }
 
 export const getSinglePost = (id) => {
-  return fetch(`http://localhost:8000/posts/${id}`).then((res) => res.json())
+  return fetch(`http://localhost:8000/posts/${id}`, 
+  {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
+    }
+  }).then((res) => res.json())
 }
 
 export const addNewPost = (post) => {
