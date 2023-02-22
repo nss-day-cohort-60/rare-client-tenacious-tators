@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
-import { editPost, getSinglePost } from "../../managers/Posts";
+import { updatePost, getSinglePost } from "../../managers/Posts";
 
 export const EditPost = ({ token }) => {
   const [post, setPost] = useState({});
@@ -24,7 +24,7 @@ export const EditPost = ({ token }) => {
   }, []);
 
   const publishNewArticle = () => {
-    editPost(postId, post).then(() => navigate("/posts"));
+    updatePost(postId, post).then(() => navigate("/posts"));
   };
 
   return (
