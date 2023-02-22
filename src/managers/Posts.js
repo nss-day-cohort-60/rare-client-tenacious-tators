@@ -29,7 +29,7 @@ export const addNewPost = (post) => {
 };
 
 export const getCurrentUserPosts = (id) => {
-  return fetch(`http://localhost:8000/posts?author_id=${id}`,
+  return fetch(`http://localhost:8000/posts?user_id=${id}`,
     {
       headers: {
         "Authorization": `Token ${localStorage.getItem("rare_token")}`
