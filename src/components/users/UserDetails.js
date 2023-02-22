@@ -32,7 +32,7 @@ export const UserDetails = ({token}) => {
       <div className="user__username">Username: {user.user.username}</div>
       <div className="user__created">Account Created: {user.user.date_joined}</div>
       <div className="user__bio">Bio: {user.bio}</div>
-      {/* <SubscriptionForm authorId = {userId} /> */}
+      <SubscriptionForm user={user} setUser={setUser}/>
       </article>
     </section>
   )
