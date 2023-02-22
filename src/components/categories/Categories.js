@@ -17,7 +17,7 @@ export const Categories = ({ token }) => {
       <section className="categoryList">
         <h1 className="categoryHeader">Categories</h1>
         {categories.map((category) => (
-          <Category category={category} key={category.id} />
+          <Category category={category} key={category.id} setterFunction={setCategories} />
         ))}
       </section>
       <section className="category__create">
