@@ -1,9 +1,19 @@
 export const getPosts = () => {
-  return fetch("http://localhost:8000/posts").then((res) => res.json());
+  return fetch("http://localhost:8000/posts",
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }
+    }).then((res) => res.json());
 };
 
 export const getSinglePost = (id) => {
-  return fetch(`http://localhost:8000/posts/${id}`).then((res) => res.json());
+  return fetch(`http://localhost:8000/posts/${id}`,
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }
+    }).then((res) => res.json());
 };
 
 export const addNewPost = (post) => {
@@ -11,6 +21,8 @@ export const addNewPost = (post) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
+
     },
     body: JSON.stringify(post),
   });
@@ -21,10 +33,9 @@ export const getCurrentUserPosts = (id) => {
     {
       headers: {
         "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }}
-  ).then((res) =>
-        res.json()
-      );
+      }
+    })
+    .then(res => res.json())
 };
 
 export const deletePosts = (id) => {
@@ -42,11 +53,12 @@ export const editPost = (id, postBody) => {
 };
 
 export const getSubscribedPosts = () => {
-  return fetch(`http://localhost:8000/posts?subscribed=true`, 
-  {headers:{
-    "Authorization": `Token ${localStorage.getItem("rare_token")}`
-    }
-  })
-      .then(res => res.json())
+  return fetch(`http://localhost:8000/posts?subscribed=true`,
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }
+    })
+    .then(res => res.json())
 }
 
