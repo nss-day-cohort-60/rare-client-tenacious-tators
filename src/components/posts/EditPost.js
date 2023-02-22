@@ -109,6 +109,19 @@ return (
         </select>
       </div>
     </fieldset>
+    <fieldset>
+      <div className="form-group">
+        <input
+          type="radio"
+          name="tag"
+          required
+          defaultValue={post.tags.map((tag) => tag.label)}
+          className="form-control"
+          placeholder="tag"
+          onChange={handleNewPostInfo}
+        />
+      </div>
+    </fieldset>
     <button
       type="publish"
       onClick={(evt) => {
