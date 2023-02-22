@@ -1,44 +1,62 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
-// import { getPostTags } from "../../managers/posttags";
-// import { getTags } from "../../managers/tags"
 import { editPost, getSinglePost } from "../../managers/Posts";
 
 export const EditPost = ({ token }) => {
-  const [post, setPost] = useState({});
   const [categories, setCategories] = useState([]);
   const { postId } = useParams();
   const navigate = useNavigate();
+  const [updatePost, postToUpdate] = useState({
+    title: "", 
+    image_url: "", 
+    content: "", 
+    user: 0, 
+    category_id: 0
+  });
 
   useEffect(() => {
-    getSinglePost(postId).then((Data) => setPost(Data));
+    getSinglePost(postId).then((Data) => postToUpdate(Data));
   }, [postId]);
 
   const handleNewPostInfo = (event) => {
-    const newPost = Object.assign({}, post);
-    newPost[event.target.name] = event.target.value;
-    setPost(newPost);
+    const copy = { ...updatePost }
+    copy[event.target.name] = event.target.value
+    postToUpdate(copy)
   };
 
   useEffect(() => {
     getCategories().then((categoryData) => setCategories(categoryData));
-    // getTags().then((tagData) => setTags(tagData));
   }, []);
 
   const publishNewArticle = () => {
-    editPost(postId, post).then(() => navigate("/posts"));
-  };
+    const categoryId = parseInt(updatePost.categoryId)
+    // const date = new Date()
 
 
-  // const tagArray = (tagId) => {
-  //   let copy = new Set(newTags)
-  //   copy.has(tagId)
-  //     copy.delete(tagId)  
-  //     : copy.add(tagId)
-
-  //   setNewTags(copy)
-  //   }
+    editPost({
+      category_id: categoryId,
+      title: updatePost.title,
+      image_url: updatePost.imageUrl,
+      content: updatePost.content,
+      user_id: parseInt(token),
+      publication_date: updatePost.publication_date,
+      approved: 1
+    })
+      .then((res) => res.json())
+      // .then((res) => { 
+      //     let APITags = tagsToAPI.map(tag => { 
+      //         return {
+      //             tag_id: tag, 
+      //             post_id: res.id
+      //         }
+      //     })
+      //     Promise.all(APITags.map(tag => { 
+      //         tagPromise(tag)
+      //     }))
+      // })
+      .then(() => navigate("/posts"))
+  }
 
 
 return (
@@ -46,12 +64,13 @@ return (
     <h2>Edit Post</h2>
     <fieldset>
       <div className="form-group">
+        <label>Title: </label>
         <input
           type="text"
           name="title"
           required
           autoFocus
-          defaultValue={post.title}
+          defaultValue={updatePost.title}
           className="form-control"
           placeholder="Title"
           onChange={handleNewPostInfo}
@@ -60,11 +79,12 @@ return (
     </fieldset>
     <fieldset>
       <div className="form-group">
+        <label>Image URL: </label>
         <input
           type="text"
           name="imageUrl"
           required
-          defaultValue={post.image_url}
+          defaultValue={updatePost.image_url}
           autoFocus
           className="form-control"
           placeholder="ImageURL"
@@ -74,13 +94,14 @@ return (
     </fieldset>
     <fieldset>
       <div className="form-group">
+        <label>Content: </label>
         <textarea
           type="textbox"
           rows="5"
           cols="30"
           name="content"
           required
-          defaultValue={post.content}
+          defaultValue={updatePost.content}
           autoFocus
           className="form-control"
           placeholder="Article Content"
@@ -90,18 +111,19 @@ return (
     </fieldset>
     <fieldset>
       <div className="form-group">
+        <label>Category: </label>
         <select
           name="categoryId"
           className="form-control"
-          value={post.categoryId}
+          value={updatePost.categoryId}
           onChange={(event) => {
-            const copy = { ...post };
+            const copy = { ...updatePost };
             copy.categoryId = parseInt(event.target.value);
-            setPost(copy);
+            postToUpdate(copy);
           }}
         >
-          <option defaultValue={post.category_id}>
-            {post?.category?.label}
+          <option defaultValue={updatePost.category_id}>
+            {updatePost?.category?.label}
           </option>
           {categories.map((category) => (
             <option key={`category--${category.id}`} value={category.id}>
