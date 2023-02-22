@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
+// import { getTags } from "../../managers/Tags"
 import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
 
@@ -39,7 +40,7 @@ export const MyPosts = ({ token }) => {
                   <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: <HumanDate date={post.publication_date}/></div></section></span>
                     <h2>Author: <Link to={`/users/${post.author.id}`}>{post?.author?.full_name}</Link></h2>
                     <h3>{post?.category?.label}</h3>
-                    <h3>{post?.tag?.label}</h3>
+                    <h3>{posts.tags.map((tag) => tag.label).join(", ")}</h3>
                     <section className="myposts__postbody"><p>{post.content}</p></section>
                   <div className="buttons">
                     <button

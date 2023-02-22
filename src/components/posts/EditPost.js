@@ -29,13 +29,14 @@ export const EditPost = ({ token }) => {
   };
 
 
-  const tagArray = (tagId) => {
-    let copy = new Set(newTags)
-    copy.has(tagId)
-    copy.delete(tagId) : copy.add(tagId)
+  // const tagArray = (tagId) => {
+  //   let copy = new Set(newTags)
+  //   copy.has(tagId)
+  //     copy.delete(tagId)  
+  //     : copy.add(tagId)
 
-setNewTags(copy)
-    }
+  //   setNewTags(copy)
+  //   }
 
 
 return (
