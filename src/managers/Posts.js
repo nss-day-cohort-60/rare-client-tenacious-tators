@@ -38,7 +38,12 @@ export const getCurrentUserPosts = () => {
 };
 
 export const deletePosts = (id) => {
-  return fetch(`http://localhost:8000/posts/${id}`, { method: "DELETE" })
+  return fetch(`http://localhost:8000/posts/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${localStorage.getItem("rare_token")}`,
+    },
+  })
 }
 
 

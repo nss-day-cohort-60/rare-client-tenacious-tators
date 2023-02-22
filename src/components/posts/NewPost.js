@@ -18,7 +18,7 @@ export const NewPost = ({ token }) => {
             headers: { "Content-Type": "application/json",
             },
             body: JSON.stringify(body),
-          })
+        })
     }
 
     const navigate = useNavigate()
@@ -43,12 +43,12 @@ export const NewPost = ({ token }) => {
             window.alert("Please select a category.")
         } else {
             addNewPost({
-                category_id: categoryId,
+                category: categoryId,
                 title: post.title,
                 image_url: post.imageUrl,
                 content: post.content,
                 user_id: parseInt(token),
-                publication_date: `${date}`,
+                tags: tagsToAPI,
                 approved: 1
             })
                 .then((res) => res.json())
