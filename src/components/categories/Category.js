@@ -1,22 +1,9 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./Categories.css"
-import { getCategories, updateCategory } from "../../managers/categories.js"
-import { deleteCategory } from "../../managers/categories"
-import { useEffect, useState } from "react"
+import { getCategories, deleteCategory } from "../../managers/categories.js"
 
 export const Category = ({ category, setterFunction }) => {
-    // const [ categories, setCategories ] = useState([
-    //     {id: 0,
-    //     label: ""
-    //     }
-    // ])
     const navigate = useNavigate()
-    
-    // useEffect(() => {
-    //     getCategories().then(data => setterFunction(data))
-    // }, [])
-
-    // const getAllCats
 
     const deleteButton = (id) => {
         return <button onClick={() => {
