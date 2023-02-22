@@ -17,7 +17,8 @@ export const TagList = ({ token }) => {
       <section className="tagList">
         <h1 className="tagHeader">Tags</h1>
         {tags.map((tag) => (
-          <Tag key={tag.id} tag={tag} />
+          <Tag key={tag.id} tag={tag}
+          setterFunction={setTags} />
         ))}
       </section>
       <section className="tag__create">
