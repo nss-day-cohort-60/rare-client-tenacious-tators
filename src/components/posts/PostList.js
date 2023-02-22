@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Post, Posts, TableRow } from "./Posts"
-import { getPosts } from "../../managers/Posts"
+import { getPosts, getSearchedPosts } from "../../managers/Posts"
 import "./Posts.css"
 
 export const PostList = ({ token, authorChoice, selectedCategory }) => {
   const [posts, setPosts] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([])
+  const [searchTerms, setSearchTerms] = useState("Search Posts By Title")
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -36,9 +38,38 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
       setFilteredPosts(filteredPostList)
     }
   }, [posts, selectedCategory, authorChoice])
+  
+  const handleKeypress = e => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+        handleSubmit();
+    }
+  };
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      getSearchedPosts(`${searchTerms}`).then((data) => setFilteredPosts(data))
+      setSearchTerms("Search Posts By Title")
+      document.getElementById("search").value = "" 
+  };
 
   return (
-    <>
+    <><><section className="posts__buttons">
+    <section className="posts__filters">
+    <form><input type="textfield" placeholder={searchTerms}  id="search"
+        onChange={(e) =>
+            setSearchTerms(e.target.value)}
+        onKeyUp={handleKeypress}></input>
+        <button type="submit"
+            onClick={handleSubmit}
+            >Go</button>
+        <button
+          onClick={() =>
+            setFilteredPosts(posts)}>View All</button>
+        </form>
+    </section>
+    </section>
+    </>
       <div className="post-table">
         <table className="table is-fullwidth">
           <thead>

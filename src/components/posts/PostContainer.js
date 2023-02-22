@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { getSearchedPosts } from "../../managers/Posts";
 import { PostByAuthor } from "./PostByAuthor";
 import { PostByCategory } from "./PostByCategory";
 import { PostList } from "./PostList"
@@ -15,10 +16,10 @@ export const PostContainer = () => {
             <section className="posts__filters">
             <PostByAuthor setPostByAuthor={setPostByAuthor} />
             <PostByCategory setSelectedCategory={setSelectedCategory} />
-            </section>
+        </section>
             <div className="addPostButton">Add Post <button onClick={() => navigate("newpost")}>+</button>
         </div>
         </section>
-            <PostList authorChoice={authorChoice} selectedCategory={selectedCategory}/>
+            <PostList authorChoice={authorChoice} selectedCategory={selectedCategory} />
         </article></>
 }
