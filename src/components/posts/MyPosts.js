@@ -6,11 +6,11 @@ import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
   const [posts, setPosts] = useState([]);
-  const tokenInt = parseInt(token);
+  // const tokenInt = parseInt(token);
   const navigate = useNavigate();
 
   const getMyPosts = () => {
-    getCurrentUserPosts(tokenInt).then((postData) => {
+    getCurrentUserPosts().then((postData) => {
       setPosts(postData);
     })
   }
@@ -30,14 +30,14 @@ export const MyPosts = ({ token }) => {
   return (
     <article className="posts__container">
       <section className="posts__myposts">
-        {/* <div className="user-posts"> */}
+        <div className="user-posts">
           {posts.map((post) => (
             <div key={post.id} className="single-my-post">
                <img className="myposts__image" src={post?.image_url}/>
                <section className="myposts__content">
                   <span style={{ fontWeight: 'bold' }}>
                   <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: <HumanDate date={post.publication_date}/></div></section></span>
-                    <h2>Author: <Link to={`/users/${post.user.id}`}>{post?.user?.username}</Link></h2>
+                    <h2>Author: <Link to={`/users/${post.author.id}`}>{post?.author?.full_name}</Link></h2>
                     <h3>{post?.category?.label}</h3>
                     <h3>{post?.tag?.label}</h3>
                     <section className="myposts__postbody"><p>{post.content}</p></section>
@@ -60,7 +60,7 @@ export const MyPosts = ({ token }) => {
                 </section>
             </div>
       ))}
-    {/* </div> */}
+    </div>
     </section>
     </article>
   );
