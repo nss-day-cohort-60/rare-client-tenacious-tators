@@ -1,20 +1,14 @@
 export const getPosts = () => {
-  return fetch("http://localhost:8000/posts",
-    {
-      headers: {
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }
-    }).then((res) => res.json());
-};
+  return fetch("http://localhost:8000/posts", {
+    headers: {
+      Authorization: `Token ${localStorage.getItem("rare_token")}`,
+    },
+  }).then((res) => res.json())
+}
 
 export const getSinglePost = (id) => {
-  return fetch(`http://localhost:8000/posts/${id}`,
-    {
-      headers: {
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }
-    }).then((res) => res.json());
-};
+  return fetch(`http://localhost:8000/posts/${id}`).then((res) => res.json())
+}
 
 export const addNewPost = (post) => {
   return fetch("http://localhost:8000/posts", {
@@ -25,8 +19,8 @@ export const addNewPost = (post) => {
 
     },
     body: JSON.stringify(post),
-  });
-};
+  })
+}
 
 export const getCurrentUserPosts = () => {
   return fetch(`http://localhost:8000/posts?user`,
@@ -41,6 +35,7 @@ export const getCurrentUserPosts = () => {
 export const deletePosts = (id) => {
   return fetch(`http://localhost:8000/posts/${id}`, { method: "DELETE" })
 }
+
 
 export const editPost = (id, postBody) => {
   return fetch(`http://localhost:8000/posts/${id}`, {
@@ -60,5 +55,7 @@ export const getSubscribedPosts = () => {
       }
     })
     .then(res => res.json())
+  
 }
+
 
