@@ -4,9 +4,8 @@ import { useEffect, useState } from "react"
 import { getUserById } from "../../managers/users"
 
 export const SubscriptionForm = ({ user , setUser }) => {
-  const authToken = localStorage.getItem("rare_token")
-
-    return <>
+  
+  return <>
       {
         user.subscribed 
         ?
