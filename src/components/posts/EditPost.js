@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
+// import { getPostTags } from "../../managers/posttags";
+// import { getTags } from "../../managers/tags"
 import { editPost, getSinglePost } from "../../managers/Posts";
 
 export const EditPost = ({ token }) => {
   const [post, setPost] = useState({});
   const [categories, setCategories] = useState([]);
-  const [newTags, setNewTags] = useState([])
   const { postId } = useParams();
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ export const EditPost = ({ token }) => {
 
   useEffect(() => {
     getCategories().then((categoryData) => setCategories(categoryData));
+    // getTags().then((tagData) => setTags(tagData));
   }, []);
 
   const publishNewArticle = () => {
@@ -109,19 +111,43 @@ return (
         </select>
       </div>
     </fieldset>
-    <fieldset>
-      <div className="form-group">
-        <input
-          type="radio"
-          name="tag"
-          required
-          defaultValue={post.tags.map((tag) => tag.label)}
-          className="form-control"
-          placeholder="tag"
-          onChange={handleNewPostInfo}
-        />
-      </div>
-    </fieldset>
+    {/* <fieldset>
+                <div className="form-group tagGroup">
+                    {tags.map(tag => (
+                        <div className="tags">
+                            <input
+                                name="tagId"
+                                type="checkbox"
+                                required autoFocus
+                                className="form-control"
+                                placeholder="tag"
+                                value={tag.id}
+                                onChange={(event) => {
+                                    if(event.target.checked) { 
+                                        let copy = [...newTags]
+                                        copy.push(parseInt(event.target.value))
+                                        setNewTags(copy)
+                                    } else { 
+                                        let copy = [...newTags] 
+                                        let index = copy.indexOf(parseInt(event.target.value))
+                                        copy.splice(index)
+                                        setNewTags(copy)
+                                    }
+                                }}
+                            />
+                            <label className="tagLabel">
+                                <option
+                                    key={`tag--${tag.id}`}
+                                    value={tag.id}
+                                    >
+                                    {tag.label}
+                                </option>
+                            </label>
+                        </div>
+                    ))}
+
+                </div>
+            </fieldset> */}
     <button
       type="publish"
       onClick={(evt) => {
