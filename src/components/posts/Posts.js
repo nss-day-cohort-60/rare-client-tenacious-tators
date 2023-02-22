@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom";
-import { HumanDate } from "../utils/HumanDate";
+import { Link, useNavigate } from "react-router-dom"
+import { HumanDate } from "../utils/HumanDate"
 
 export const Posts = ({ posts, token, posttags }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <tr className="row">
@@ -14,18 +14,16 @@ export const Posts = ({ posts, token, posttags }) => {
           Edit
         </button>
       ) : null}
-      <p>{""}</p>
-      <td>
+      <div>{""}</div>
+      <td style={{ width: "200px" }}>
         <Link to={`/posts/${posts?.id}`}>{posts?.title}</Link>
       </td>
-      <td>
-        {posts?.user?.first_name} {posts?.user?.last_name}
-      </td>
+      <td>{posts.author.full_name}</td>
       <td>
         <HumanDate date={posts.publication_date} />
       </td>
-      <td>{posts?.category?.label}</td>
-      <td>{posts?.tag?.label}</td>
-    </tr >
-  );
-};
+      <td>{posts.category.label}</td>
+      <td>{posts.tags.map((tag) => tag.label).join(", ")}</td>
+    </tr>
+  )
+}
