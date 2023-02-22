@@ -33,7 +33,7 @@ export const PostDetail = ({ token }) => {
       </Link>
       <h3>{post?.category?.label}</h3>
       <section className="myposts__postbody"><p>{post.content}</p></section>
-            {parseInt(token) === post.author_id ? (
+            {post.writer ? (
         <div className="buttons">
           <button
             onClick={(e) => {
