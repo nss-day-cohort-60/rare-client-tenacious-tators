@@ -14,14 +14,14 @@ export const EditPost = ({ token }) => {
     image_url: "",
     content: "",
     user: 0,
-    category_id: 0, 
-    tag_id: 0
+    categoryId: 0, 
+    tag_id: 0, 
+    tags: {}
   });
 
   useEffect(() => {
     getSinglePost(postId).then((data) => {
       postToUpdate(data)
-    
     })
 
   }, [postId]);
@@ -67,7 +67,7 @@ export const EditPost = ({ token }) => {
             type="text"
             name="imageUrl"
             required
-            defaultValue={updatePost.image_url}
+            defaulValue={updatePost.image_url}
             autoFocus
             className="form-control"
             placeholder="ImageURL"
@@ -98,10 +98,10 @@ export const EditPost = ({ token }) => {
           <select
             name="categoryId"
             className="form-control"
-            value={updatePost.category_id}
+            defaultValue={updatePost.category_id}
             onChange={(event) => {
               const copy = { ...updatePost };
-              copy.categoryId = parseInt(event.target.value);
+              copy.category_id = parseInt(event.target.value);
               postToUpdate(copy);
             }}
           >
