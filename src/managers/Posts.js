@@ -68,4 +68,16 @@ export const getSubscribedPosts = () => {
   
 }
 
+export const getSearchedPosts = (searchTerm) => {
+  return fetch(`http://localhost:8000/posts?search=${searchTerm}`,
+    {
+      headers: {
+        "Authorization": `Token ${localStorage.getItem("rare_token")}`
+      }
+    })
+    .then(res => res.json())
+  
+}
+
+
 
