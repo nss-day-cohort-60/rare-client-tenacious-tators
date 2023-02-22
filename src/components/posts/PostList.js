@@ -4,7 +4,7 @@ import { Post, Posts, TableRow } from "./Posts"
 import { getPosts } from "../../managers/Posts"
 import "./Posts.css"
 
-export const PostList = ({ token, authorChoice, selectedCategory }) => {
+export const PostList = ({ token, authorChoice, selectedCategory, searchTerms }) => {
   const [posts, setPosts] = useState([])
   const [filteredPosts, setFilteredPosts] = useState([])
   const navigate = useNavigate()
@@ -13,6 +13,8 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
     getPosts().then((postData) => setPosts(postData))
     setFilteredPosts(posts)
   }, [])
+
+  
 
   useEffect(() => {
     if (selectedCategory === 0 && authorChoice === 0) {
