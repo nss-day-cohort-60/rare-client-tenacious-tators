@@ -6,11 +6,11 @@ import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
   const [posts, setPosts] = useState([]);
-  const tokenInt = parseInt(token);
+  // const tokenInt = parseInt(token);
   const navigate = useNavigate();
 
   const getMyPosts = () => {
-    getCurrentUserPosts(tokenInt).then((postData) => {
+    getCurrentUserPosts().then((postData) => {
       setPosts(postData);
     })
   }
