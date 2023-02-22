@@ -28,12 +28,12 @@ export const PostDetail = ({ token }) => {
       <section className="myposts__content">
                   <span style={{ fontWeight: 'bold' }}>
                   <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: {post?.publication_date}</div></section></span>
-      <Link to={`/users/${post.user_id}`}>
-        <h2>{post?.author?.username}</h2>
+      <Link to={`/users/${post.author_id}`}>
+        <h2>{post?.author?.full_name}</h2>
       </Link>
       <h3>{post?.category?.label}</h3>
       <section className="myposts__postbody"><p>{post.content}</p></section>
-            {parseInt(token) === post.user_id ? (
+            {post.writer ? (
         <div className="buttons">
           <button
             onClick={(e) => {
