@@ -2,20 +2,21 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { updateComment, getCommentsByPostId } from '../../managers/comments.js'
 
-export const EditComment = () => {
+export const EditComment = ({ token }) => {
 
     const { commentId, postId } = useParams()
     const navigate = useNavigate()
 
-    const [currentComment, setCurrentComment] = useState({ 
+    const [currentComment, setCurrentComment] = useState({
         post: postId,
+        user_id: parseInt(token),
         content: ""
     })
 
     useEffect(() => {
         getCommentsByPostId(commentId).then((data) => {
             data.commentId = data.id
-            setCurrentComment(data[0])
+            setCurrentComment(data)
         })
     }, [commentId])
 
@@ -36,7 +37,7 @@ export const EditComment = () => {
                             type="text"
                             rows="10"
                             cols="30"
-                            value={currentComment.content}
+                            defaultValue={currentComment.content}
                             required
                             autoFocus
                             className="form-control"
