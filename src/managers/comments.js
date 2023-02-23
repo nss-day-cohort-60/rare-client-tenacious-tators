@@ -18,3 +18,15 @@ export const getCommentsByPostId = (id) => {
         body: JSON.stringify(postbody)
     })
     }
+
+
+    export const updateComment = (comment, id) => {
+        return fetch(`http://localhost:8000/comments/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("rare_token")}`,
+          },
+          body: JSON.stringify(comment),
+        })
+      }

@@ -4,7 +4,6 @@ import { getCategoryById, updateCategory } from '../../managers/categories.js'
 
 export const EditCategory = () => {
     const navigate = useNavigate()
-    // const [category, setCategory] = useState([])
     const { categoryId } = useParams()
 
     const [currentCategory, setCurrentCategory] = useState({

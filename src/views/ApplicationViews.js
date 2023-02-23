@@ -11,6 +11,7 @@ import { TagList } from "../components/tags/TagList"
 import { UserList } from "../components/users/UserList"
 import { UserDetails } from "../components/users/UserDetails"
 import { CommentList } from "../components/comments/CommentList"
+import { EditComment } from "../components/comments/EditComment"
 import { EditPost } from "../components/posts/EditPost"
 import { SubscriptionList } from "../components/subscriptions/SubscriptionList"
 import { NewCategory } from "../components/categories/NewCategory"
@@ -43,6 +44,7 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route path=":postId" element={<PostDetail token={token} />} />
             <Route path=":postId/comments" element={<CommentList token={token} />} />
             <Route path=":postId/comment" element={<AddCommentForm token={token} />} />
+            <Route path=":postId/comments/:commentId/edit" element={<EditComment token={token} />} />
             <Route path="editpost/:postId" element={<EditPost token={token} />} />
           </Route>
           <Route path="/categories">
