@@ -18,7 +18,7 @@ import { NewTag } from "../components/tags/NewTag"
 import { PostContainer } from "../components/posts/PostContainer"
 import { EditCategory } from "../components/categories/EditCategory"
 import { EditTag } from "../components/tags/EditTag"
-
+import { CategoryPosts } from "../components/categories/CategoryPosts"
 
 // receiving 2 props from Rare.js
 // responsible for routing users to specific views depending on URL paths
@@ -47,6 +47,7 @@ export const ApplicationViews = ({ token, setToken }) => {
             <Route index element={<Categories token={token} />} />
             <Route path="create" element={<NewCategory token={token} />} />
             <Route path="edit/:categoryId" element={<EditCategory token={token} />} />
+            <Route path=":categoryId" element={<CategoryPosts token={token} />} />
           </Route>
           <Route path="/tags">
             <Route index element={<TagList token={token} />} />
