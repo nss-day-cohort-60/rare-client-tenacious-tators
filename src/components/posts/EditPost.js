@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
-import { updatePost, getSinglePost, getPosts } from "../../managers/Posts"
-import { getPostTags } from "../../managers/posttags.js"
+import { updatePost, getSinglePost } from "../../managers/Posts"
 import { getTags } from "../../managers/tags"
 
 
@@ -21,8 +20,6 @@ export const EditPost = ({ token }) => {
     tags: [],
     approved: 0
   });
-
-  
 
   const tagArr = (tagId) => {
     let copy = new Set(postTags)
@@ -58,14 +55,6 @@ export const EditPost = ({ token }) => {
     copy[event.target.name] = event.target.value;
     setCurrentPost(copy);
   }
-
-  // useEffect(() => {
-  //   getCategories().then((categoryData) => setCategories(categoryData));
-  // }, []);
-
-  // const publishNewArticle = () => {
-  //   updatePost(postId, currentPost).then(() => navigate("/posts"));
-  // };
 
   return (
     <form className="addNewPostForm">
@@ -169,7 +158,7 @@ export const EditPost = ({ token }) => {
           }
 
           updatePost(postId, updatedPost)
-            .then(() => navigate("/posts"))
+            .then(() => navigate("/posts/myposts"))
         }}
         className="publishButton">Publish</button>
     </form>
