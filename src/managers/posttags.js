@@ -1,20 +1,10 @@
 export const getPostTags = () => {
-<<<<<<< HEAD
-  return fetch("http://localhost:8000/posttags",
-    {
-      headers: {
-        "Authorization": `Token ${localStorage.getItem("rare_token")}`
-      }
-    })
-    .then(res => res.json())
-=======
     return fetch("http://localhost:8000/posttags"), {
       headers: {
         Authorization: `Token ${localStorage.getItem("rare_token")}`,
       },
     }
         .then(res => res.json())
->>>>>>> main
 }
 
 export const addNewTag = (posttag) => {
