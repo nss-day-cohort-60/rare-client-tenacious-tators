@@ -46,12 +46,7 @@ export const deletePosts = (id) => {
   })
 }
 
-
-<<<<<<< HEAD
-export const editPost = (post, id) => {
-=======
 export const updatePost = (id, postBody) => {
->>>>>>> main
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "PUT",
     headers: {
