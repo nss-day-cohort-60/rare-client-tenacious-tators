@@ -18,26 +18,26 @@
 .posts__container {
   width: 80vw;
   display: flex;
-  margin:auto;
+  margin: auto;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 }
 
-.posts__buttons{
+.posts__buttons {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .posts__filters {
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-.posts__dropdown{
-  padding: 0.5rem
+.posts__dropdown {
+  padding: 0.5rem;
 }
 
 .post-table {
@@ -45,7 +45,7 @@
   justify-content: center;
   padding-top: 5em;
   overflow: auto;
-  width: 100%
+  width: 100%;
 }
 
 .form-group {
@@ -55,16 +55,15 @@
 .addPostButton {
   align-self: flex-end;
   padding: 20px;
-  border: 1px dotted black
+  border: 1px dotted black;
 }
 
 .addNewPostForm {
   margin-left: 20px;
-
 }
 
 .tags {
-  display: flex; 
+  display: flex;
   flex-direction: column;
   width: 15px;
   height: 15px;
@@ -73,7 +72,6 @@
   vertical-align: bottom;
   position: relative;
   top: -1px;
-
 }
 
 .tagLabel {
@@ -93,8 +91,8 @@
 
 .dropdownMenu {
   position: relative;
-  padding: 20px; 
-  margin: 20px; 
+  padding: 20px;
+  margin: 20px;
 }
 
 .menu {
@@ -135,7 +133,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  width: 100%
+  width: 100%;
 }
 .single-my-post {
   display: flex;
@@ -144,15 +142,15 @@
   width: 100%;
   padding: 1rem;
   margin: 1rem;
-  border: 1px dotted black
+  border: 1px dotted black;
 }
 
 .myposts__image {
-  width: 200px;
-  object-fit: cover;
-  padding-right: 10px
+  height: 500px;
+  width: 900px;
+  margin-left: 100px;
 }
 .myposts__postbody {
   padding: 1rem;
-  margin: 1rem
+  margin: 1rem;
 }

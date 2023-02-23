@@ -1,52 +1,63 @@
 .subscribe__container {
-    width: 80vw;
-    display: flex;
-    margin:auto;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+  width: 80vw;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .subscribe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .subscribe__text {
-    font-size: 2.5rem
+  font-size: 2.5rem;
 }
 
 .subscribe__posts {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px dotted black
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px dotted black;
 }
 
 .subscribe__image {
-    width: 200px;
-    object-fit: cover;
-    padding-right: 10px
+  width: 200px;
+  object-fit: cover;
+  padding-right: 10px;
 }
 
-.subscribe__postheader{
-    display: flex;
-    flex-direction: nowrap;
-    font-weight: bolder;
-    justify-content: space-between;
+.subscribe__postheader {
+  display: flex;
+  flex-direction: nowrap;
+  font-weight: bolder;
+  justify-content: space-between;
 }
 
 .subscribe__postbody {
-    padding: 1rem;
-    margin: 1rem
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .addPostButton {
-    align-self: flex-end;
-    width:max-content;
+  align-self: flex-end;
+  width: max-content;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subscribe__image {
+  height: 500px;
+  width: 900px;
+  margin-left: 100px;
 }

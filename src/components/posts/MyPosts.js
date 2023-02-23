@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
-import { HumanDate } from "../utils/HumanDate";
-import "./Posts.css";
+import React, { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { deletePosts, getCurrentUserPosts } from "../../managers/Posts"
+import { HumanDate } from "../utils/HumanDate"
+import "./Posts.css"
 
 export const MyPosts = ({ token }) => {
-  const [posts, setPosts] = useState([]);
-  const navigate = useNavigate();
+  const [posts, setPosts] = useState([])
+  // const tokenInt = parseInt(token);
+  const navigate = useNavigate()
 
   const getMyPosts = () => {
     getCurrentUserPosts().then((postData) => {
-      setPosts(postData);
+      setPosts(postData)
     })
   }
 
   useEffect(() => {
-    getMyPosts();
-  }, []);
+    getMyPosts()
+  }, [])
 
   const deleteWindow = (postId) => {
-    if (window.confirm("Do you really want there to be one less potato post in the world?")){
+    if (
+      window.confirm(
+        "Do you really want there to be one less potato post in the world?"
+      )
+    ) {
       deletePosts(postId).then(() => {
-        {getMyPosts()}})
+        {
+          getMyPosts()
+        }
+      })
     } else {
-      navigate(`/posts/myposts`)}
+      navigate(`/posts/myposts`)
+    }
   }
 
   return (
@@ -32,39 +41,57 @@ export const MyPosts = ({ token }) => {
         <div className="user-posts">
           {posts.map((post) => (
             <div key={post.id} className="single-my-post">
-               <img className="myposts__image" src={post?.image_url}/>
-               <section className="myposts__content">
-                  <span style={{ fontWeight: 'bold' }}>
-                  <section className="subscribe__postheader"><div>{post.title}</div><div>Published On: <HumanDate date={post.publication_date}/></div></section></span>
-                    <h2>Author: <Link to={`/users/${post.author.id}`}>{post?.author?.full_name}</Link></h2>
-                    <h3>Category: {post?.category?.label}</h3>
-                    <h3>Tags: {post.tags.map((tag) => tag.label).join(", ")}</h3>
-                    <section className="myposts__postbody"><p>{post.content}</p></section>
-                  <div className="buttons">
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        deleteWindow(post.id)
-                      }}
-                    >DELETE
-                    </button>
-                      <button
-                        onClick={() => {
-                          navigate(`/posts/editpost/${post.id}`);
-                        }}
-                      >
-                        EDIT
-                      </button>
-                      <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
-            VIEW COMMENTS
-          </button>
-        <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
-                  </div>
+              <section className="myposts__content">
+                <span style={{ fontWeight: "bold" }}>
+                  <section className="subscribe__postheader">
+                    <div>{post.title}</div>
+                    <div>
+                      Published On: <HumanDate date={post.publication_date} />
+                    </div>
+                  </section>
+                </span>
+                <h2>
+                  Author:{" "}
+                  <Link to={`/users/${post.author.id}`}>
+                    {post?.author?.full_name}
+                  </Link>
+                </h2>
+                <h3>{post?.category?.label}</h3>
+                <h3>{post?.tag?.label}</h3>
+                <img className="myposts__image" src={post?.image_url} />
+                <section className="myposts__postbody">
+                  <p>{post.content}</p>
                 </section>
+                <div className="buttons__footer">
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                      deleteWindow(post.id)
+                    }}
+                  >
+                    DELETE
+                  </button>
+                  <button
+                    onClick={() => {
+                      navigate(`/posts/editpost/${post.id}`)
+                    }}
+                  >
+                    EDIT
+                  </button>
+                  <button
+                    onClick={() => navigate(`/posts/${post.id}/comments`)}
+                  >
+                    VIEW COMMENTS
+                  </button>
+                  <button onClick={() => navigate(`/posts/${post.id}/comment`)}>
+                    ADD COMMENT
+                  </button>
+                </div>
+              </section>
             </div>
-      ))}
-    </div>
-    </section>
+          ))}
+        </div>
+      </section>
     </article>
-  );
-};
+  )
+}
