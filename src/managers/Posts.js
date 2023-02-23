@@ -41,17 +41,18 @@ export const deletePosts = (id) => {
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "DELETE",
     headers: {
-      Authorization: `Token ${localStorage.getItem("rare_token")}`,
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
     },
   })
 }
 
 
-export const editPost = (id, postBody) => {
+export const updatePost = (id, postBody) => {
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
     },
     body: JSON.stringify(postBody),
   });
@@ -79,5 +80,12 @@ export const getSearchedPosts = (searchTerm) => {
   
 }
 
-
+export const getPostByCat = (id) => {
+  return fetch(`http://localhost:8000/posts?category=${id}`, 
+  {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
+    }
+  }).then((res) => res.json())
+}
 
