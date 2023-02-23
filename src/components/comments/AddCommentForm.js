@@ -17,7 +17,7 @@ export const AddCommentForm = ({ token }) => {
     }
 
     const handleClick = () => {
-        createNewComment(comment).then(() => navigate(`/posts/${postId}`))
+        createNewComment(comment).then(() => navigate(`/posts/${postId}/comments`))
     }
     return (
         <form className="addNewTagForm">
