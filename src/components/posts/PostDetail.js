@@ -52,9 +52,14 @@ export const PostDetail = ({ token }) => {
           <button onClick={() => navigate(`/posts/${postId}/comments`)}>
             VIEW COMMENTS
           </button>
-        </div>
-      ) : (
-        ""
+        <button onClick={() => navigate(`/posts/${postId}/comment`)}>ADD COMMENT</button>
+          </div>
+              ) : (<>
+        <button onClick={() => navigate(`/posts/${postId}/comments`)}>
+            VIEW COMMENTS
+          </button>
+        <button onClick={() => navigate(`/posts/${postId}/comment`)}>ADD COMMENT</button>
+        </>
       )}
       </section>
     </div>

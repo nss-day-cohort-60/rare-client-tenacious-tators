@@ -56,6 +56,10 @@ export const MyPosts = ({ token }) => {
                       >
                         EDIT
                       </button>
+                      <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
+            VIEW COMMENTS
+          </button>
+        <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
                   </div>
                 </section>
             </div>
