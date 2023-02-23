@@ -53,7 +53,7 @@ export const updatePost = (id, postBody) => {
       "Content-Type": "application/json",
       "Authorization": `Token ${localStorage.getItem("rare_token")}`
     },
-    body: JSON.stringify(post),
+    body: JSON.stringify(postBody),
   });
 };
 

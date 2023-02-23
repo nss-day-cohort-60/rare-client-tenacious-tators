@@ -4,7 +4,6 @@ import { getCategories } from "../../managers/categories";
 import { updatePost, getSinglePost } from "../../managers/Posts"
 import { getTags } from "../../managers/tags"
 
-
 export const EditPost = ({ token }) => {
   const [categories, setCategories] = useState([]);
   const [tags, setTags] = useState([]);
@@ -56,26 +55,11 @@ export const EditPost = ({ token }) => {
     setCurrentPost(copy);
   }
 
-  // const publishNewArticle = () => {
-  //   editPost(updatePost, postId).then(() => navigate("/posts"));
-  // };
-
-  const tagArray = (postTagId) => {
-    let copy = new Set(postTags)
-    copy.has(postTagId) ?
-    copy.delete(postTagId)
-      : copy.add(postTagId)
-
-    setNewPostTags(copy)
-  }
-
-
   return (
     <form className="addNewPostForm">
       <h2>Edit Post</h2>
       <fieldset>
         <div className="form-group">
-          <label>Title: </label>
           <input
             type="text"
             name="title"
@@ -83,27 +67,27 @@ export const EditPost = ({ token }) => {
             autoFocus
             defaultValue={currentPost.title}
             className="form-control"
+            placeholder="Title"
             onChange={handleNewPostInfo}
           />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>Image URL: </label>
           <input
             type="text"
-            name="image_url"
+            name="imageUrl"
             required
             defaultValue={currentPost.image_url}
             autoFocus
             className="form-control"
+            placeholder="ImageURL"
             onChange={handleNewPostInfo}
           />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>Content: </label>
           <textarea
             type="textbox"
             rows="5"
@@ -113,15 +97,15 @@ export const EditPost = ({ token }) => {
             defaultValue={currentPost.content}
             autoFocus
             className="form-control"
+            placeholder="Article Content"
             onChange={handleNewPostInfo}
           />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>Category: </label>
           <select
-            name="category"
+            name="categoryId"
             className="form-control"
             value={currentPost.categoryId}
             onChange={(event) => {
@@ -179,6 +163,3 @@ export const EditPost = ({ token }) => {
     </form>
   );
 };
-
-
-
