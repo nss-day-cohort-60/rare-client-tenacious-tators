@@ -41,13 +41,17 @@ export const deletePosts = (id) => {
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "DELETE",
     headers: {
-      Authorization: `Token ${localStorage.getItem("rare_token")}`,
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
     },
   })
 }
 
 
+<<<<<<< HEAD
 export const editPost = (post, id) => {
+=======
+export const updatePost = (id, postBody) => {
+>>>>>>> main
   return fetch(`http://localhost:8000/posts/${id}`, {
     method: "PUT",
     headers: {

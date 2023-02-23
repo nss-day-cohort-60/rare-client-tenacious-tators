@@ -1,45 +1,60 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategories } from "../../managers/categories";
+import { updatePost, getSinglePost } from "../../managers/Posts"
 import { getTags } from "../../managers/tags"
-import { getPostTags } from "../../managers/posttags";
-import { editPost, getSinglePost } from "../../managers/Posts";
+
 
 export const EditPost = ({ token }) => {
   const [categories, setCategories] = useState([]);
-  const [tags, setTags] = useState([])
-  const [postTags, setPostTags] = useState(new Set())
+  const [tags, setTags] = useState([]);
   const { postId } = useParams();
   const navigate = useNavigate();
-  const [updatePost, postToUpdate] = useState({
+  const [postTags, setPostTags] = useState(new Set())
+  const [currentPost, setCurrentPost] = useState({
+    categoryId: 0,
     title: "",
     image_url: "",
     content: "",
-    user: 0,
-    category_id: {},
-    category: 0,
-    tag_id: 0
+    user_id: parseInt(token),
+    tags: [],
+    approved: 0
   });
 
+  const tagArr = (tagId) => {
+    let copy = new Set(postTags)
+    copy.has(tagId) ? copy.delete(tagId) : copy.add(tagId)
+    setPostTags(copy)
+}
+
   useEffect(() => {
+      getSinglePost(postId).then((data) => {
+          setCurrentPost(data)
+
+          const tagSet = new Set()
+          for (const tag of data.tags) {
+              tagSet.add(tag.id)
+          }
+          setPostTags(tagSet)
+      })
+  }, [postId])
+
+  useEffect(() => {
+    getCategories().then((data) => setCategories(data))
     getSinglePost(postId).then((data) => {
       data.categoryId = data.category.id
-      postToUpdate(data)
-    })
-
-  }, [postId]);
+      setCurrentPost(data)
+  })}, [postId])
 
   useEffect(() => {
-    getTags().then(tagArray => setTags(tagArray))
-    getCategories().then((categoryData) => setCategories(categoryData));
-    getPostTags().then((postTagData) => setPostTags(postTagData))
-  }, [])
+    getTags().then(data => setTags(data))
+}, [])
 
   const handleNewPostInfo = (event) => {
-    const copy = { ...updatePost }
-    copy[event.target.name] = event.target.value
-    postToUpdate(copy)
-  };
+    const copy = {...currentPost}
+    copy[event.target.name] = event.target.value;
+    setCurrentPost(copy);
+  }
 
   // const publishNewArticle = () => {
   //   editPost(updatePost, postId).then(() => navigate("/posts"));
@@ -66,7 +81,7 @@ export const EditPost = ({ token }) => {
             name="title"
             required
             autoFocus
-            defaultValue={updatePost.title}
+            defaultValue={currentPost.title}
             className="form-control"
             onChange={handleNewPostInfo}
           />
@@ -79,7 +94,7 @@ export const EditPost = ({ token }) => {
             type="text"
             name="image_url"
             required
-            value={updatePost.image_url}
+            defaultValue={currentPost.image_url}
             autoFocus
             className="form-control"
             onChange={handleNewPostInfo}
@@ -95,7 +110,7 @@ export const EditPost = ({ token }) => {
             cols="30"
             name="content"
             required
-            defaultValue={updatePost.content}
+            defaultValue={currentPost.content}
             autoFocus
             className="form-control"
             onChange={handleNewPostInfo}
@@ -108,16 +123,14 @@ export const EditPost = ({ token }) => {
           <select
             name="category"
             className="form-control"
-            value={updatePost.category.id}
+            value={currentPost.categoryId}
             onChange={(event) => {
-              const copy = { ...updatePost };
-              copy.category.id = parseInt(event.target.value);
-              postToUpdate(copy);
+              const copy = { ...currentPost };
+              copy.categoryId = parseInt(event.target.value);
+              setCurrentPost(copy);
             }}
           >
-            {/* <option defaultValue={updatePost.category_id}>
-              {updatePost?.category?.label}
-            </option> */}
+            
             {categories.map((category) => (
               <option key={`category--${category.id}`} value={category.id}>
                 {category.label}
@@ -127,59 +140,45 @@ export const EditPost = ({ token }) => {
         </div>
       </fieldset>
       <fieldset>
-        <div className="form-group tagGroup">
-          {tags.map(tag => (
-            <div className="tags">
-              <input
-                name="tagId"
-                type="checkbox"
-                required
-                className="form-control"
-                checked={updatePost.tags}
-                value={tag.id}
-                onChange={(event) => {
-                  if (event.target.checked) {
-                    let copy = [...postTags]
-                    copy.push(parseInt(event.target.name))
-                    setPostTags(copy)
-                  } else {
-                    let copy = [...postTags]
-                    let index = copy.indexOf(parseInt(event.target.name))
-                    copy.splice(index)
-                    setPostTags(copy)
-                  }
-                }}
-              />
-              <label className="tagLabel">
-                <option
-                  key={`tag--${tag.id}`}
-                  value={tag.id}
-                >
-                  {tag.label}
-                </option>
-              </label>
-            </div>
-          ))}
-        </div>
-      </fieldset>
+      <div className="field">
+        <label htmlFor="content" className="label">Tags: </label>
+        {
+          tags.map(tag => {
+              const foundTag = currentPost.tags.find(postTag => tag.id === postTag.id)
+
+              return <div key={`tag--${tag.id}`}>
+                  <input type="checkbox" name={tag.label}
+                      defaultChecked={foundTag}
+                      onClick={() => tagArr(tag.id) } />
+                  <label htmlFor={tag.label}>{tag?.label}</label><br />
+              </div>
+          })
+        }
+      </div>
+    </fieldset>
+      
       <button
         type="publish"
-        onClick={(evt) => {
-          evt.preventDefault();
-
-          const postToUpdate = {
-            category_id: updatePost.categoryId,
-            title: updatePost.title,
-            image_url: updatePost.image_url,
-            content: updatePost.content,
-            tag_id: updatePost.tags
+        onClick={evt => {
+          evt.preventDefault()
+          
+          const updatedPost = {
+            category: currentPost.categoryId,
+            title: currentPost.title,
+            image_url: currentPost.image_url,
+            content: currentPost.content,
+            user_id: parseInt(token),
+            tags: Array.from(postTags),
+            approved: 1
           }
-          editPost(postToUpdate, postId).then(() => navigate("/posts"));
+
+          updatePost(postId, updatedPost)
+            .then(() => navigate("/posts/myposts"))
         }}
-        className="publishButton"
-      >
-        Publish
-      </button>
+        className="publishButton">Publish</button>
     </form>
   );
 };
+
+
+
