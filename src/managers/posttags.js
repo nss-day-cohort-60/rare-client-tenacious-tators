@@ -1,5 +1,9 @@
 export const getPostTags = () => {
-    return fetch("http://localhost:8000/posttags")
+    return fetch("http://localhost:8000/posttags"), {
+      headers: {
+        Authorization: `Token ${localStorage.getItem("rare_token")}`,
+      },
+    }
         .then(res => res.json())
 }
 
