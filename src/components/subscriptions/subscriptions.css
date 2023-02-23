@@ -55,3 +55,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+.subscribe__image {
+  height: 500px;
+  width: 900px;
+  margin-left: 100px;
+}

@@ -25,7 +25,6 @@ export const SubscriptionList = ({ token }) => {
             <>
               {posts.map((post) => (
                 <div className="subscribe__posts">
-                  <img className="subscribe__image" src={post?.image_url} />
                   <section className="subscribe__content">
                     <span style={{ fontWeight: "bold" }}>
                       <section className="subscribe__postheader">
@@ -37,17 +36,17 @@ export const SubscriptionList = ({ token }) => {
                       </section>
                     </span>
                     <h3>{post?.category?.label}</h3>
+                    <img className="subscribe__image" src={post?.image_url} />
                     <section className="subscribe__postbody">
                       <p>{post.content}</p>
                     </section>
-                    <section className="footer">
+                    <section className="subscribe__footer">
                       <h3>
                         Author:{" "}
                         <Link to={`/users/${post.author.id}`}>
                           {post?.author?.full_name}
                         </Link>
                       </h3>
-                      <p>REACTION HERE</p>
                     </section>
                   </section>
                 </div>
