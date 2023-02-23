@@ -16,9 +16,7 @@ export const Tag = ({ tag, setterFunction }) => {
     return(
         <article className="tags__individual">
             <div>
-                <Link to={`/tags/${tag.id}`}>
-                    <h3>{tag.label}</h3>
-                </Link>
+                <h3>{tag.label}</h3>
                 <button className="editButton"
                     onClick={() => {
                         navigate({ pathname: `edit/${tag.id}` })

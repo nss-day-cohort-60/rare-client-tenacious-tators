@@ -79,5 +79,12 @@ export const getSearchedPosts = (searchTerm) => {
   
 }
 
-
+export const getPostByCat = (id) => {
+  return fetch(`http://localhost:8000/posts?category=${id}`, 
+  {
+    headers: {
+      "Authorization": `Token ${localStorage.getItem("rare_token")}`
+    }
+  }).then((res) => res.json())
+}
 
