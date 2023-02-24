@@ -146,15 +146,14 @@
 }
 
 .myposts__image {
-  height: 500px;
-  width: 900px;
+  height: auto;
+  max-width: 75%;
   margin-left: 100px;
 }
 .myposts__postbody {
   padding: 1rem;
   margin: 1rem;
 }
-
 
 .myposts__footer {
   display: flex;
