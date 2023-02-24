@@ -47,12 +47,14 @@ export const CategoryPosts = ({ token }) => {
                           {post?.author?.full_name}
                         </Link>
                       </h3>
+                      <section className="myposts__footer">
                 <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
                       VIEW COMMENTS
                     </button>
                     <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
                 <section>
                       <PostReactions postId={post.id} />
+                    </section>
                     </section>
                     </section>
                   </section>
