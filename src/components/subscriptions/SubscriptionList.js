@@ -4,6 +4,7 @@ import "./subscriptions.css"
 import "../posts/Posts.css"
 import { Link, useNavigate } from "react-router-dom"
 import { HumanDate } from "../utils/HumanDate"
+import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
   const [posts, setPosts] = useState([])
@@ -47,6 +48,7 @@ export const SubscriptionList = ({ token }) => {
                           {post?.author?.full_name}
                         </Link>
                       </h3>
+                      <section className="myposts__footer">
                       <button
                         onClick={() => navigate(`/posts/${post.id}/comments`)}
                       >
@@ -57,18 +59,24 @@ export const SubscriptionList = ({ token }) => {
                       >
                         ADD COMMENT
                       </button>
+                      <section>
+                        <PostReactions postId={post.id} />
+                      </section>
+                      </section>
                     </section>
                   </section>
                 </div>
-              ))}
-            </>
-          ) : (
-            <div className="subscribe__text">
-              Subscribe to authors to curate your personal homepage!
-            </div>
-          )}
-        </section>
+              )
+              )}
+              </>)
+        : (<>
+          <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+          </>
+        
+      )}
+      </section>
       </article>
     </>
   )
-}
+        }
+  

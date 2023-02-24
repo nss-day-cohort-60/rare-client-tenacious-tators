@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
-import { useParams, useNavigate, Link } from "react-router-dom"
-import { getSinglePost } from "../../managers/Posts"
-import { deletePosts } from "../../managers/Posts"
-import { HumanDate } from "../utils/HumanDate"
-import "./Posts.css"
+import { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { getSinglePost } from "../../managers/Posts";
+import { deletePosts } from "../../managers/Posts";
+import { PostReactions } from "../reactions/PostReactions";
+import { HumanDate } from "../utils/HumanDate";
+import "./Posts.css";
 
 export const PostDetail = ({ token }) => {
   const [post, setPost] = useState({})
@@ -44,6 +45,7 @@ export const PostDetail = ({ token }) => {
           <section className="myposts__postbody">
             <p>{post.content}</p>
           </section>
+      <section className="myposts__footer">
           {post.writer ? (
             <div className="buttons">
               <button
@@ -58,6 +60,7 @@ export const PostDetail = ({ token }) => {
                 onClick={() => {
                   navigate(`/posts/editpost/${post.id}`)
                 }}
+            
               >
                 EDIT
               </button>
@@ -78,6 +81,11 @@ export const PostDetail = ({ token }) => {
               </button>
             </>
           )}
+      
+      <section>
+        <PostReactions postId={postId}/>
+      </section>
+      </section>
         </section>
       </div>
     </article>
