@@ -3,16 +3,15 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { getSinglePost } from "../../managers/Posts";
 import { deletePosts } from "../../managers/Posts";
 import { PostReactions } from "../reactions/PostReactions";
-import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
 import { getUsers } from "../../managers/users";
-import { User } from "../users/User";
+
 
 export const PostDetail = ({ token }) => {
   const [post, setPost] = useState({})
   const { postId } = useParams()
   const [users, setUsers] = useState([])
-  // const { userId } = useParams()
+
 
   useEffect(() => {
     getUsers().then((usersData) => setUsers(usersData))
@@ -100,5 +99,3 @@ export const PostDetail = ({ token }) => {
     </article>
   )
 }
-
-//click on user name, it should be routed to user detail
