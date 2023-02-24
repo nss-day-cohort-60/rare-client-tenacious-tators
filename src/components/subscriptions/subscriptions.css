@@ -1,3 +1,7 @@
+.relative { 
+  position: relative;
+}
+
 .subscribe__container {
   width: 80vw;
   display: flex;
@@ -6,6 +10,13 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  
+}
+
+.subscribe__content { 
+  padding: 75px; 
+  border: 1px solid #fffff;
+  border-style: none none solid none; 
 }
 
 .subscribe {
@@ -17,6 +28,7 @@
 
 .subscribe__text {
   font-size: 2.5rem;
+  font-family: Manuka
 }
 
 .subscribe__posts {
@@ -28,13 +40,13 @@
   width: 100%;
   padding: 50px;
   margin: 20px;
-  border: 1px solid black;
   border-radius: 3px;
+
 }
 
 .subscribe__image {
   width: 100%;
-  padding: 30px; 
+  padding: 30px;
 }
 
 .subscribe__postheader {
@@ -42,6 +54,7 @@
   flex-direction: nowrap;
   font-weight: bolder;
   justify-content: space-between;
+  color: #ffffff;
 }
 
 .subscribe__postbody {
@@ -49,10 +62,14 @@
   margin: 1rem;
 }
 
+.postTitle { 
+  font-size: 25px; 
+}
+
 .addPostButton {
   align-self: flex-end;
   width: max-content;
-  border-radius: 3px; 
+  border-radius: 3px;
 }
 
 .footer {
@@ -60,4 +77,12 @@
   justify-content: space-between;
 }
 
+.authorName,
+Link {
+  color: #3cffd0
+}
 
+.addCommentsButton,
+.viewCommentsButton {
+  background-color: #131313; 
+}

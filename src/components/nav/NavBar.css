@@ -1,4 +1,15 @@
-.navbar-item, .navbar-menu img {
+.navbar-menu img {
    max-height: 3rem;
+
+}
+
+.navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
+   background-color: black;
+   color: #ffffff; 
+   
+}
+
+.rareHeader { 
+   font-size: 25px; 
 }
 

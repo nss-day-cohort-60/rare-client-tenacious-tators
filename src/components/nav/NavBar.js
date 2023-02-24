@@ -34,7 +34,7 @@ export const NavBar = ({ token, setToken }) => {
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
           <img src={Logo} height="3rem" alt="Rare Logo" />{" "}
-          <h1 className="title is-4">Rare Publishing</h1>
+          <h1 class="title is-3" className="rareHeader">Rare Publishing</h1>
         </a>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
@@ -59,8 +59,8 @@ export const NavBar = ({ token, setToken }) => {
             token ? (
               <>
                 <Link to="/posts" className="navbar-item">
-                  Posts
-                </Link>
+                  Posts          
+                </Link> 
                 <Link to="posts/myposts" className="navbar-item">
                   My Posts
                 </Link>

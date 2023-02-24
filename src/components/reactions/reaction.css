@@ -3,7 +3,7 @@
     object-fit: cover;
     padding: 3px;
     border: none;
-    background-color: white;
+    background-color: black;
   }
 
   .reaction__icon:hover {

@@ -25,45 +25,45 @@ export const SubscriptionList = ({ token }) => {
           {posts.length ? (
             <>
               {posts.map((post) => (
-                <div className="subscribe__posts">
-                  <section className="subscribe__content">
-                    <span style={{ fontWeight: "bold" }}>
-                      <section className="subscribe__postheader">
-                        <div class="title is-2">{post.title}</div>
-                        <div>
-                          Published On:{" "}
-                          <HumanDate date={post.publication_date} />
-                        </div>
-                      </section>
-                    </span>
-                    <h3>{post?.category?.label}</h3>
-                    <img className="subscribe__image" src={post?.image_url} />
-                    <section className="subscribe__postbody">
-                      <p>{post.content}</p>
-                    </section>
-                    <section>
-                      <h3>
-                        Author:{" "}
-                        <Link to={`/users/${post.author.id}`}>
-                          {post?.author?.full_name}
-                        </Link>
-                      </h3>
-                      <section className="myposts__footer">
-                        <div className="buttonContainer">
-                          <button class="button is-small"
-                            onClick={() => navigate(`/posts/${post.id}/comments`)}
-                          >
-                            VIEW COMMENTS
-                          </button>
-                          <button class="button is-small"
-                            onClick={() => navigate(`/posts/${post.id}/comment`)}
-                          >
-                            ADD COMMENT
-                          </button>
-                        </div>
-                        <section>
-                          <PostReactions postId={post.id} />
+                  <div className="subscribe__posts">
+                    <section className="subscribe__content">
+                      <span style={{ fontWeight: "bold" }}>
+                        <section className="subscribe__postheader">
+                          <div className="postTitle">{post.title}</div>
+                          <div>
+                            Published On:{" "}
+                            <HumanDate date={post.publication_date} />
+                          </div>
                         </section>
+                      </span>
+                      <h3>{post?.category?.label}</h3>
+                      <img className="subscribe__image" src={post?.image_url} />
+                      <section className="subscribe__postbody">
+                        <p>{post.content}</p>
+                      </section>
+                      <section>
+                        <h3 className="authorName">
+                          Author:{" "}
+                          <Link className="authorName" to={`/users/${post.author.id}`}>
+                            {post?.author?.full_name}
+                          </Link>
+                        </h3>
+                        <section className="myposts__footer">
+                          <div className="buttonContainer">
+                            <button className="viewCommentsButton" class="button is-small"
+                              onClick={() => navigate(`/posts/${post.id}/comments`)}
+                            >
+                              View Comments
+                            </button>
+                            <button className="addCommentsButton" class="button is-small"
+                              onClick={() => navigate(`/posts/${post.id}/comment`)}
+                            >
+                              Add Comments
+                            </button>
+                          </div>
+                          <section>
+                            <PostReactions postId={post.id} />
+                          </section>
                       </section>
                     </section>
                   </section>
