@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-// import { Comment } from "./comments";
 import { getCommentsByPostId } from "../../managers/comments"
 import { Comment } from "./Comment"
 import "./comments.css"
