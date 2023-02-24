@@ -36,8 +36,8 @@
 
 .subscribe__postheader {
   display: flex;
+  flex-flow: column;
   flex-direction: nowrap;
-  font-weight: bolder;
   justify-content: space-between;
 }
 

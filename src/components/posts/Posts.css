@@ -7,8 +7,10 @@
 }
 
 .buttons {
-  padding: 3px;
-  margin: 5px;
+  padding: 3px 4px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: small;
 }
 
 .single-my-post {
@@ -30,6 +32,26 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.posts_title {
+  font-weight: bolder;
+  font-size: xx-large;
+  padding-bottom: 20px;
+  border-bottom: 1px silver solid;
+}
+
+.posts_author {
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.posts_date {
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 20px;
 }
 
 .posts__filters {
@@ -142,21 +164,21 @@
   width: 100%;
   padding: 1rem;
   margin: 1rem;
-  border: 1px dotted black;
 }
 
 .myposts__image {
   height: auto;
   max-width: 75%;
-  margin-left: 100px;
 }
+
 .myposts__postbody {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1rem 0;
+  margin: auto;
 }
 
 .myposts__footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-top: .5rem;
 }

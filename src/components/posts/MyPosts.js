@@ -44,27 +44,27 @@ export const MyPosts = ({ token }) => {
             <div key={post.id} className="single-my-post">
               <section className="myposts__content">
                 <span style={{ fontWeight: "bold" }}>
+                  <div className="myposts_category"><Link to={`/categories/${post.category.id}`}>{post?.category?.label}</Link></div>
                   <section className="subscribe__postheader">
-                    <div>{post.title}</div>
-                    <div>
-                      Published On: <HumanDate date={post.publication_date} />
-                    </div>
-                  </section>
-                </span>
-                <h2>
+                    <div className="posts_title">{post.title}</div>
+                    <div className="posts_author">
                   Author:{" "}
                   <Link to={`/users/${post.author.id}`}>
                     {post?.author?.full_name}
                   </Link>
-                </h2>
-                <h3>{post?.category?.label}</h3>
+                  </div>
+                    <div className="posts_date">
+                      <HumanDate date={post.publication_date} /> | <Link to={`/posts/${post.id}/comments`}>💬 Comments</Link>
+                    </div>
+                  </section>
+                </span>
                 <h3>{post?.tag?.label}</h3>
                 <img className="myposts__image" src={post?.image_url} />
                 <section className="myposts__postbody">
                   <p>{post.content}</p>
                 </section>
                 <div className="myposts__footer">
-                  <button
+                  <button className="buttons"
                     onClick={(e) => {
                       e.preventDefault()
                       deleteWindow(post.id)
@@ -72,23 +72,23 @@ export const MyPosts = ({ token }) => {
                   >
                     DELETE
                   </button>
-                  <button
+                  <button className="buttons"
                     onClick={() => {
                       navigate(`/posts/editpost/${post.id}`)
                     }}
                   >
                     EDIT
                   </button>
-                  <button
+                  <button className="buttons"
                     onClick={() => navigate(`/posts/${post.id}/comments`)}
                   >
                     VIEW COMMENTS
                   </button>
-                  <button onClick={() => navigate(`/posts/${post.id}/comment`)}>
+                  <button className="buttons" onClick={() => navigate(`/posts/${post.id}/comment`)}>
                     ADD COMMENT
                   </button>
                 <section>
-        <PostReactions postId={post.id}/>
+        <PostReactions className="buttons" postId={post.id}/>
       </section>
                 </div>
               </section>
