@@ -4,25 +4,25 @@ import "./subscriptions.css"
 import "../posts/Posts.css"
 import { Link, useNavigate } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate";
-
+import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
-    const [posts, setPosts] = useState([]);
-    const tokenInt = parseInt(token);
-    const navigate = useNavigate()
+  const [posts, setPosts] = useState([]);
+  const tokenInt = parseInt(token);
+  const navigate = useNavigate()
 
-    useEffect(() => {
-      getSubscribedPosts(tokenInt).then((postData) => setPosts(postData));
-    }, []);
+  useEffect(() => {
+    getSubscribedPosts(tokenInt).then((postData) => setPosts(postData));
+  }, []);
 
   return <><article className="subscribe__container">
-  <section className="addPostButton">
+    <section className="addPostButton">
       New Post <button onClick={() => navigate("posts/newpost")}>+</button>
-  </section>
-  <section className="subscribe">
-    { 
-      (posts.length) 
-        ? <>
+    </section>
+    <section className="subscribe">
+      {
+        (posts.length)
+          ? <>
             {posts.map((post) => (
               <div className="subscribe__posts">
                 <img className="subscribe__image" src={post?.image_url} />
@@ -38,15 +38,18 @@ export const SubscriptionList = ({ token }) => {
                       VIEW COMMENTS
                     </button>
                     <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
+                    <section>
+                      <PostReactions postId={post.id} />
+                    </section>
                   </section>
                 </section>
               </div>
-              )
+            )
             )}
-            </>
-        : <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
-    }
-   </section> 
-   </article>
-   </>
-  }
+          </>
+          : <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+      }
+    </section>
+  </article>
+  </>
+}

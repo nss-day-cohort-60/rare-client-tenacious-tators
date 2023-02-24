@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
+import { PostReactions } from "../reactions/PostReactions";
 import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
 
@@ -61,6 +62,9 @@ export const MyPosts = ({ token }) => {
           </button>
         <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
                   </div>
+                <section>
+        <PostReactions postId={post.id}/>
+      </section>
                 </section>
             </div>
       ))}

@@ -4,6 +4,7 @@ import { getPostByCat } from "../../managers/Posts";
 // import "../posts/Posts.css"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate";
+import { PostReactions } from "../reactions/PostReactions";
 
 
 export const CategoryPosts = ({ token }) => {
@@ -34,6 +35,13 @@ export const CategoryPosts = ({ token }) => {
                 <section><h3>Author: <Link to={`/users/${post.author.id}`}>
                     {post?.author?.full_name}
                 </Link></h3>
+                <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
+                      VIEW COMMENTS
+                    </button>
+                    <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
+                <section>
+                      <PostReactions postId={post.id} />
+                    </section>
                 </section>
                 </section>
                 </div>

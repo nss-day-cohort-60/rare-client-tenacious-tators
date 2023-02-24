@@ -156,3 +156,9 @@
   padding: 1rem;
   margin: 1rem
 }
+
+.myposts__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
