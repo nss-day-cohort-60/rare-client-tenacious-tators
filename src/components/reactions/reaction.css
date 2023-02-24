@@ -1,0 +1,22 @@
+.reaction__icon {
+    width: 25px;
+    object-fit: cover;
+    padding: 3px;
+    border: none;
+    background-color: white;
+  }
+
+  .reaction__icon:hover {
+    width: 30px;
+    object-fit: cover;
+    padding: 1px
+  }
+
+.reaction__array {
+    display: flex;
+    flex-direction: row;
+}
+
+.reaction__count {
+    font-size: 9px
+}

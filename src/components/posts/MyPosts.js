@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
-import { deletePosts, getCurrentUserPosts } from "../../managers/Posts"
-import { HumanDate } from "../utils/HumanDate"
-import "./Posts.css"
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { deletePosts, getCurrentUserPosts } from "../../managers/Posts";
+import { PostReactions } from "../reactions/PostReactions";
+import { HumanDate } from "../utils/HumanDate";
+import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
   const [posts, setPosts] = useState([])
@@ -62,7 +63,7 @@ export const MyPosts = ({ token }) => {
                 <section className="myposts__postbody">
                   <p>{post.content}</p>
                 </section>
-                <div className="buttons__footer">
+                <div className="myposts__footer">
                   <button
                     onClick={(e) => {
                       e.preventDefault()
@@ -86,6 +87,9 @@ export const MyPosts = ({ token }) => {
                   <button onClick={() => navigate(`/posts/${post.id}/comment`)}>
                     ADD COMMENT
                   </button>
+                <section>
+        <PostReactions postId={post.id}/>
+      </section>
                 </div>
               </section>
             </div>

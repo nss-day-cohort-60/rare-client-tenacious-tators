@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom'
 
 export const Comment = ({ comment, token }) => {
@@ -28,3 +29,11 @@ export const Comment = ({ comment, token }) => {
 //   } else {
 //     navigate(`/posts/${post.id}`)}
 // }
+=======
+export const Comment = ({ comment }) => (
+  <section className="comments__card">
+    <h3>"{comment?.content}"</h3>
+    <div className="comment__author">-{comment?.author?.full_name}</div>
+  </section>
+);
+>>>>>>> 3864fdb3ecb487ccd00bbdfb3c7729331d2a423f
