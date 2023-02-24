@@ -45,7 +45,7 @@ export const MyPosts = ({ token }) => {
               <section className="myposts__content">
                 <span style={{ fontWeight: "bold" }}>
                   <section className="subscribe__postheader">
-                    <div class="title is-2" className="postHeader">{post.title}</div>
+                    <div class="title is-3" className="postHeader">{post.title}</div>
                     <div>
                       Published On: <HumanDate date={post.publication_date} />
                     </div>
@@ -53,7 +53,7 @@ export const MyPosts = ({ token }) => {
                 </span>
                 <h2>
                   Author:{" "}
-                  <Link to={`/users/${post.author.id}`}>
+                  <Link to={`/users/${post?.author?.id}`}>
                     {post?.author?.full_name}
                   </Link>
                 </h2>

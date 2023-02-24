@@ -56,7 +56,12 @@
 }
 
 .addNewPostForm {
-  margin-left: 20px;
+  margin: 50px; 
+  padding: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  align-content: center; 
 }
 
 .tags {
@@ -151,13 +156,21 @@
 }
 
 .myposts__image {
-  width: 100%;
-  padding: 30px; 
+  height: auto;
+  max-width: 75%;
+  margin-left: 100px;
+  padding: 20px; 
 }
 
 .myposts__postbody {
   padding: 1rem;
   margin: 1rem;
+}
+
+.publishButton { 
+  width: 10%;
+  padding: 5px; 
+  margin: 20px; 
 }
 
 

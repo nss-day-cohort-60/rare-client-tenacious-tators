@@ -6,12 +6,12 @@ export const Category = ({ category, setterFunction }) => {
     const navigate = useNavigate()
 
     const deleteButton = (id) => {
-        return <button class="button is-small" onClick={() => {
+        return <button onClick={() => {
             deleteCategory(id)
                 .then(() => {
                     getCategories().then((data) => setterFunction(data))
                 })
-        }} className="deleteButton">Delete</button>
+        }} class="button is-small" className="deleteButton">Delete</button>
     }
 
     return (
@@ -25,6 +25,7 @@ export const Category = ({ category, setterFunction }) => {
                         onClick={() => {
                             navigate({ pathname: `edit/${category.id}` })
                         }}>Edit</button>
+
                     {deleteButton(category.id)}
                 </div>
             </div>

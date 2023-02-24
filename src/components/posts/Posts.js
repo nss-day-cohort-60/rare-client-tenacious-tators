@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { HumanDate } from "../utils/HumanDate"
 
-export const Posts = ({ posts, token, posttags }) => {
+export const Posts = ({ posts, token }) => {
   const navigate = useNavigate()
 
   return (
@@ -16,9 +16,9 @@ export const Posts = ({ posts, token, posttags }) => {
       ) : null}
       <div>{""}</div>
       <td style={{ width: "200px" }}>
-        <Link to={`/posts/${posts?.id}`}>{posts?.title}</Link>
+          <Link to={`/posts/${posts?.id}`}>{posts?.title}</Link>
       </td>
-      <td>{posts.author.full_name}</td>
+      <td>{posts?.author?.full_name}</td>
       <td>
         <HumanDate date={posts.publication_date} />
       </td>

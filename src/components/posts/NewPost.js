@@ -69,7 +69,7 @@ export const NewPost = ({ token }) => {
 
     return (
         <form className="addNewPostForm">
-            <h2>New Post</h2>
+            <h2 class="title is-3">New Post</h2>
             <fieldset>
                 <div className="form-group">
                     <input
@@ -156,7 +156,7 @@ export const NewPost = ({ token }) => {
 
                 </div>
             </fieldset>
-            <button type="publish"
+            <button type="publish" class="button is-small"
                 onClick={evt => {
                     evt.preventDefault()
                     publishNewArticle()

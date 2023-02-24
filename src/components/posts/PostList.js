@@ -62,7 +62,6 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
         onKeyUp={handleKeypress}></input>
         <button type="submit"
             onClick={handleSubmit}
-
             >Go</button>
         <button
           onClick={() =>

@@ -7,8 +7,9 @@ import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
 
 export const PostDetail = ({ token }) => {
-  const [post, setPost] = useState({})
-  const { postId } = useParams()
+  const [post, setPost] = useState({
+  })
+  const { postId, userId } = useParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -33,11 +34,11 @@ export const PostDetail = ({ token }) => {
         <section className="myposts__content">
           <span style={{ fontWeight: "bold" }}>
             <section className="subscribe__postheader">
-              <div>{post.title}</div>
+              <div class="title is-3">{post.title}</div>
               <div>Published On: {post?.publication_date}</div>
             </section>
           </span>
-          <Link to={`/users/${post.author_id}`}>
+          <Link to={`/users/${post.author.id}`}>
             <h2>{post?.author?.full_name}</h2>
           </Link>
           <h3>{post?.category?.label}</h3>
