@@ -4,7 +4,6 @@ import { getTagById, updateTag } from '../../managers/tags.js'
 
 export const EditTag = () => {
     const navigate = useNavigate()
-    // const [tag, setTag] = useState([])
     const { tagId } = useParams()
 
     const [currentTag, setCurrentTag] = useState({

@@ -4,7 +4,6 @@ import { getCategories } from "../../managers/categories";
 import { updatePost, getSinglePost } from "../../managers/Posts"
 import { getTags } from "../../managers/tags"
 
-
 export const EditPost = ({ token }) => {
   const [categories, setCategories] = useState([]);
   const [tags, setTags] = useState([]);
@@ -164,6 +163,3 @@ export const EditPost = ({ token }) => {
     </form>
   );
 };
-
-
-

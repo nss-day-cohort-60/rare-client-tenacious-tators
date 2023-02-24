@@ -1,39 +1,27 @@
-<<<<<<< HEAD
+
 import { useNavigate } from 'react-router-dom'
 
-export const Comment = ({ comment, token }) => {
+export const Comment = ({ comment }) => {
 
   const navigate = useNavigate()
 
   return (
-  <>
-  {parseInt(token) === comment.user_id ? (
+
     <section className="comments__card">
       <h3>"{comment?.content}"</h3>
       <div className="comment__author">-{comment?.author?.full_name}</div>
-      <button className="editButton"
-        onClick={() => {
-          navigate({ pathname: `${comment.id}/edit` })
-        }}>Edit</button>
-      <button className="deleteButton">Delete</button>
-    </section >
-    ): null}
-  </>
+      {comment.writer ?
+        <div className="buttons">
+          <button
+            onClick={() => {
+              navigate({ pathname: `${comment.id}/edit` });
+            }}
+          >
+            Edit
+          </button></div>
+        : ""
+
+      }
+    </section>
   )
-}
-
-
-// const deleteWindow = () => {
-//   if (window.confirm("Do you really want there to be one less potato post in the world?")){
-//     deletePosts(postId).then(() => navigate("/posts"))
-//   } else {
-//     navigate(`/posts/${post.id}`)}
-// }
-=======
-export const Comment = ({ comment }) => (
-  <section className="comments__card">
-    <h3>"{comment?.content}"</h3>
-    <div className="comment__author">-{comment?.author?.full_name}</div>
-  </section>
-);
->>>>>>> 3864fdb3ecb487ccd00bbdfb3c7729331d2a423f
+};
