@@ -1,17 +1,17 @@
 import { Link, useNavigate } from "react-router-dom"
 import "./Categories.css"
 import { getCategories, deleteCategory } from "../../managers/categories.js"
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
 export const Category = ({ category, setterFunction }) => {
     const navigate = useNavigate()
 
     const deleteButton = (id) => {
-        return <button onClick={() => {
+        return <FaTrashAlt onClick={() => {
             deleteCategory(id)
             .then(() => {
                 getCategories().then((data) => setterFunction(data))}) 
-        }} className="deleteButton">Delete</button>
-    }
+        }} />}    
 
     return(
         <article className="categories">
@@ -19,14 +19,12 @@ export const Category = ({ category, setterFunction }) => {
                 <Link to={`/categories/${category.id}`}>
                     <h3>{category.label}</h3>
                 </Link>
-                <button className="editButton"
+                <FaEdit
                     onClick={() => {
                         navigate({ pathname: `edit/${category.id}` })
-                        }}>Edit</button>
+                        }}/>
                 {deleteButton(category.id)}
             </div>
         </article>
     )
 }
-
-

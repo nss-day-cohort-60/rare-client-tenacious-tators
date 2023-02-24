@@ -13,20 +13,21 @@ export const TagList = ({ token }) => {
   }, [])
 
   return (
+    <>
+    <h1 className="tagHeader">Tags</h1>
     <section className="tagContainer">
       <section className="tagList">
-        <h1 className="tagHeader">Tags</h1>
         {tags.map((tag) => (
           <Tag key={tag.id} tag={tag}
           setterFunction={setTags} />
         ))}
       </section>
       <section className="tag__create">
-        <h1 className="">Create a New Tag</h1>
-        <button className="tag__button" onClick={() => navigate("create")}>
+        <button className="button is-rounded" onClick={() => navigate("create")}>
           +Add Tag
         </button>
       </section>
     </section>
+    </>
   )
 }

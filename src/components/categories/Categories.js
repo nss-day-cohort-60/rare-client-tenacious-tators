@@ -13,19 +13,20 @@ export const Categories = ({ token }) => {
   }, [])
 
   return (
+    <>
+    <h1 className="categoryHeader">Categories</h1>
     <section className="category">
       <section className="categoryList">
-        <h1 className="categoryHeader">Categories</h1>
         {categories.map((category) => (
           <Category category={category} key={category.id} setterFunction={setCategories} />
         ))}
       </section>
       <section className="category__create">
-        <h1 className="">Create a New Category</h1>
-        <button className="category__button" onClick={() => navigate("create")}>
+        <button className="button is-rounded" onClick={() => navigate("create")}>
           +Add Category
         </button>
       </section>
     </section>
+    </>
   )
 }
