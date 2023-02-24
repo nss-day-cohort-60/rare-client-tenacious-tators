@@ -1,21 +1,19 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateComment, getCommentsByPostId } from '../../managers/comments.js'
+import { updateComment, getCommentsById } from '../../managers/comments.js'
 
-export const EditComment = ({ token }) => {
+export const EditComment = ({token}) => {
 
     const { commentId, postId } = useParams()
     const navigate = useNavigate()
 
     const [currentComment, setCurrentComment] = useState({
         post: postId,
-        user_id: parseInt(token),
         content: ""
     })
 
     useEffect(() => {
-        getCommentsByPostId(commentId).then((data) => {
-            data.commentId = data.id
+        getCommentsById(commentId).then((data) => {
             setCurrentComment(data)
         })
     }, [commentId])
@@ -34,10 +32,10 @@ export const EditComment = ({ token }) => {
                 <fieldset>
                     <div className="form-group">
                         <textarea
-                            type="text"
                             rows="10"
                             cols="30"
                             defaultValue={currentComment.content}
+                            name="content"
                             required
                             autoFocus
                             className="form-control"

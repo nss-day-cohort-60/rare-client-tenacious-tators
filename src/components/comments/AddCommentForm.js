@@ -24,7 +24,9 @@ export const AddCommentForm = ({ token }) => {
             <h2>Add New Comment</h2>
             <fieldset>
                 <div className="form-group">
-                    <input
+                    <textarea
+                        rows="10"
+                        cols="30"
                         type="text"
                         name="content"
                         required
