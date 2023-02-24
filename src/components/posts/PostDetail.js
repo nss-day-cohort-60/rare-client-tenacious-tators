@@ -5,10 +5,18 @@ import { deletePosts } from "../../managers/Posts";
 import { PostReactions } from "../reactions/PostReactions";
 import { HumanDate } from "../utils/HumanDate";
 import "./Posts.css";
+import { getUsers } from "../../managers/users";
+import { User } from "../users/User";
 
 export const PostDetail = ({ token }) => {
   const [post, setPost] = useState({})
   const { postId } = useParams()
+  const [users, setUsers] = useState([])
+  // const { userId } = useParams()
+
+  useEffect(() => {
+    getUsers().then((usersData) => setUsers(usersData))
+  }, [])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -37,9 +45,10 @@ export const PostDetail = ({ token }) => {
               <div>Published On: {post?.publication_date}</div>
             </section>
           </span>
-          <Link to={`/users/${post.author_id}`}>
+          <Link to={`/users/${post?.author?.id}`}>
             <h2>{post?.author?.full_name}</h2>
           </Link>
+          <h3>{post?.category?.label}</h3>
           <h3>{post?.category?.label}</h3>
           <img className="myposts__image" src={post?.image_url} />
           <section className="myposts__postbody">
