@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import { getPostByCat } from "../../managers/Posts"
 // import "./subscriptions.css"
 // import "../posts/Posts.css"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { HumanDate } from "../utils/HumanDate"
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { HumanDate } from "../utils/HumanDate";
+import { PostReactions } from "../reactions/PostReactions";
+
 
 export const CategoryPosts = ({ token }) => {
   const [catPosts, setCatPosts] = useState([])
@@ -45,6 +47,15 @@ export const CategoryPosts = ({ token }) => {
                           {post?.author?.full_name}
                         </Link>
                       </h3>
+                      <section className="myposts__footer">
+                <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
+                      VIEW COMMENTS
+                    </button>
+                    <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
+                <section>
+                      <PostReactions postId={post.id} />
+                    </section>
+                    </section>
                     </section>
                   </section>
                 </div>
