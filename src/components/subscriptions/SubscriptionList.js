@@ -29,7 +29,7 @@ export const SubscriptionList = ({ token }) => {
                   <section className="subscribe__content">
                     <span style={{ fontWeight: "bold" }}>
                       <section className="subscribe__postheader">
-                        <div>{post.title}</div>
+                        <div class="title is-2">{post.title}</div>
                         <div>
                           Published On:{" "}
                           <HumanDate date={post.publication_date} />
@@ -49,34 +49,36 @@ export const SubscriptionList = ({ token }) => {
                         </Link>
                       </h3>
                       <section className="myposts__footer">
-                      <button
-                        onClick={() => navigate(`/posts/${post.id}/comments`)}
-                      >
-                        VIEW COMMENTS
-                      </button>
-                      <button
-                        onClick={() => navigate(`/posts/${post.id}/comment`)}
-                      >
-                        ADD COMMENT
-                      </button>
-                      <section>
-                        <PostReactions postId={post.id} />
-                      </section>
+                        <div className="buttonContainer">
+                          <button class="button is-small"
+                            onClick={() => navigate(`/posts/${post.id}/comments`)}
+                          >
+                            VIEW COMMENTS
+                          </button>
+                          <button class="button is-small"
+                            onClick={() => navigate(`/posts/${post.id}/comment`)}
+                          >
+                            ADD COMMENT
+                          </button>
+                        </div>
+                        <section>
+                          <PostReactions postId={post.id} />
+                        </section>
                       </section>
                     </section>
                   </section>
                 </div>
               )
               )}
-              </>)
-        : (<>
-          <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
-          </>
-        
-      )}
-      </section>
+            </>)
+            : (<>
+              <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+            </>
+
+            )}
+        </section>
       </article>
     </>
   )
-        }
-  
+}
+

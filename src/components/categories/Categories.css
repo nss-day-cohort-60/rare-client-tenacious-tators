@@ -1,7 +1,11 @@
+.category__page { 
+    margin: 50px; 
+}
+
 .categoryList { 
     padding: 20px; 
     display: flex; 
-    flex-direction: column;
+    flex-direction: row;
     align-content: flex-start;
 }
 
@@ -10,9 +14,8 @@
     flex-direction: row;
     font-size: 25px; 
     width: 40vw;
-    padding-left: 10px
-    /* display: flex; 
-    flex-direction: column; */
+    padding-left: 10px;
+
 }
 
 .list { 
@@ -28,15 +31,22 @@
     justify-content: center;
     align-items:flex-start;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    padding-top: 20px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 3px; 
+    
+}
+.editButton, .deleteButton{ 
+    margin: 2px; 
 }
 
 .category__create {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-items: center;
-    padding: 50px
+    justify-items: flex-start;
+    padding: 50px;
+    width: 25%; 
 }

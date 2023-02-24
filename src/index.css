@@ -1,2 +1,9 @@
 /* imports Bulma framework for css */
 @import 'bulma/css/bulma.css';
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto+Mono:wght@200&display=swap');
+
+body { 
+    font-family: 'Merriweather', serif; 
+}
+
+

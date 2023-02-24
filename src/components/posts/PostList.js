@@ -56,12 +56,13 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
   return (
     <><><section className="posts__buttons">
     <section className="posts__filters">
-    <form><input type="textfield" placeholder={searchTerms}  id="search"
+    <form><input className="searchBox" type="textfield" placeholder={searchTerms}  id="search"
         onChange={(e) =>
             setSearchTerms(e.target.value)}
         onKeyUp={handleKeypress}></input>
         <button type="submit"
             onClick={handleSubmit}
+
             >Go</button>
         <button
           onClick={() =>

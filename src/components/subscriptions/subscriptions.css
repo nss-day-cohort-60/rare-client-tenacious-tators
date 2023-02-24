@@ -22,16 +22,19 @@
 .subscribe__posts {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-content: center;
   align-items: center;
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px dotted black;
+  width: 100%;
+  padding: 50px;
+  margin: 20px;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .subscribe__image {
-  width: 200px;
-  object-fit: cover;
-  padding-right: 10px;
+  width: 100%;
+  padding: 30px; 
 }
 
 .subscribe__postheader {
@@ -49,6 +52,7 @@
 .addPostButton {
   align-self: flex-end;
   width: max-content;
+  border-radius: 3px; 
 }
 
 .footer {
@@ -56,8 +60,4 @@
   justify-content: space-between;
 }
 
-.subscribe__image {
-  height: 500px;
-  width: 900px;
-  margin-left: 100px;
-}
+

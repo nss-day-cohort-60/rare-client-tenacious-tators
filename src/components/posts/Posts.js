@@ -7,7 +7,7 @@ export const Posts = ({ posts, token, posttags }) => {
   return (
     <tr className="row">
       {parseInt(token) === posts.user_id ? (
-        <button
+        <button class="button is-small"
           className="row__button"
           onClick={() => navigate(`editpost/${posts?.id}`)}
         >
