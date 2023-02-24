@@ -3,7 +3,8 @@ import { getSubscribedPosts } from "../../managers/Posts"
 import "./subscriptions.css"
 import "../posts/Posts.css"
 import { Link, useNavigate } from "react-router-dom"
-import { HumanDate } from "../utils/HumanDate"import { PostReactions } from "../reactions/PostReactions";
+import { HumanDate } from "../utils/HumanDate"
+import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
   const [posts, setPosts] = useState([])
@@ -58,18 +59,22 @@ export const SubscriptionList = ({ token }) => {
                         ADD COMMENT
                       </button>
                       <section>
-                      <PostReactions postId={post.id} />
-                    </section>
+                        <PostReactions postId={post.id} />
+                      </section>
                     </section>
                   </section>
-                </section>
-              </div>
+                </div>
               )
-            )}
-            </>
-        : <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
-    }
-   </section> 
-   </article>
-   </>
-  }
+              )}
+              </>)
+        : (<>
+          <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+          </>
+        
+      )}
+      </section>
+      </article>
+    </>
+  )
+        }
+  
