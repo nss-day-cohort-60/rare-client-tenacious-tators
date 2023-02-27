@@ -8,7 +8,12 @@
 
 .buttons {
   margin: 3px;
-  border-radius: 20px;
+  font-size: small;
+}
+
+.button {
+  margin: -1px 3px 15px 3px;
+  border-radius: 10px;
   font-size: small;
 }
 
@@ -75,7 +80,6 @@
 .addPostButton {
   align-self: flex-end;
   padding: 20px;
-  /* border: 1px dotted #cccccc; */
 }
 
 .addNewPostForm {
@@ -170,7 +174,8 @@
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  width: 100%;
+  width: 80%;
+  margin-left: 40px;
 }
 
 .single-my-post {
