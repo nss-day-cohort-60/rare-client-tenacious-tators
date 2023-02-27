@@ -18,65 +18,67 @@ export const SubscriptionList = ({ token }) => {
   return (
     <>
       <article className="subscribe__container">
-        <section className="addPostButton">
+        <section className="addPostButton" id="myBtn">
           New Post <button onClick={() => navigate("posts/newpost")}>+</button>
         </section>
         <section className="subscribe">
           {posts.length ? (
             <>
               {posts.map((post) => (
-                <div className="subscribe__posts">
-                  <section className="subscribe__content">
-                    <span style={{ fontWeight: "bold" }}>
-                      <section className="subscribe__postheader">
-                        <div>{post.title}</div>
-                        <div>
-                          Published On:{" "}
-                          <HumanDate date={post.publication_date} />
-                        </div>
+                  <div className="subscribe__posts">
+                    <section className="subscribe__content">
+                      <span style={{ fontWeight: "bold" }}>
+                        <section className="subscribe__postheader">
+                          <div className="posts_title">{post.title}</div>
+                          <div className="posts_date">
+                            Published On:{" "}
+                            <HumanDate date={post.publication_date} />
+                          </div>
+                        </section>
+                      </span>
+                      <h3>{post?.category?.label}</h3>
+                      <img className="subscribe__image" src={post?.image_url} />
+                      <section className="subscribe__postbody">
+                        <p>{post.content}</p>
                       </section>
-                    </span>
-                    <h3>{post?.category?.label}</h3>
-                    <img className="subscribe__image" src={post?.image_url} />
-                    <section className="subscribe__postbody">
-                      <p>{post.content}</p>
-                    </section>
-                    <section>
-                      <h3>
-                        Author:{" "}
-                        <Link to={`/users/${post.author.id}`}>
-                          {post?.author?.full_name}
-                        </Link>
-                      </h3>
-                      <section className="myposts__footer">
-                      <button
-                        onClick={() => navigate(`/posts/${post.id}/comments`)}
-                      >
-                        VIEW COMMENTS
-                      </button>
-                      <button
-                        onClick={() => navigate(`/posts/${post.id}/comment`)}
-                      >
-                        ADD COMMENT
-                      </button>
                       <section>
-                        <PostReactions postId={post.id} />
-                      </section>
+                        <h3>
+                          Author:{" "}
+                          <Link to={`/users/${post.author.id}`}>
+                            <div className="authorName">{post?.author?.full_name}</div>
+                          </Link>
+                        </h3>
+                        <section className="myposts__footer">
+                          <div className="buttonContainer">
+                            <button className="viewCommentsButton"
+                              onClick={() => navigate(`/posts/${post.id}/comments`)}
+                            >
+                              View Comments
+                            </button>
+                            <button className="addCommentsButton"
+                              onClick={() => navigate(`/posts/${post.id}/comment`)}
+                            >
+                              Add Comments
+                            </button>
+                          </div>
+                          <section className="reactionsContainer">
+                            <PostReactions postId={post.id} />
+                          </section>
                       </section>
                     </section>
                   </section>
                 </div>
               )
               )}
-              </>)
-        : (<>
-          <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
-          </>
-        
-      )}
-      </section>
+            </>)
+            : (<>
+              <div className="subscribe__text">Subscribe to authors to curate your personal homepage!</div>
+            </>
+
+            )}
+        </section>
       </article>
     </>
   )
-        }
-  
+}
+

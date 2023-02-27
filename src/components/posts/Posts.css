@@ -7,29 +7,35 @@
 }
 
 .buttons {
-  padding: 3px;
-  margin: 5px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: small;
 }
 
 .single-my-post {
-  margin: 15px;
-}
-
-.posts__container {
-  width: 80vw;
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.posts__buttons {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
   justify-content: space-between;
+}
+
+.posts_title {
+  font-weight: bolder;
+  font-size: xx-large;
+  padding-bottom: 20px;
+  border-bottom: 1px silver solid;
+  color: #131313;
+}
+
+.posts_author {
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.posts_date {
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  color: #131313;
 }
 
 .posts__filters {
@@ -52,6 +58,16 @@
   padding: 20px;
 }
 
+.form-control {
+  padding: 10px;
+  width: max-content; 
+}
+
+.title-form-control, .image-form-control {
+  padding: 10px;
+  width: 500px; 
+}
+
 .addPostButton {
   align-self: flex-end;
   padding: 20px;
@@ -59,25 +75,45 @@
 }
 
 .addNewPostForm {
-  margin-left: 20px;
+  padding: 50px 100px;
+  margin-left: 10%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #ffffff;
+  width: fit-content;
+}
+
+.newPostHeader {
+  font-size: 35px;
+}
+
+.tagGroup:after { 
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .tags {
   display: flex;
-  flex-direction: column;
-  width: 15px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  float: left; 
+  width: 33%;
   height: 15px;
-  padding: 0;
-  margin: 0;
-  vertical-align: bottom;
-  position: relative;
-  top: -1px;
+ 
 }
 
 .tagLabel {
   margin-right: 15px;
-  line-height: 32px;
+  line-height: 20px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  margin-left: 10px;
 }
+
 
 .categoryGroup {
   display: flex;
@@ -104,21 +140,19 @@
   width: 150px;
 }
 
-.menu > li {
+.menu>li {
   margin: 0;
-
   background-color: white;
 }
 
-.menu > li:hover {
+.menu>li:hover {
   background-color: lightgray;
 }
 
-.menu > li > button {
+.menu>li>button {
   width: 100%;
   height: 100%;
   text-align: left;
-
   background: none;
   color: inherit;
   border: none;
@@ -135,6 +169,7 @@
   padding-top: 20px;
   width: 100%;
 }
+
 .single-my-post {
   display: flex;
   flex-direction: row;
@@ -142,21 +177,28 @@
   width: 100%;
   padding: 1rem;
   margin: 1rem;
-  border: 1px dotted black;
 }
 
 .myposts__image {
   height: auto;
   max-width: 75%;
-  margin-left: 100px;
 }
+
 .myposts__postbody {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 1rem 0;
+  margin: auto;
 }
 
 .myposts__footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-top: .5rem;
+}
+
+.publishFormButton { 
+  margin: 3px;
+  border-radius: 20px;
+  font-size: small;
+  padding: 5px 10px; 
 }

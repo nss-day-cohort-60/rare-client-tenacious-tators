@@ -5,7 +5,7 @@ import { SubscriptionForm } from "./subscribe"
 
 import "./Users.css"
 
-export const UserDetails = ({token}) => {
+export const UserDetails = () => {
   const [user, setUser] = useState({
     profile_image_url: "",
     full_name: "",

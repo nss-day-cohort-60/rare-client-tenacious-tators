@@ -1,3 +1,38 @@
-.navbar-item img {
+.navbar-menu img {
    max-height: 3rem;
 }
+
+.navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
+   font-size: 15px;
+}
+
+.navbar-item { 
+   color: #ffffff;
+   padding: 0px; 
+   
+}
+
+/* .navbar-item, .navbar-menu.is-active  { 
+   color: #131313; 
+} */
+
+
+.navbar-end { 
+   padding-right: 75px; 
+}
+
+.navbar-burger { 
+   margin-right: 25px; 
+}
+
+.padding { 
+   padding: 45px 10px; 
+   /* color: #3cffd0; */
+}
+
+.rareHeader { 
+   font-weight: bolder; 
+   font-size: 25px; 
+   margin-left: 25px; 
+}
+

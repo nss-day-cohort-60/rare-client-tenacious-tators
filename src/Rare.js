@@ -2,6 +2,7 @@ import { useState } from "react"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./components/nav/NavBar"
 
+
 //Function to set token state, Returns render NavBar and Application Views, passes token and setToken as props
 export const Rare = () => {
   // from mozilla: The getItem() method of the Storage interface, when passed a key name, 
