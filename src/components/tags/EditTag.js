@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { FaSave } from "react-icons/fa"
 import { useNavigate, useParams } from 'react-router-dom'
 import { getTagById, updateTag } from '../../managers/tags.js'
 
@@ -26,7 +27,7 @@ export const EditTag = () => {
 
     return (
         <form className="tagForm">
-            <h2 className="tagForm__title">Update Tag</h2>
+            <h2 className="tagHeader update">Update Tag</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="label">Label: </label>
@@ -37,7 +38,7 @@ export const EditTag = () => {
                 </div>
             </fieldset>
 
-            <button type="submit"
+            <FaSave type="submit"
                 onClick={evt => {
                     // Prevent form from being submitted
                     evt.preventDefault()
@@ -50,7 +51,7 @@ export const EditTag = () => {
                     updateTag(tag, tagId)
                         .then(() => navigate("/tags"))
                 }}
-                className="btn btn-primary">Update</button>
+                className="enlarge-button"/>
         </form>
     )
 }

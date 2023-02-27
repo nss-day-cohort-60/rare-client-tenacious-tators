@@ -1,13 +1,10 @@
 /* imports Bulma framework for css */
 @import 'bulma/css/bulma.css';
+a:hover { text-decoration: none; color:purple; }
 
 html, body {
     background-color: #131313;
 }
-
-/* LINKS */
-a {color: white}
-a:hover { text-decoration: none; color:purple; }
 
 .subtitle.is-small {
   font-size: 1rem;

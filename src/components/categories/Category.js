@@ -17,7 +17,7 @@ export const Category = ({ category, setterFunction }) => {
         <article className="categories" >
             <div>
                 <Link to={`/categories/${category.id}`}>
-                    <h3>{category.label}</h3>
+                    <h3 className="category_name">{category.label}</h3>
                 </Link>
             </div>
             <div className="grey-buttons">

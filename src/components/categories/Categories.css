@@ -71,3 +71,12 @@
 .grey-buttons{
     color: rgb(96, 94, 94);
 }
+
+.category_name, Link{
+    color: #309875;
+}
+
+.label{
+    color:#309875;
+    font-size: xx-large;
+}

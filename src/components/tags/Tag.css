@@ -1,5 +1,5 @@
 .tagList { 
-    color: white;
+    color: rgb(206, 190, 190);
     padding: 10px; 
     display: flex; 
     flex-direction: row;
@@ -51,4 +51,12 @@
 
 .grey-buttons{
     color: rgb(96, 94, 94);
+}
+
+.tagForm{
+    margin-left: 40%;
+}
+
+.update{
+    margin-left: 0px;
 }
