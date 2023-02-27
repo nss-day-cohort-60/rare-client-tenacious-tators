@@ -1,12 +1,29 @@
 /* imports Bulma framework for css */
 @import 'bulma/css/bulma.css';
-a:hover { text-decoration: none; color:purple; }
+a {
+  color: #309875;
+}
+a:hover { text-decoration: none; color:lightgray; }
 
 html, body {
     background-color: #131313;
-    /* color: white; */
+    color: #cccccc;
 }
 
 .subtitle.is-small {
   font-size: 1rem;
+}
+
+.navbar-item, .navbar-link { 
+  color: #309875;
+  padding-left: 10px; 
+  background-color: #131313;
+}
+
+.title{
+  color: #cccccc
+}
+
+.subtitle{
+  color: lightgray
 }
