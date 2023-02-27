@@ -3,6 +3,27 @@
   position: relative;
 }
 
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
+}
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
 .subscribe__container {
   width: 80vw;
   display: flex;
@@ -14,9 +35,9 @@
 }
 
 .subscribe__content { 
-  padding: 20px; 
+  padding: 15px; 
   border: 1px solid #131313;
-  border-style: none none solid none; 
+  border-style: solid none solid none; 
 }
 
 .subscribe {
