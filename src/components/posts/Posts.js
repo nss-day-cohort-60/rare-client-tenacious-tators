@@ -18,7 +18,7 @@ export const Posts = ({ posts, token }) => {
           <div className="columns is-centered">
             <div className="column is-one-fifth"></div>
             <div className="column is-one-fifth">
-              <a href="/categories">{posts.category.label}</a>
+              <a href="/categories">{posts.category?.label}</a>
               <br />
               <p
                 className="title is-4 has-text-weight-bold is-margin"

@@ -4,6 +4,7 @@ a:hover { text-decoration: none; color:purple; }
 
 html, body {
     background-color: #131313;
+    /* color: white; */
 }
 
 .subtitle.is-small {
