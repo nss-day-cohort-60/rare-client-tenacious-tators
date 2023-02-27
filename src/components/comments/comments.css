@@ -1,18 +1,54 @@
 .comment{
   display: flex;
-  margin: 0.5rem 1em;
-  padding: 0.5rem 1rem;
+  margin: .5rem 1rem;
+  padding: 0.5rem .5rem;
   
 }
 
 .comments__card {
-  border: 1px solid goldenrod;
-  flex-basis: 24%;
-  margin: 0.5rem 1em;
+  margin: 1rem;
   padding: 0.5rem 1rem;
 }
 
+.comment__image{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 10px;
+  background-color: white;
+  padding: 0;
+}
+
 .comment__author{
-  font-size: 12px;
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 14px;
+  margin: 10px 5px;
+}
+
+.comment__content{
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  margin: 10px;
+}
+
+.commentBtn{
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+}
+
+.edit_comment{
+  margin: 0 .5rem;
+}
+
+.comments_title {
+  font-weight: bold;
+  font-size: x-large;
+  padding: 5px;
+  border-bottom: 1px silver solid;
+  margin-bottom: 30px;
+  margin-left: 20px;
 }

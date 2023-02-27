@@ -1,5 +1,6 @@
 
 import { useNavigate } from 'react-router-dom'
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
 export const Comment = ({ comment }) => {
 
@@ -8,18 +9,13 @@ export const Comment = ({ comment }) => {
   return (
 
     <section className="comments__card">
-      <h3>"{comment?.content}"</h3>
-      <div className="comment__author">-{comment?.author?.full_name}</div>
-      {comment.writer ?
-        <div className="buttons">
-          <button
-            onClick={() => {
-              navigate({ pathname: `${comment.id}/edit` });
-            }}
-          >
-            Edit
-          </button></div>
-        : ""
+      <div className="comment__author"> <img className="comment__image" src={comment?.author?.profile_image_url} /> {comment?.author?.full_name} </div>
+      {comment.writer ? <>
+        <div className="comment_content"><FaEdit className="grey-buttons edit_comment" onClick={() => {
+          navigate({ pathname: `${comment.id}/edit` });
+        }}/>{comment?.content}</div></>
+
+        : <div className="comment__content">{comment?.content}</div>
 
       }
     </section>
