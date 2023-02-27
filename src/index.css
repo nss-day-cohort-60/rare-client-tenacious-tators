@@ -1,2 +1,6 @@
 /* imports Bulma framework for css */
-@import 'bulma/css/bulma.css';
+@import "bulma/css/bulma.css";
+
+.subtitle.is-small {
+  font-size: 1rem;
+}
