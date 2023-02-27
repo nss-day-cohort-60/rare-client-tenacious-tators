@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
 import { getCategoryById, updateCategory } from '../../managers/categories.js'
+import { FaSave } from "react-icons/fa";
+import "./Categories.css"
 
 export const EditCategory = () => {
     const navigate = useNavigate()
@@ -26,7 +28,7 @@ export const EditCategory = () => {
 
     return (
         <form className="categoryForm">
-            <h2 className="categoryForm__title">Update Category</h2>
+            <h2 className="categoryHeader update">Update Category</h2>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="label">Label: </label>
@@ -37,7 +39,7 @@ export const EditCategory = () => {
                 </div>
             </fieldset>
 
-            <button type="submit"
+            <FaSave
                 onClick={evt => {
                     // Prevent form from being submitted
                     evt.preventDefault()
@@ -50,7 +52,7 @@ export const EditCategory = () => {
                     updateCategory(category, categoryId)
                         .then(() => navigate("/categories"))
                 }}
-                className="btn btn-primary">Update</button>
+                className="enlarge-button"/>
         </form>
     )
 }

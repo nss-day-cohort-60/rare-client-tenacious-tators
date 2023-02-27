@@ -7,7 +7,6 @@ import "./Posts.css";
 
 export const MyPosts = ({ token }) => {
   const [posts, setPosts] = useState([])
-  // const tokenInt = parseInt(token);
   const navigate = useNavigate()
 
   const getMyPosts = () => {
@@ -44,7 +43,7 @@ export const MyPosts = ({ token }) => {
             <div key={post.id} className="single-my-post">
               <section className="myposts__content">
                 <span style={{ fontWeight: "bold" }}>
-                  <div className="myposts_category"><Link to={`/categories/${post.category.id}`}>{post?.category?.label}</Link></div>
+                  <div className="myposts_category"><Link to={`/categories/${post.category?.id}`}>{post?.category?.label}</Link></div>
                   <section className="subscribe__postheader">
                     <div className="posts_title">{post.title}</div>
                     <div className="posts_author">
