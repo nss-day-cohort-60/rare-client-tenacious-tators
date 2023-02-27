@@ -66,10 +66,10 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
                 onChange={(e) => setSearchTerms(e.target.value)}
                 onKeyUp={handleKeypress}
               ></input>
-              <button type="submit" onClick={handleSubmit}>
+              <button className="button is-small is-link is-rounded" type="submit" onClick={handleSubmit}>
                 Go
               </button>
-              <button onClick={() => setFilteredPosts(posts)}>View All</button>
+              <button className="button is-small is-rounded" onClick={() => setFilteredPosts(posts)}>View All</button>
             </form>
           </section>
         </section>
