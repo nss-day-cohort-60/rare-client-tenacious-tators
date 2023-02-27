@@ -29,8 +29,8 @@ export const SubscriptionList = ({ token }) => {
                     <section className="subscribe__content">
                       <span style={{ fontWeight: "bold" }}>
                         <section className="subscribe__postheader">
-                          <div className="postTitle">{post.title}</div>
-                          <div>
+                          <div className="posts_title">{post.title}</div>
+                          <div className="posts_date">
                             Published On:{" "}
                             <HumanDate date={post.publication_date} />
                           </div>
@@ -50,12 +50,12 @@ export const SubscriptionList = ({ token }) => {
                         </h3>
                         <section className="myposts__footer">
                           <div className="buttonContainer">
-                            <button className="viewCommentsButton" class="button is-small"
+                            <button className="buttons"
                               onClick={() => navigate(`/posts/${post.id}/comments`)}
                             >
                               View Comments
                             </button>
-                            <button className="addCommentsButton" class="button is-small"
+                            <button className="buttons"
                               onClick={() => navigate(`/posts/${post.id}/comment`)}
                             >
                               Add Comments

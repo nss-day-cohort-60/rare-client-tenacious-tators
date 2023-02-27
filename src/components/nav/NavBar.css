@@ -1,6 +1,8 @@
 .navbar { 
-   background-color: #131313;
-   color: #ffffff;
+   /* background-color: #131313;
+   color: #ffffff; */
+   color: #131313;
+   background-color: #ffffff;
 }
 .navbar-menu img {
    max-height: 3rem;
@@ -9,21 +11,21 @@
 }
 
 .navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
-   background-color: #131313; 
-   color: #ffffff;
-   font-size: 16px;
+   /* background-color: #131313; 
+   color: #ffffff; */
+   font-size: 20px;
 }
 
 .navbar-item { 
-   padding: 0px; 
    color: #ffffff;
-   font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar-menu.is-active { 
-   background-color: #131313; 
+   padding: 0px; 
    
 }
+
+.navbar-item, .navbar-menu.is-active  { 
+   color: #131313; 
+}
+
 
 .navbar-end { 
    padding-right: 75px; 
@@ -34,12 +36,12 @@
 }
 
 .padding { 
-   padding: 25px 10px; 
-   color: #3cffd0;
+   padding: 45px 10px; 
+   /* color: #3cffd0; */
 }
 
 .rareHeader { 
+   font-weight: bolder; 
    font-size: 35px; 
-   color: #ffffff;
 }
 
