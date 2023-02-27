@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { getPostByCat } from "../../managers/Posts"
-// import "./subscriptions.css"
+import "./Categories.css"
 // import "../posts/Posts.css"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { HumanDate } from "../utils/HumanDate";
 import { PostReactions } from "../reactions/PostReactions";
-
 
 export const CategoryPosts = ({ token }) => {
   const [catPosts, setCatPosts] = useState([])
@@ -28,7 +27,7 @@ export const CategoryPosts = ({ token }) => {
                   <section className="subscribe__content">
                     <span style={{ fontWeight: "bold" }}>
                       <section className="subscribe__postheader">
-                        <div>{post.title}</div>
+                        <div className="title">{post.title}</div>
                         <div>
                           Published On:{" "}
                           <HumanDate date={post.publication_date} />
@@ -41,17 +40,17 @@ export const CategoryPosts = ({ token }) => {
                       <p>{post.content}</p>
                     </section>
                     <section>
-                      <h3>
+                      <h3 className="authorName">
                         Author:{" "}
                         <Link to={`/users/${post.author.id}`}>
                           {post?.author?.full_name}
                         </Link>
                       </h3>
                       <section className="myposts__footer">
-                <button onClick={() => navigate(`/posts/${post.id}/comments`)}>
+                <button className="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${post.id}/comments`)}>
                       VIEW COMMENTS
                     </button>
-                    <button onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
+                    <button className="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${post.id}/comment`)}>ADD COMMENT</button>
                 <section>
                       <PostReactions postId={post.id} />
                     </section>

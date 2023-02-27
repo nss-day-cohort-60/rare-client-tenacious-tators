@@ -47,12 +47,12 @@ export const SubscriptionList = ({ token }) => {
                         </h3>
                         <section className="myposts__footer">
                           <div className="buttonContainer">
-                            <button className="button is-rounded is-small"
+                            <button className="button is-link is-rounded is-small"
                               onClick={() => navigate(`/posts/${post.id}/comments`)}
                             >
                               View Comments
                             </button>
-                            <button className="button is-rounded is-small"
+                            <button className="button is-link is-rounded is-small"
                               onClick={() => navigate(`/posts/${post.id}/comment`)}
                             >
                               Add Comments

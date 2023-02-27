@@ -84,7 +84,7 @@ export const PostDetail = ({ token }) => {
       <section className="myposts__footer">
           {post.writer ? (
             <div className="buttons">
-              <button class="button is-small"
+              <button class="button is-danger is-rounded is-small"
                 onClick={(e) => {
                   e.preventDefault()
                   deleteWindow()
@@ -92,7 +92,7 @@ export const PostDetail = ({ token }) => {
               >
                 DELETE
               </button>
-              <button class="button is-small"
+              <button class="button is-rounded is-small"
                 onClick={() => {
                   navigate(`/posts/editpost/${post.id}`)
                 }}
@@ -100,19 +100,19 @@ export const PostDetail = ({ token }) => {
               >
                 EDIT
               </button>
-              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
+              <button class="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
                 VIEW COMMENTS
               </button>
-              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
+              <button class="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                 ADD COMMENT
               </button>
             </div>
           ) : (
             <div className="buttons">
-              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
+              <button class="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
                 VIEW COMMENTS
               </button>
-              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
+              <button class="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                 ADD COMMENT
               </button>
             </div>
