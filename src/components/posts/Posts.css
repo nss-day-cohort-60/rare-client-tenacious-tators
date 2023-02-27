@@ -25,7 +25,6 @@
   font-size: xx-large;
   padding-bottom: 20px;
   border-bottom: 1px silver solid;
-
 }
 
 .posts_author {
@@ -39,7 +38,6 @@
   font-size: 14px;
   padding-top: 2px;
   padding-bottom: 20px;
-  color: #131313;
 }
 
 .posts__filters {
@@ -75,7 +73,7 @@
 .addPostButton {
   align-self: flex-end;
   padding: 20px;
-  border: 1px dotted black;
+  /* border: 1px dotted #cccccc; */
 }
 
 .addNewPostForm {
@@ -85,7 +83,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  border: 1px solid #ffffff;
+  border: 1px solid #cccccc;
   width: fit-content;
 }
 
@@ -146,7 +144,7 @@
 
 .menu>li {
   margin: 0;
-  background-color: white;
+  background-color: #cccccc;
 }
 
 .menu>li:hover {

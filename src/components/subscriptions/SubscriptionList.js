@@ -20,6 +20,9 @@ export const SubscriptionList = ({ token }) => {
   return (
     <>
       <article className="subscribe__container">
+        <section className="addPostButton" id="myBtn">
+          <button className="button is-rounded" onClick={() => navigate("posts/newpost")}>+New Post</button>
+        </section>
         <section className="subscribe">
           {posts.length ? (
             <>
@@ -36,7 +39,7 @@ export const SubscriptionList = ({ token }) => {
                         </section>
                       </span>
                       <h3>{post?.category?.label}</h3>
-                      <img className="subscribe__image" src={post?.image_url} />
+                      <img className="subscribe__image hover" src={post?.image_url} />
                       <section className="subscribe__postbody">
                         <p>{post.content}</p>
                       </section>

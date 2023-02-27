@@ -16,7 +16,7 @@
     padding: 5px 10px 5px 10px;
     margin: 15px;
     justify-content: space-between;
-    border: 1px white solid;
+    border: 1px #cccccc solid;
     border-radius: 25px;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .tagHeader { 
-    color: white;
+    color: #cccccc;
     font-size: 35px;
     margin: 40px 0px 0px 50px; 
 }
