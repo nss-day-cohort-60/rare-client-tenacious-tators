@@ -52,8 +52,8 @@
 
 .subscribe__postheader {
   display: flex;
-  flex-flow: column nowrap; 
-  font-weight: bolder;
+  flex-flow: column;
+  flex-direction: nowrap;
   justify-content: space-between;
   color: #ffffff;
 }
