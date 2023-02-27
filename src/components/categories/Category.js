@@ -16,18 +16,17 @@ export const Category = ({ category, setterFunction }) => {
 
     return (
         <article className="categories" >
-            <div class="column is-full" className="category">
-                <Link class="title is-5" to={`/categories/${category.id}`}>
+            <div>
+                <Link to={`/categories/${category.id}`}>
                     <h3>{category.label}</h3>
                 </Link>
-                <div className="buttonContainer">
-                    <button class="button is-small" className="editButton"
-                        onClick={() => {
-                            navigate({ pathname: `edit/${category.id}` })
-                        }}>Edit</button>
 
-                    {deleteButton(category.id)}
-                </div>
+                <button class="editButton"
+                    onClick={() => {
+                        navigate({ pathname: `edit/${category.id}` })
+                    }}>Edit</button>
+
+                {deleteButton(category.id)}
             </div>
         </article>
     )

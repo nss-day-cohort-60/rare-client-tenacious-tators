@@ -13,18 +13,20 @@ export const Categories = ({ token }) => {
   }, [])
 
   return (
-    <div className="category__page">
-      <div className="category__create addPostButton">
-        <button onClick={() => navigate("create")}>
-          +
-        </button> Add Category 
-      </div>
-      <div class="title is-3">Categories</div>
+    <>
+    <h1 className="categoryHeader">Categories</h1>
+    <section className="category">
       <section className="categoryList">
         {categories.map((category) => (
           <Category category={category} key={category.id} setterFunction={setCategories} />
         ))}
       </section>
-    </div>
+      <section className="category__create">
+        <button className="button is-rounded" onClick={() => navigate("create")}>
+          +Add Category
+        </button>
+      </section>
+    </section>
+    </>
   )
 }

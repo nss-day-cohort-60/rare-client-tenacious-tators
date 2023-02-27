@@ -18,7 +18,7 @@ export const SubscriptionList = ({ token }) => {
   return (
     <>
       <article className="subscribe__container">
-        <section className="addPostButton">
+        <section className="addPostButton" id="myBtn">
           New Post <button onClick={() => navigate("posts/newpost")}>+</button>
         </section>
         <section className="subscribe">
