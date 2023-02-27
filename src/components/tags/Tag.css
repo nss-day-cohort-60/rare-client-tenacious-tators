@@ -1,27 +1,34 @@
 .tagList { 
-    padding: 20px; 
+    color: rgb(206, 190, 190);
+    padding: 10px; 
     display: flex; 
-    flex-direction: column;
+    flex-direction: row;
     align-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: 50px;
 }
 
 .tags__individual {
     display: flex;
     flex-direction: row;
-    font-size: 25px; 
-    width: 40vw;
-    padding-left: 10px
-    /* display: flex; 
-    flex-direction: column; */
+    font-size: 20px; 
+    width: 22vw;
+    padding: 5px 10px 5px 10px;
+    margin: 15px;
+    justify-content: space-between;
+    border: 1px white solid;
+    border-radius: 25px;
 }
 
 .list { 
     flex-direction: column;
-    padding: 20px; 
+    padding: 0px; 
 }
 
 .tagHeader { 
-    font-size: 35px; 
+    color: white;
+    font-size: 35px;
+    margin: 40px 0px 0px 50px; 
 }
 
 .tagContainer {
@@ -38,5 +45,18 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-items: center;
-    padding: 50px
+    margin-right: 50px;
+    width: 45vw;
+}
+
+.grey-buttons{
+    color: rgb(96, 94, 94);
+}
+
+.tagForm{
+    margin-left: 40%;
+}
+
+.update{
+    margin-left: 0px;
 }
