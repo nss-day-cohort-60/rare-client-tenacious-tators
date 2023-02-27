@@ -22,7 +22,7 @@ export const CommentList = ({ token }) => {
         <button className="button is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                     ADD COMMENT
                   </button></div>
-          <div className="comments_title">Responses</div>
+          <div className="comments_title">Comments</div>
           {comments.map((comment) => (
             <Comment key={comment.id} comment={comment} />
           ))}
