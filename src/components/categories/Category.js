@@ -8,21 +8,24 @@ export const Category = ({ category, setterFunction }) => {
     const deleteButton = (id) => {
         return <button onClick={() => {
             deleteCategory(id)
-            .then(() => {
-                getCategories().then((data) => setterFunction(data))}) 
-        }} className="deleteButton">Delete</button>
+                .then(() => {
+                    getCategories().then((data) => setterFunction(data))
+                })
+        }} class="button is-small" className="deleteButton">Delete</button>
     }
 
-    return(
-        <article className="categories">
+    return (
+        <article className="categories" >
             <div>
                 <Link to={`/categories/${category.id}`}>
                     <h3>{category.label}</h3>
                 </Link>
-                <button className="editButton"
+
+                <button class="editButton"
                     onClick={() => {
                         navigate({ pathname: `edit/${category.id}` })
-                        }}>Edit</button>
+                    }}>Edit</button>
+
                 {deleteButton(category.id)}
             </div>
         </article>

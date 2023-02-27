@@ -1,52 +1,25 @@
 .userContainer {
-  margin: 0 5rem;
-}
-
-.users__title{
-  /* margin: 0.5rem 1em; */
-  font-size: 24px;
-  font-weight: bolder;
-  width: 100%
-}
-
-.users {
-  min-width: fit-content;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.users__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0.5rem 1em;
-  padding: 0.5rem 1rem;
-}
-
-.user__card {
-  max-width: 250px;
-  min-width:200px;
-  padding: 0.5rem;
-  margin: .5rem;
-  border-radius: 3%;
-  box-shadow: 2px 3px 5px 2px rgb(235, 235, 235);
-}
-
-.users__follow_button {
-  margin-top: .25rem;
-  width: 100%
-}
-
-.card__image {
-  width: fit-content;
-  object-fit: cover;
-  border-radius: 5%
-}
-
-.users_search {
-  width: 25rem;
-}
+    margin: 0 5rem;
+  }
+  
+  .users {
+    width: 50vw;
+    min-width: fit-content;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+  
+  .user {
+    display: flex;
+    flex-basis: 24%;
+    margin: 0.5rem 1em;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+  }
+  
+  .users_search {
+    width: 25rem;
+  }
 
 .user__image {
   width: 200px;
