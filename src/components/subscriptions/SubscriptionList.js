@@ -8,7 +8,6 @@ import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
   const [posts, setPosts] = useState([])
-  const [mostRecent, setMostRecent] = useState([])
   const tokenInt = parseInt(token)
   const navigate = useNavigate()
 
@@ -20,9 +19,6 @@ export const SubscriptionList = ({ token }) => {
   return (
     <>
       <article className="subscribe__container">
-        <section className="addPostButton" id="myBtn">
-          <button className="button is-rounded" onClick={() => navigate("posts/newpost")}>+New Post</button>
-        </section>
         <section className="subscribe">
           {posts.length ? (
             <>
