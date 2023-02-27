@@ -18,6 +18,8 @@ export const Tag = ({ tag, setterFunction }) => {
         <article className="tags__individual">
             <div>
                 <h3>{tag.label}</h3>
+            </div>
+            <div className="grey-buttons">
                 <FaEdit className="editButton"
                     onClick={() => {
                         navigate({ pathname: `edit/${tag.id}` })

@@ -19,6 +19,8 @@ export const Category = ({ category, setterFunction }) => {
                 <Link to={`/categories/${category.id}`}>
                     <h3>{category.label}</h3>
                 </Link>
+            </div>
+            <div className="grey-buttons">
                 <FaEdit
                     onClick={() => {
                         navigate({ pathname: `edit/${category.id}` })

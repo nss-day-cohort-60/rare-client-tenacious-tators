@@ -19,7 +19,7 @@ export const NewCategory = ({ token }) => {
   }
 
   return (
-    <form className="addNewCategoryForm">
+    <form className="categoryForm">
       <h2>Add New Category</h2>
       <fieldset>
         <div className="form-group">
