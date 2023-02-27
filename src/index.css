@@ -8,3 +8,7 @@ html, body {
 /* LINKS */
 a {color: white}
 a:hover { text-decoration: none; color:purple; }
+
+.subtitle.is-small {
+  font-size: 1rem;
+}

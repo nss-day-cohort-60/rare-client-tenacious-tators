@@ -1,0 +1,20 @@
+.subtitle.is-custom {
+  font-size: 12px;
+}
+
+.subtitle.is-custom-margin {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.title.is-margin {
+  padding-bottom: 10px;
+}
+
+.hover:hover {
+  opacity: 0.7;
+}
+
+.hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
