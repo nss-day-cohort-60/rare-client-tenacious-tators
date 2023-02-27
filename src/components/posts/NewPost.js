@@ -69,14 +69,14 @@ export const NewPost = ({ token }) => {
 
     return (
         <form className="addNewPostForm">
-            <h2>New Post</h2>
+            <h2 class="title is-3" className="newPostHeader">New Post</h2>
             <fieldset>
                 <div className="form-group">
                     <input
                         type="text"
                         name="title"
                         required autoFocus
-                        className="form-control"
+                        className="title-form-control"
                         placeholder="Title"
                         onChange={handleNewPostInfo} />
                 </div>
@@ -87,14 +87,14 @@ export const NewPost = ({ token }) => {
                         type="text"
                         name="imageUrl"
                         required autoFocus
-                        className="form-control"
+                        className="image-form-control"
                         placeholder="ImageURL"
                         onChange={handleNewPostInfo} />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <textarea type="textbox" rows="5" cols="30" name="content" required autoFocus className="form-control" placeholder="Article Content" onChange={handleNewPostInfo} />
+                    <textarea type="textbox" rows="10" cols="75" name="content" required autoFocus className="form-control" placeholder="Article Content" onChange={handleNewPostInfo} />
                 </div>
             </fieldset>
             <fieldset>
@@ -156,12 +156,12 @@ export const NewPost = ({ token }) => {
 
                 </div>
             </fieldset>
-            <button type="publish"
+            <button type="publish" className="publishFormButton"
                 onClick={evt => {
                     evt.preventDefault()
                     publishNewArticle()
                 }}
-                className="publishButton">
+                >
                 Publish
             </button>
         </form >

@@ -68,7 +68,7 @@ export const PostDetail = ({ token }) => {
         <section className="myposts__content">
           <span style={{ fontWeight: "bold" }}>
             <section className="subscribe__postheader">
-              <div>{post.title}</div>
+              <div class="title is-3">{post.title}</div>
               <div>Published On: {post?.publication_date}</div>
             </section>
           </span>
@@ -84,7 +84,7 @@ export const PostDetail = ({ token }) => {
       <section className="myposts__footer">
           {post.writer ? (
             <div className="buttons">
-              <button
+              <button class="button is-small"
                 onClick={(e) => {
                   e.preventDefault()
                   deleteWindow()
@@ -92,7 +92,7 @@ export const PostDetail = ({ token }) => {
               >
                 DELETE
               </button>
-              <button
+              <button class="button is-small"
                 onClick={() => {
                   navigate(`/posts/editpost/${post.id}`)
                 }}
@@ -100,22 +100,22 @@ export const PostDetail = ({ token }) => {
               >
                 EDIT
               </button>
-              <button onClick={() => navigate(`/posts/${postId}/comments`)}>
+              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
                 VIEW COMMENTS
               </button>
-              <button onClick={() => navigate(`/posts/${postId}/comment`)}>
+              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                 ADD COMMENT
               </button>
             </div>
           ) : (
-            <>
-              <button onClick={() => navigate(`/posts/${postId}/comments`)}>
+            <div className="buttons">
+              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comments`)}>
                 VIEW COMMENTS
               </button>
-              <button onClick={() => navigate(`/posts/${postId}/comment`)}>
+              <button class="button is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                 ADD COMMENT
               </button>
-            </>
+            </div>
           )}
       
       <section>

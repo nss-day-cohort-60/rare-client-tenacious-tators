@@ -13,8 +13,8 @@ export const Category = ({ category, setterFunction }) => {
                 getCategories().then((data) => setterFunction(data))}) 
         }} />}    
 
-    return(
-        <article className="categories">
+    return (
+        <article className="categories" >
             <div>
                 <Link to={`/categories/${category.id}`}>
                     <h3>{category.label}</h3>

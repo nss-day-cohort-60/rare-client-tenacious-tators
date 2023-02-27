@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { HumanDate } from "../utils/HumanDate"
 import "./custom.css"
 
-export const Posts = ({ posts, token, posttags }) => {
+export const Posts = ({ posts, token }) => {
   const navigate = useNavigate()
 
   const limitedContent = posts.content.slice(0, 140) + "..."
