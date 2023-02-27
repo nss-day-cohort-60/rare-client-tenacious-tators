@@ -1,15 +1,45 @@
+.navbar { 
+   background-color: #131313;
+   color: #ffffff;
+}
 .navbar-menu img {
    max-height: 3rem;
+   
 
 }
 
 .navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
-   background-color: black;
-   color: #ffffff; 
+   background-color: #131313; 
+   color: #ffffff;
+   font-size: 16px;
+}
+
+.navbar-item { 
+   padding: 0px; 
+   color: #ffffff;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar-menu.is-active { 
+   background-color: #131313; 
    
 }
 
+.navbar-end { 
+   padding-right: 75px; 
+}
+
+.navbar-burger { 
+   margin-right: 25px; 
+}
+
+.padding { 
+   padding: 25px 10px; 
+   color: #3cffd0;
+}
+
 .rareHeader { 
-   font-size: 25px; 
+   font-size: 35px; 
+   color: #ffffff;
 }
 

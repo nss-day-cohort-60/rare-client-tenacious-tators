@@ -1,3 +1,4 @@
+
 .relative { 
   position: relative;
 }
@@ -10,12 +11,12 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+  background-color: #131313;
   
 }
 
 .subscribe__content { 
-  padding: 75px; 
-  border: 1px solid #fffff;
+  padding: 25px; 
   border-style: none none solid none; 
 }
 
@@ -51,7 +52,7 @@
 
 .subscribe__postheader {
   display: flex;
-  flex-direction: nowrap;
+  flex-flow: column nowrap; 
   font-weight: bolder;
   justify-content: space-between;
   color: #ffffff;
@@ -70,6 +71,8 @@
   align-self: flex-end;
   width: max-content;
   border-radius: 3px;
+  border: 1px solid #ffffff;
+ 
 }
 
 .footer {
@@ -85,4 +88,8 @@ Link {
 .addCommentsButton,
 .viewCommentsButton {
   background-color: #131313; 
+}
+
+.reactionsContainer { 
+  margin-left: auto; 
 }

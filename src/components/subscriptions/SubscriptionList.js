@@ -61,7 +61,7 @@ export const SubscriptionList = ({ token }) => {
                               Add Comments
                             </button>
                           </div>
-                          <section>
+                          <section className="reactionsContainer">
                             <PostReactions postId={post.id} />
                           </section>
                       </section>

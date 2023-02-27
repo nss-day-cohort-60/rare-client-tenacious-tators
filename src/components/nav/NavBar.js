@@ -27,7 +27,7 @@ export const NavBar = ({ token, setToken }) => {
   };
   return (
     <nav
-      className="navbar is-success mb-3"
+      className="navbar"
       role="navigation"
       aria-label="main navigation"
     >
@@ -42,7 +42,7 @@ export const NavBar = ({ token, setToken }) => {
           className="navbar-burger"
           aria-label="menu"
           aria-expanded="false"
-          data-target="navbarBasicExample"
+          data-target="navbarBasicExamplef"
           onClick={showMobileNavbar}
           ref={hamburger}
         >
@@ -56,21 +56,25 @@ export const NavBar = ({ token, setToken }) => {
           {
             // This ternary statement checks to ensure the current user is logged in
             // If true, a link will appear in the nav bar that links to path "/" when clicked
-            token ? (
-              <>
-                <Link to="/posts" className="navbar-item">
+            token ? 
+            (<>
+                <Link to="/posts" className="navbar-item ">
                   Posts          
                 </Link> 
-                <Link to="posts/myposts" className="navbar-item">
+                <span className="padding">/</span>
+                <Link to="posts/myposts" className="navbar-item ">
                   My Posts
                 </Link>
-                <Link to="/categories" className="navbar-item">
+                <span className="padding">/</span>
+                <Link to="/categories" className="navbar-item ">
                   Category Manager
                 </Link>
-                <Link to="/tags" className="navbar-item">
+                <span className="padding">/</span>
+                <Link to="/tags" className="navbar-item ">
                   Tag Manager
                 </Link>
-                <Link to="/users" className="navbar-item">
+                <span className="padding">/</span>
+                <Link to="/users" className="navbar-item ">
                   User Management
                 </Link>
               </>
@@ -88,7 +92,7 @@ export const NavBar = ({ token, setToken }) => {
                 // If true, a logout button will appear and will route back to the "/login" path when clicked
                 token ? (
                   <button
-                    className="button is-outlined"
+                    className="button"
                     onClick={() => {
                       setToken("");
                       navigate("/login");

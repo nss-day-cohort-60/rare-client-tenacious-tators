@@ -7,25 +7,35 @@
 }
 
 .buttons {
-  padding: 3px;
-  margin: auto;
+  padding: 3px 4px;
+  margin: 3px;
+  border-radius: 20px;
+  font-size: small;
+  width: 60px;
 }
 
-.posts__container {
-  width: 80vw;
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.posts__buttons {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+.single-my-post {
   justify-content: space-between;
+}
+
+.posts_title {
+  font-weight: bolder;
+  font-size: xx-large;
+  padding-bottom: 20px;
+  border-bottom: 1px silver solid;
+}
+
+.posts_author {
+  font-weight: 600;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+.posts_date {
+  font-weight: 400;
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 20px;
 }
 
 .posts__filters {
@@ -44,46 +54,58 @@
   width: 100%;
 }
 
-
 .form-group {
   padding: 20px;
+}
+
+.form-control {
+  padding: 10px;
+  width: max-content; 
 }
 
 .addPostButton {
   align-self: flex-end;
   padding: 20px;
-  border: 1px solid black;
+  border: 1px dotted black;
 }
 
 .addNewPostForm {
-  margin: 50px; 
-  padding: 20px; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: flex-start; 
-  align-content: center; 
+  margin: 10% 0 0 25%;
+  padding: 50px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: flex-start;
+  border: 1px solid #ffffff;
+  width: fit-content;
+}
+
+.newPostHeader {
+  color: #ffffff;
+  font-size: 35px;
 }
 
 .tags {
   display: flex;
-  flex-direction: column;
-  width: 15px;
+  flex-direction: row;
+  /* width: 15px;
   height: 15px;
   padding: 0;
   margin: 0;
   vertical-align: bottom;
   position: relative;
-  top: -1px;
+  top: -1px; */
 }
 
 .tagLabel {
   margin-right: 15px;
-  line-height: 32px;
+  line-height: 11px;
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  margin-left: 10px;
 }
 
-.tagTable {
-  border: 1px solid black;
-}
 
 .categoryGroup {
   display: flex;
@@ -112,7 +134,6 @@
 
 .menu>li {
   margin: 0;
-
   background-color: white;
 }
 
@@ -124,7 +145,6 @@
   width: 100%;
   height: 100%;
   text-align: left;
-
   background: none;
   color: inherit;
   border: none;
@@ -145,36 +165,25 @@
 .single-my-post {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: center;
   align-items: center;
   width: 100%;
-  padding: 50px;
-  margin: 20px;
-  border: 1px solid black;
-  border-radius: 3px;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .myposts__image {
   height: auto;
   max-width: 75%;
-  margin-left: 100px;
-  padding: 20px; 
 }
 
 .myposts__postbody {
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.publishButton { 
-  width: 10%;
-  padding: 5px; 
-  margin: 20px; 
+  padding: 1rem 0;
+  margin: auto;
 }
 
 .myposts__footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding-top: .5rem;
 }

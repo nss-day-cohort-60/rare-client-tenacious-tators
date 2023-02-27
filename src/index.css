@@ -2,10 +2,12 @@
 @import 'bulma/css/bulma.css';
 
 
-body { 
-    background-color: black; 
+html, body { 
+    /* background-color:#131313; 
     color: #ffffff;
-    
+     */
 }
+
+
 
 
