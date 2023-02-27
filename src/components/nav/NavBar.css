@@ -1,9 +1,18 @@
+.navbar { 
+   color: #ffffff; 
+   background-color: #131313;
+}
+
 .navbar-menu img {
    max-height: 3rem;
+   color: #ffffff; 
+   background-color: #131313;
 }
 
 .navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
    font-size: 15px;
+   color: #ffffff; 
+   background-color: #131313;
 }
 
 .navbar-item { 
@@ -27,10 +36,11 @@
 
 .padding { 
    padding: 45px 10px; 
-   /* color: #3cffd0; */
+   color: #3cffd0;
 }
 
 .rareHeader { 
+   color: #ffffff;
    font-weight: bolder; 
    font-size: 25px; 
    margin-left: 25px; 

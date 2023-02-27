@@ -4,9 +4,10 @@ a:hover { text-decoration: none; color:purple; }
 
 html, body {
     background-color: #131313;
-    /* color: white; */
+    color: white;
 }
 
 .subtitle.is-small {
   font-size: 1rem;
+  color: white; 
 }

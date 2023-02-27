@@ -1,3 +1,6 @@
+.title { 
+  color: #ffffff;
+}
 .postDetail,
 .user-posts {
   display: flex;
@@ -16,12 +19,13 @@
   justify-content: space-between;
 }
 
+
 .posts_title {
   font-weight: bolder;
   font-size: xx-large;
   padding-bottom: 20px;
   border-bottom: 1px silver solid;
-  color: #131313;
+
 }
 
 .posts_author {

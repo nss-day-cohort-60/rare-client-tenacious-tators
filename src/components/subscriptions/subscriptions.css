@@ -93,6 +93,10 @@ img:hover {
   font-size: 25px; 
 }
 
+.posts_date { 
+  color: #ffffff;
+}
+
 .addPostButton {
   align-self: flex-end;
   width: max-content;
