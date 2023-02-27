@@ -1,33 +1,50 @@
 import { Link, useNavigate } from "react-router-dom"
 import { HumanDate } from "../utils/HumanDate"
+import "./custom.css"
 
 export const Posts = ({ posts, token, posttags }) => {
   const navigate = useNavigate()
 
+  const limitedContent = posts.content.slice(0, 140) + "..."
+
   return (
     <>
-      <div className="card">
-        <div className="card-image">
-          <figure className="image is-3by2">
-            <img src={posts.image_url} alt="Image 1"></img>
-          </figure>
-        </div>
-        <div className="card-content">
-          <div className="media">
-            <div className="media-content">
-              <p className="title is-4">{posts.title}</p>
-              <p className="subtitle is-6">{posts.author.full_name}</p>
+      <div>
+        <Link
+          style={{ textDecoration: "none", color: "inherit" }}
+          to={`/posts/${posts?.id}`}
+          className="hover"
+        >
+          <div className="columns is-centered">
+            <div className="column is-one-fifth"></div>
+            <div className="column is-one-fifth">
+              <a href="/categories">{posts.category.label}</a>
+              <br />
+              <p
+                className="title is-4 has-text-weight-bold is-margin"
+                aria-label="breadcrumbs"
+              >
+                {posts?.title}
+              </p>
+              <div className="subtitle is-6 has-text-weight-semibold is-custom-margin">
+                {posts.author.full_name}
+              </div>
+              <div className="subtitle is-custom">
+                <span style={{ margin: 0, padding: 0 }}>
+                  <HumanDate date={posts.publication_date} />
+                </span>
+              </div>
             </div>
+            <div className="column is-one-fifth">{limitedContent}</div>
+            <div className="column is-one-fifth">
+              <figure className="image is-16by9">
+                <img src={posts.image_url} alt="Image 1"></img>
+              </figure>
+            </div>
+            <div className="column is-one-fifth"></div>
           </div>
-
-          <div className="content">
-            {posts.content}
-
-            <a href="/categories">{posts.category.label}</a>
-
-            <HumanDate date={posts.publication_date} />
-          </div>
-        </div>
+          <hr class="hr"></hr>
+        </Link>
       </div>
     </>
   )

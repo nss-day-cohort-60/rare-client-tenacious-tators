@@ -74,9 +74,11 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
           </section>
         </section>
       </>
-      {filteredPosts.map((post) => (
-        <Posts key={post.id} posts={post} token={token} />
-      ))}
+      <div>
+        {filteredPosts.map((post) => (
+          <Posts key={post.id} posts={post} token={token} />
+        ))}
+      </div>
     </>
   )
 }
