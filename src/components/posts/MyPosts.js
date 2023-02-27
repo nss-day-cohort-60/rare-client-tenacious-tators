@@ -49,7 +49,7 @@ export const MyPosts = ({ token }) => {
                     <div className="posts_title">{post.title}</div>
                     <div className="posts_author">
                   Author:{" "}
-                  <Link to={`/users/${post.author.id}`}>
+                  <Link to={`/users/${post?.author?.id}`}>
                     {post?.author?.full_name}
                   </Link>
                   </div>
