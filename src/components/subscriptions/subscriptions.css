@@ -46,7 +46,7 @@
 img {
   width: 100%;
   padding: 30px;
-  opacity: 0.75;
+  /* opacity: 0.75; */
   filter: alpha(opacity=40);
 }
 
@@ -75,8 +75,8 @@ img:hover {
 .addPostButton {
   align-self: flex-end;
   width: max-content;
-  border-radius: 3px;
-  border: 1px solid silver;
+  /* border-radius: 50px;
+  border: 1px solid lightgray; */
 }
 
 .viewCommentsButton, .addCommentsButton { 
