@@ -11,6 +11,10 @@
   font-size: small;
 }
 
+.button {
+  margin: 2px;
+}
+
 .single-my-post {
   justify-content: space-between;
 }
