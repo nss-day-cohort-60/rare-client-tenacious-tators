@@ -159,7 +159,7 @@ export const EditPost = ({ token }) => {
           updatePost(postId, updatedPost)
             .then(() => navigate("/posts/myposts"))
         }}
-        className="publishButton">Publish</button>
+        className="button is-link is-rounded is-small">Publish</button>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { addNewCategory } from "../../managers/categories"
+import "./Categories.css"
 
 export const NewCategory = ({ token }) => {
   const [category, setNewCategory] = useState({})
@@ -20,7 +21,7 @@ export const NewCategory = ({ token }) => {
 
   return (
     <form className="categoryForm">
-      <h2>Add New Category</h2>
+      <h2 className="addCat">Add New Category</h2>
       <fieldset>
         <div className="form-group">
           <input
@@ -40,7 +41,7 @@ export const NewCategory = ({ token }) => {
           evt.preventDefault()
           createNewCategory()
         }}
-        className="publishButton"
+        className="button is-link is-rounded is-small"
       >
         Create
       </button>

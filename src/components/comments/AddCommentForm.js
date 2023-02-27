@@ -43,7 +43,7 @@ export const AddCommentForm = ({ token }) => {
                     evt.preventDefault()
                     handleClick()
                 }}
-                className="publishButton"
+                className="button is-link is-rounded is-small"
             >
                 Add Comment
             </button>
