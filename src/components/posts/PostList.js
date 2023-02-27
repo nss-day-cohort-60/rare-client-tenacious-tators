@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Post, Posts, TableRow } from "./Posts"
 import { getPosts, getSearchedPosts } from "../../managers/Posts"
-import "./Posts.css"
+// import "./Posts.css"
 
 export const PostList = ({ token, authorChoice, selectedCategory }) => {
   const [posts, setPosts] = useState([])
@@ -38,56 +38,46 @@ export const PostList = ({ token, authorChoice, selectedCategory }) => {
       setFilteredPosts(filteredPostList)
     }
   }, [posts, selectedCategory, authorChoice])
-  
-  const handleKeypress = e => {
+
+  const handleKeypress = (e) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
-        handleSubmit();
+      handleSubmit()
     }
-  };
+  }
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-      getSearchedPosts(`${searchTerms}`).then((data) => setFilteredPosts(data))
-      setSearchTerms("Search Posts By Title")
-      document.getElementById("search").value = "" 
-  };
+    e.preventDefault()
+    getSearchedPosts(`${searchTerms}`).then((data) => setFilteredPosts(data))
+    setSearchTerms("Search Posts By Title")
+    document.getElementById("search").value = ""
+  }
 
   return (
-    <><><section className="posts__buttons">
-    <section className="posts__filters">
-    <form><input className="searchBox" type="textfield" placeholder={searchTerms}  id="search"
-        onChange={(e) =>
-            setSearchTerms(e.target.value)}
-        onKeyUp={handleKeypress}></input>
-        <button type="submit"
-            onClick={handleSubmit}
-            >Go</button>
-        <button
-          onClick={() =>
-            setFilteredPosts(posts)}>View All</button>
-        </form>
-    </section>
-    </section>
-    </>
-      <div className="post-table">
-        <table className="table is-fullwidth">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>Date</th>
-              <th>Category</th>
-              <th>Tags</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredPosts.map((post) => (
-              <Posts key={post.id} posts={post} token={token} />
-            ))}
-          </tbody>
-        </table>
+    <>
+      <>
+        <section className="posts__buttons">
+          <section className="posts__filters">
+            <form>
+              <input
+                type="textfield"
+                placeholder={searchTerms}
+                id="search"
+                onChange={(e) => setSearchTerms(e.target.value)}
+                onKeyUp={handleKeypress}
+              ></input>
+              <button type="submit" onClick={handleSubmit}>
+                Go
+              </button>
+              <button onClick={() => setFilteredPosts(posts)}>View All</button>
+            </form>
+          </section>
+        </section>
+      </>
+      <div>
+        {filteredPosts.map((post) => (
+          <Posts key={post.id} posts={post} token={token} />
+        ))}
       </div>
     </>
   )

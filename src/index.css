@@ -1,13 +1,6 @@
 /* imports Bulma framework for css */
-@import 'bulma/css/bulma.css';
+@import "bulma/css/bulma.css";
 
-
-html, body { 
-    /* background-color:#131313; 
-    color: #ffffff; */
-    
+.subtitle.is-small {
+  font-size: 1rem;
 }
-
-
-
-
