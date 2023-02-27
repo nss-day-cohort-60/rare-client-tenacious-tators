@@ -42,20 +42,20 @@ export const SubscriptionList = ({ token }) => {
                         <p>{post.content}</p>
                       </section>
                       <section>
-                        <h3 className="authorName">
+                        <h3>
                           Author:{" "}
-                          <Link className="authorName" to={`/users/${post.author.id}`}>
-                            {post?.author?.full_name}
+                          <Link to={`/users/${post.author.id}`}>
+                            <div className="authorName">{post?.author?.full_name}</div>
                           </Link>
                         </h3>
                         <section className="myposts__footer">
                           <div className="buttonContainer">
-                            <button className="buttons"
+                            <button className="viewCommentsButton"
                               onClick={() => navigate(`/posts/${post.id}/comments`)}
                             >
                               View Comments
                             </button>
-                            <button className="buttons"
+                            <button className="addCommentsButton"
                               onClick={() => navigate(`/posts/${post.id}/comment`)}
                             >
                               Add Comments

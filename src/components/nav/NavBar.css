@@ -1,19 +1,9 @@
-.navbar { 
-   /* background-color: #131313;
-   color: #ffffff; */
-   color: #131313;
-   background-color: #ffffff;
-}
 .navbar-menu img {
    max-height: 3rem;
-   
-
 }
 
 .navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
-   /* background-color: #131313; 
-   color: #ffffff; */
-   font-size: 20px;
+   font-size: 15px;
 }
 
 .navbar-item { 
@@ -22,9 +12,9 @@
    
 }
 
-.navbar-item, .navbar-menu.is-active  { 
+/* .navbar-item, .navbar-menu.is-active  { 
    color: #131313; 
-}
+} */
 
 
 .navbar-end { 
@@ -42,6 +32,7 @@
 
 .rareHeader { 
    font-weight: bolder; 
-   font-size: 35px; 
+   font-size: 25px; 
+   margin-left: 25px; 
 }
 

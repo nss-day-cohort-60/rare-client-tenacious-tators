@@ -11,12 +11,10 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  /* background-color: #131313; */
-  
 }
 
 .subscribe__content { 
-  padding: 25px; 
+  padding: 20px; 
   border: 1px solid #131313;
   border-style: none none solid none; 
 }
@@ -63,7 +61,6 @@ img:hover {
   flex-flow: column;
   flex-direction: nowrap;
   justify-content: space-between;
-  color: #ffffff;
 }
 
 .subscribe__postbody {
@@ -79,14 +76,14 @@ img:hover {
   align-self: flex-end;
   width: max-content;
   border-radius: 3px;
-  border: 1px solid #ffffff;
+  border: 1px solid silver;
 }
 
-.buttons {
-  padding: 3px 4px;
+.viewCommentsButton, .addCommentsButton { 
   margin: 3px;
   border-radius: 20px;
   font-size: small;
+  padding: 5px 10px; 
 }
 
 .footer {
@@ -96,7 +93,7 @@ img:hover {
 
 .authorName,
 Link {
-  color: #131313;
+  color: #309875;
 }
 
 .reactionsContainer { 

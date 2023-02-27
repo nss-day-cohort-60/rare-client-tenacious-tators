@@ -33,7 +33,7 @@ export const NavBar = ({ token, setToken }) => {
     >
       <div className="navbar-brand">
         <a className="navbar-item" href="/">
-          <img src={Logo} height="3rem" alt="Rare Logo" />{" "}
+          {/* <img src={Logo} height="3rem" alt="Rare Logo" />{" "} */}
           <h1 class="title is-3" className="rareHeader">Rare Publishing</h1>
         </a>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
