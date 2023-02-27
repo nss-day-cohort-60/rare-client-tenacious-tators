@@ -1,7 +1,7 @@
 .comment{
   display: flex;
   margin: 1rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem .5rem;
   
 }
 
@@ -15,24 +15,33 @@
   height: 40px;
   border-radius: 100%;
   margin-right: 10px;
+  background-color: white;
+  padding: 0;
 }
 
 .comment__author{
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: small;
-  margin: 5px;
+  font-size: 14px;
+  margin: 10px 5px;
 }
 
 .comment__content{
+  display: flex;
+  flex-direction: row;
   font-size: medium;
-  margin: 5px;
+  margin: 10px;
 }
 
 .commentBtn{
   display: flex;
   justify-content: flex-end;
+  margin: 1rem;
+}
+
+.edit_comment{
+  margin: 0 .5rem;
 }
 
 .comments_title {
@@ -41,4 +50,5 @@
   padding-bottom: 10px;
   border-bottom: 1px silver solid;
   margin-bottom: 30px;
+  margin-left: 20px;
 }
