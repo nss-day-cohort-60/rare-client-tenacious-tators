@@ -11,6 +11,34 @@ export const PostDetail = ({ token }) => {
   const [post, setPost] = useState({})
   const { postId } = useParams()
   const [users, setUsers] = useState([])
+//   const [postTags, setPostTags] = useState(new Set())
+//   const [currentPost, setCurrentPost] = useState({
+//     categoryId: 0,
+//     title: "",
+//     image_url: "",
+//     content: "",
+//     user_id: parseInt(token),
+//     tags: [],
+//     approved: 0
+//   });
+
+//   const tagArr = (tagId) => {
+//     let copy = new Set(postTags)
+//     copy.has(tagId) ? copy.delete(tagId) : copy.add(tagId)
+//     setPostTags(copy)
+// }
+
+//   useEffect(() => {
+//       getSinglePost(postId).then((data) => {
+//           setCurrentPost(data)
+
+//           const tagSet = new Set()
+//           for (const tag of data.tags) {
+//               tagSet.add(tag.id)
+//           }
+//           setPostTags(tagSet)
+//       })
+//   }, [postId])
 
 
   useEffect(() => {
@@ -48,7 +76,7 @@ export const PostDetail = ({ token }) => {
             <h2>{post?.author?.full_name}</h2>
           </Link>
           <h3>{post?.category?.label}</h3>
-          <h3>{post?.category?.label}</h3>
+          {/* <h3>{currentPost.tagArr}</h3> */}
           <img className="myposts__image" src={post?.image_url} />
           <section className="myposts__postbody">
             <p>{post.content}</p>
