@@ -6,10 +6,8 @@
   padding-top: 20px;
 }
 
-.buttons {
-  padding: 3px 4px;
+.button {
   margin: 3px;
-  border-radius: 20px;
   font-size: small;
 }
 

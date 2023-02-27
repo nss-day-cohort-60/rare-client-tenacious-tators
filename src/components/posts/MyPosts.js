@@ -64,7 +64,7 @@ export const MyPosts = ({ token }) => {
                   <p>{post.content}</p>
                 </section>
                 <div className="myposts__footer">
-                  <button className="buttons"
+                  <button className="button is-rounded is-small"
                     onClick={(e) => {
                       e.preventDefault()
                       deleteWindow(post.id)
@@ -72,19 +72,19 @@ export const MyPosts = ({ token }) => {
                   >
                     DELETE
                   </button>
-                  <button className="buttons"
+                  <button className="button is-rounded is-small"
                     onClick={() => {
                       navigate(`/posts/editpost/${post.id}`)
                     }}
                   >
                     EDIT
                   </button>
-                  <button className="buttons"
+                  <button className="button is-rounded is-small"
                     onClick={() => navigate(`/posts/${post.id}/comments`)}
                   >
                     VIEW COMMENTS
                   </button>
-                  <button className="buttons" onClick={() => navigate(`/posts/${post.id}/comment`)}>
+                  <button className="button is-rounded is-small" onClick={() => navigate(`/posts/${post.id}/comment`)}>
                     ADD COMMENT
                   </button>
                 <section>

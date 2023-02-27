@@ -8,11 +8,11 @@ export const Comment = ({ comment }) => {
   return (
 
     <section className="comments__card">
-      <h3>"{comment?.content}"</h3>
-      <div className="comment__author">-{comment?.author?.full_name}</div>
+      <div className="comment__author"><img className="comment__image" src={comment?.author?.profile_image_url}/>{comment?.author?.full_name} </div>
+      <div className="comment__content">"{comment?.content}"</div>
       {comment.writer ?
-        <div className="buttons">
-          <button
+        <div>
+          <button className="button is-rounded is-small"
             onClick={() => {
               navigate({ pathname: `${comment.id}/edit` });
             }}
