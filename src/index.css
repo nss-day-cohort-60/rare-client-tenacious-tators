@@ -21,10 +21,6 @@ html, body {
   background-color: #131313;
 }
 
-.navbar-item.is-active { 
-  background-color: #131313; 
-}
-
 .title{
   color: #cccccc
 }
