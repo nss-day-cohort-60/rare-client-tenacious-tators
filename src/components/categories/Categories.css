@@ -69,10 +69,14 @@
 }
 
 .grey-buttons{
+    display: flex;
+    justify-content: space-around;
+    width: 60px;
     color: #949494;
 }
 
-.grey-buttons:hover {
+path:hover{
+    color: #cccccc;
     cursor: pointer;
 }
 
