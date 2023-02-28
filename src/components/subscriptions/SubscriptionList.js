@@ -7,15 +7,11 @@ import { HumanDate } from "../utils/HumanDate"
 import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
-  // const [mostRecentPost, setMostRecentPost] = useState([])
-  // const [secondPost, setSecondPost] = useState([])
   const [posts, setPosts] = useState([])
   const tokenInt = parseInt(token)
   const navigate = useNavigate()
 
   useEffect(() => {
-    // getSubscribedPosts(tokenInt).then((recentPost) => setMostRecentPost(recentPost[0]))
-    // getSubscribedPosts(tokenInt).then((nextPost) => setSecondPost(nextPost[1]))
     getSubscribedPosts(tokenInt).then((postData) => setPosts(postData))
 
   }, [])
@@ -35,7 +31,7 @@ export const SubscriptionList = ({ token }) => {
                 <section className="subscribe__content">
                   <span style={{ fontWeight: "bold" }}>
                     <section className="subscribe__postheader">
-                      <div>Your Most Recent Post...</div>
+                      <div>Most Recent Post...</div>
                       <div className="posts_title">{mostRecentPost.title}</div>
                       <div className="posts_date">
                         Published On:{" "}
@@ -55,23 +51,22 @@ export const SubscriptionList = ({ token }) => {
                         <div className="authorName">{mostRecentPost?.author?.full_name}</div>
                       </Link>
                     </h3>
-                    <section className="myposts__footer">
-                      <div className="buttonContainer">
-                        <button className="viewCommentsButton"
-                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
-                        >
-                          View Comments
-                        </button>
-                        <button className="addCommentsButton"
-                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
-                        >
-                          Add Comments
-                        </button>
-                      </div>
-                      <section className="reactionsContainer">
-                        <PostReactions postId={mostRecentPost.id} />
-                      </section>
+                    <div className="buttonContainer">
+                      <button className="viewCommentsButton"
+                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
+                      >
+                        View Comments
+                      </button>
+                      <button className="addCommentsButton"
+                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
+                      >
+                        Add Comments
+                      </button>
+                    </div>
+                    <section className="reactionsContainer">
+                      <PostReactions postId={mostRecentPost.id} />
                     </section>
+
                   </section>
                 </section>
               </div>
@@ -80,7 +75,7 @@ export const SubscriptionList = ({ token }) => {
                 <section className="column">
                   <span style={{ fontWeight: "bold" }}>
                     <div className="side_posts_title">{secondPost.title}</div>
-                    <div className="posts_date">
+                    <div className="side_posts_date">
                       Published On:{" "}
                       <HumanDate date={secondPost.publication_date} />
                     </div>
@@ -123,7 +118,6 @@ export const SubscriptionList = ({ token }) => {
               {allOtherPosts.map((post) => (
                 <div className="bottomPosts">
                   <div className="columns is-centered">
-                    {/* <div className="column is-one-fifth"></div> */}
                     <div className="column is-two-fifth">
                       <a href="/categories">{post.category?.label}</a>
                       <br />
@@ -163,12 +157,9 @@ export const SubscriptionList = ({ token }) => {
                     <div className="column is-two-fifth">
                       <img id="image" src={post.image_url} alt="Image 1"></img>
                     </div>
-                    {/* <div className="column is-one-fifth"></div> */}
-
                     <hr class="hr"></hr>
                   </div>
                 </div>
-
               )
               )}</div>
           </div>
