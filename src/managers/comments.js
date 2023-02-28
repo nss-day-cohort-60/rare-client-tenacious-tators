@@ -40,3 +40,12 @@ export const createNewComment = (postbody) => {
       })
     }
 
+
+    export const deleteComment = (id) => {
+      return fetch(`http://localhost:8000/comments/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Token ${localStorage.getItem("rare_token")}`
+        },
+      })
+    }

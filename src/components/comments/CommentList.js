@@ -30,7 +30,7 @@ export const CommentList = ({ token }) => {
                   </button></div>
           <div className="comments_title">Comments for <i>{post.title}</i></div>
           {comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
+            <Comment key={comment.id} comment={comment} setterFunction={setComments} />
           ))}
         </tbody>
       </div>
