@@ -18,9 +18,6 @@ export const SubscriptionList = ({ token }) => {
   return (
     <>
       <article className="subscribe__container">
-        <section className="addPostButton" id="myBtn">
-          <button className="button is-rounded" onClick={() => navigate("posts/newpost")}>+New Post</button>
-        </section>
         <section className="subscribe">
           {posts.length ? (
             <>
@@ -50,12 +47,12 @@ export const SubscriptionList = ({ token }) => {
                         </h3>
                         <section className="myposts__footer">
                           <div className="buttonContainer">
-                            <button className="viewCommentsButton"
+                            <button className="button is-link is-rounded is-small"
                               onClick={() => navigate(`/posts/${post.id}/comments`)}
                             >
                               View Comments
                             </button>
-                            <button className="addCommentsButton"
+                            <button className="button is-link is-rounded is-small"
                               onClick={() => navigate(`/posts/${post.id}/comment`)}
                             >
                               Add Comments
