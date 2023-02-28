@@ -3,8 +3,7 @@
     object-fit: cover;
     padding: 3px;
     border: none;
-    background-color: #cccccc;
-    /* background-color: #131313; */
+    background-color: #131313;
   }
 
   .reaction__icon:hover {

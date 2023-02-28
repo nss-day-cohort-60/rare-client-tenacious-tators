@@ -1,3 +1,6 @@
+.title { 
+  color: #ffffff;
+}
 .postDetail,
 .user-posts {
   display: flex;
@@ -26,6 +29,7 @@
 .single-my-post {
   justify-content: space-between;
 }
+
 
 .posts_title {
   font-weight: bolder;
