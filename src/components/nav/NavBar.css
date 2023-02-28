@@ -9,7 +9,8 @@
    background-color: #131313;
 }
 
-.navbar-brand, .navbar-item, .navbar-burger, .navbar-menu  { 
+
+.navbar-brand, .navbar-item, .navbar-burger, .navbar-menu, .navbar-start, .navbar-menu.is-active  { 
    font-size: 15px;
    background-color: #131313;
 }
@@ -20,9 +21,6 @@
    padding: 0px; 
 }
 
-.navbar-item, .navbar-menu.is-active  { 
-   color: #131313; 
-}
 
 .navbar-end { 
    padding-right: 75px; 

@@ -36,7 +36,6 @@ export const NavBar = ({ token, setToken }) => {
           {/* <img src={Logo} height="3rem" alt="Rare Logo" />{" "} */}
           <h1 class="title is-3" className="rareHeader">Rare Publishing</h1>
         </a>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <a
           role="button"
           className="navbar-burger"
@@ -54,8 +53,6 @@ export const NavBar = ({ token, setToken }) => {
       <div className="navbar-menu" ref={navbar}>
         <div className="navbar-start">
           {
-            // This ternary statement checks to ensure the current user is logged in
-            // If true, a link will appear in the nav bar that links to path "/" when clicked
             token ? 
             (<>
                 <Link to="/posts" className="navbar-item ">

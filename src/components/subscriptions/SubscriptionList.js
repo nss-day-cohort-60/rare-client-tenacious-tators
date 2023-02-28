@@ -30,21 +30,26 @@ export const SubscriptionList = ({ token }) => {
 
               <div className="asubscribe__posts column is-three-fifths">
                 <section className="subscribe__content">
-                  <span style={{ fontWeight: "bold" }}>
-                    <section className="subscribe__postheader">
-                      <div>Most Recent Post...</div>
-                      <div className="posts_title">{mostRecentPost.title}</div>
-                      <div className="posts_date">
-                        Published On:{" "}
-                        <HumanDate date={mostRecentPost.publication_date} />
-                      </div>
+                  <Link
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    to={`/posts/${mostRecentPost?.id}`}
+                  >
+                    <span style={{ fontWeight: "bold" }}>
+                      <section className="subscribe__postheader">
+                        <div>Most Recent Post...</div>
+                        <div className="posts_title">{mostRecentPost.title}</div>
+                        <div className="posts_date">
+                          Published On:{" "}
+                          <HumanDate date={mostRecentPost.publication_date} />
+                        </div>
+                      </section>
+                    </span>
+                    <h3>{mostRecentPost?.category?.label}</h3>
+                    <img className="subscribe__image" src={mostRecentPost?.image_url} />
+                    <section className="subscribe__postbody">
+                      <p>{mostRecentPost.content}</p>
                     </section>
-                  </span>
-                  <h3>{mostRecentPost?.category?.label}</h3>
-                  <img className="subscribe__image hover" src={mostRecentPost?.image_url} />
-                  <section className="subscribe__postbody">
-                    <p>{mostRecentPost.content}</p>
-                  </section>
+                  </Link>
                   <section>
                     <h3>
                       Author:{" "}
@@ -73,18 +78,23 @@ export const SubscriptionList = ({ token }) => {
 
               <div className="secondPostContainer">
                 <section className="column">
-                  <span style={{ fontWeight: "bold" }}>
-                    <div className="side_posts_title">{secondPost.title}</div>
-                    <div className="posts_date">
-                      Published On:{" "}
-                      <HumanDate date={secondPost.publication_date} />
-                    </div>
-                  </span>
-                  <h3>{secondPost?.category?.label}</h3>
-                  <img className="subscribe__image hover" src={secondPost?.image_url} />
-                  <section className="subscribe__postbody">
-                    <div className="column">{secondPost.content}</div>
-                  </section>
+                  <Link
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    to={`/posts/${secondPost?.id}`}
+                  >
+                    <span style={{ fontWeight: "bold" }}>
+                      <div className="side_posts_title">{secondPost.title}</div>
+                      <div className="posts_date">
+                        Published On:{" "}
+                        <HumanDate date={secondPost.publication_date} />
+                      </div>
+                    </span>
+                    <h3>{secondPost?.category?.label}</h3>
+                    <img className="subscribe__image" src={secondPost?.image_url} />
+                    <section className="subscribe__postbody">
+                      <div className="column">{secondPost.content}</div>
+                    </section>
+                  </Link>
                   <section>
                     <h3>
                       Author:{" "}
@@ -117,17 +127,28 @@ export const SubscriptionList = ({ token }) => {
                 <div className="bottomPosts">
                   <div className="columns is-centered">
                     <div className="column is-two-fifth">
-                      <a href="/categories">{post.category?.label}</a>
-                      <br />
-                      <p
-                        className="title is-4 has-text-weight-bold is-margin"
-                        aria-label="breadcrumbs"
+                      <Link
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        to={`/posts/${post?.id}`}
+                        
                       >
-                        {post?.title}
-                      </p>
-                      <div className="subtitle is-6 has-text-weight-semibold is-custom-margin">
-                        {post?.author?.full_name}
-                      </div>
+                        <a href="/categories">{post.category?.label}</a>
+                        <br />
+                        <p
+                          className="title is-4 has-text-weight-bold is-margin"
+                          aria-label="breadcrumbs"
+                        >
+                          {post?.title}
+                        </p>
+                        <div className="subtitle is-6 has-text-weight-semibold is-custom-margin">
+                          <h3>
+                            Author:{" "}
+                            <Link to={`/users/${post.author.id}`}>
+                              <div className="authorName">{post?.author?.full_name}</div>
+                            </Link>
+                          </h3>
+                        </div>
+                      </Link>
                       <div className="subtitle is-custom">
                         <span style={{ margin: 0, padding: 0 }}>
                           <HumanDate date={post.publication_date} />
@@ -149,9 +170,19 @@ export const SubscriptionList = ({ token }) => {
                         </section>
                       </div>
                     </div>
-                    <div className="column is-three-fifth">{post.content}</div>
+                    <div className="column is-three-fifth">
+                      <Link
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        to={`/posts/${post?.id}`}
+                        className="hover"
+                      >{post.content}
+                      </Link></div>
                     <div className="column is-two-fifth">
-                      <img id="image" src={post.image_url} alt="Image 1"></img>
+                      <Link
+                        to={`/posts/${post?.id}`}
+                        className="subscribe__image"
+                      ><img id="image" src={post.image_url} alt="Image 1"></img></Link>
+
                     </div>
                     <hr class="hr"></hr>
                   </div>

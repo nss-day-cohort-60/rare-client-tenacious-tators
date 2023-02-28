@@ -21,8 +21,9 @@ html, body {
   background-color: #131313;
 }
 
-.navbar-item.is-active { 
+a.navbar-item:hover  { 
   background-color: #131313; 
+  color: #309875;
 }
 
 .title{
