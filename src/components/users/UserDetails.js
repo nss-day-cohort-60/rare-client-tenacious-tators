@@ -16,8 +16,8 @@ export const UserDetails = () => {
       username: ""
     }
   })
+
   const { userId } = useParams()
-//   const navigate = useNavigate()
 
   useEffect(() => {
     getUserById(userId)
