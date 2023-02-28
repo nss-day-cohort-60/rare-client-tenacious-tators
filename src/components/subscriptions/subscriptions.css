@@ -3,71 +3,42 @@
   position: relative;
 }
 
-@media (max-width: 400px) {
-  .flex-grid {
-    display: block;
-  }
+.subscribePostsPage { 
+  padding: 20px; 
 }
 
-.flex-grid {
-  display: flex;
-}
-.col {
-  flex: 1;
-}
-
-.flex-grid-thirds {
-  display: flex;
-  justify-content: space-between;
-}
-.flex-grid-thirds .col {
-  width: 32%;
-}
-
-.subscribe__container {
-  width: 80vw;
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.subscribe__content { 
-  padding: 15px; 
-  border: 1px solid #ffffff;
-  border-style: solid none solid none; 
-}
-
-.subscribe {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-}
-
-.subscribe__text {
-  font-size: 2.5rem;
-}
-
-.subscribe__posts {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  width: 100%;
+.subscribePostscontainer {  
+  display: flex; 
+  flex-direction: row; 
   padding: 50px;
   margin: 20px;
   border-radius: 3px;
-
 }
+
+.firstPostsContainer { 
+  padding-top: 20px; 
+}
+
+.secondPostContainer { 
+  padding: 40px 20px; 
+  margin: 3px;
+}
+
+.subscribe__content, .bottomPosts { 
+  padding: 30px 15px; 
+  border: 1px solid #ffffff;
+  border-style: none none solid none; 
+} 
+
+.bottomPosts { 
+  margin: 0 50px; 
+}
+
 
 img {
   width: 100%;
   padding: 30px;
-  /* opacity: 0.75; */
+  opacity: 0.75; 
   filter: alpha(opacity=40);
 }
 
@@ -89,21 +60,6 @@ img:hover {
   margin: 1rem;
 }
 
-.postTitle { 
-  font-size: 25px; 
-}
-
-.posts_date { 
-  color: #ffffff;
-}
-
-.addPostButton {
-  align-self: flex-end;
-  width: max-content;
-  /* border-radius: 50px;
-  border: 1px solid lightgray; */
-}
-
 .viewCommentsButton, .addCommentsButton { 
   margin: 3px;
   border-radius: 20px;
@@ -123,4 +79,5 @@ Link {
 
 .reactionsContainer { 
   margin-left: auto; 
+  padding-top: 10px; 
 }
