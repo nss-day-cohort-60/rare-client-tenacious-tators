@@ -72,8 +72,16 @@
     color: rgb(96, 94, 94);
 }
 
+a:hover .grey-buttons{
+    color: #efefef;
+}
+
 .category_name, Link{
     color: #309875;
+}
+
+a:hover .category_name, Link{
+    color: #3cffd0;
 }
 
 .label{
