@@ -6,10 +6,10 @@ export const User = ({ user , setUsers }) => (
         <img src={user.profile_image_url} className="user card__image"/>
         <h3 className="user__name">
                 <Link to={`/users/${user.user.id}`}>
-                    <h3>{ user.full_name }</h3>
+                    <h3 className="user__name">{ user.full_name }</h3>
                 </Link>
-                <div>{ user.user.username } # of followers</div>
-                <div>{ user.user.email }</div>
+                <div className="user card__subtitle">{ user.followers_count } other users follow this author</div>
+                <div className="user card__subtitle">{ user.user.email }</div>
                 <SubscriptionForm user={user} setUsers={setUsers}/>
 
         </h3>

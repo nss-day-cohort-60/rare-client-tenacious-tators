@@ -15,16 +15,12 @@
   margin-top: 1rem;
 }
 
-/* .user {
-    display: flex;
-    flex-basis: 24%;
-    margin: 0.5rem 1em;
-    padding: 0.5rem 1rem;
-    border: 1px solid black;
-  }
-   */
 .users_search {
   width: 25rem;
+}
+
+.user__name {
+  font-weight: bold
 }
 
 .users__title {
@@ -78,4 +74,9 @@
 
 .user__info {
   padding: 0.5rem 1rem
+}
+
+.card__subtitle {
+  font-size: 11px;
+
 }
