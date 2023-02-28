@@ -21,7 +21,7 @@
 }
 
 .navbar-item, .navbar-menu.is-active  { 
-   color: #131313; 
+   background-color: #131313; 
 }
 
 .navbar-end { 
@@ -43,4 +43,3 @@
    font-size: 25px; 
    margin-left: 25px; 
 }
-
