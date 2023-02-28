@@ -7,6 +7,7 @@ import { HumanDate } from "../utils/HumanDate"
 import { PostReactions } from "../reactions/PostReactions";
 
 export const SubscriptionList = ({ token }) => {
+
   const [posts, setPosts] = useState([])
   const tokenInt = parseInt(token)
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ export const SubscriptionList = ({ token }) => {
           <div className="subscribePostsContainer">
             <div class="columns">
 
-              <div className=" subscribe__posts column is-three-fifths">
+              <div className="asubscribe__posts column is-three-fifths">
                 <section className="subscribe__content">
                   <span style={{ fontWeight: "bold" }}>
                     <section className="subscribe__postheader">
@@ -51,22 +52,21 @@ export const SubscriptionList = ({ token }) => {
                         <div className="authorName">{mostRecentPost?.author?.full_name}</div>
                       </Link>
                     </h3>
-                    <div className="buttonContainer">
-                      <button className="viewCommentsButton"
-                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
-                      >
-                        View Comments
-                      </button>
-                      <button className="addCommentsButton"
-                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
-                      >
-                        Add Comments
-                      </button>
-                    </div>
-                    <section className="reactionsContainer">
-                      <PostReactions postId={mostRecentPost.id} />
-                    </section>
-
+                      <div className="buttonContainer">
+                        <button className="viewCommentsButton"
+                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
+                        >
+                          View Comments
+                        </button>
+                        <button className="addCommentsButton"
+                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
+                        >
+                          Add Comments
+                        </button>
+                      </div>
+                      <section className="reactionsContainer">
+                        <PostReactions postId={mostRecentPost.id} />
+                      </section>
                   </section>
                 </section>
               </div>
@@ -75,7 +75,7 @@ export const SubscriptionList = ({ token }) => {
                 <section className="column">
                   <span style={{ fontWeight: "bold" }}>
                     <div className="side_posts_title">{secondPost.title}</div>
-                    <div className="side_posts_date">
+                    <div className="posts_date">
                       Published On:{" "}
                       <HumanDate date={secondPost.publication_date} />
                     </div>
@@ -92,22 +92,20 @@ export const SubscriptionList = ({ token }) => {
                         <div className="authorName">{secondPost?.author?.full_name}</div>
                       </Link>
                     </h3>
-                    <section className="myposts__footer">
-                      <div className="buttonContainer">
-                        <button className="viewCommentsButton"
-                          onClick={() => navigate(`/posts/${secondPost.id}/comments`)}
-                        >
-                          View Comments
-                        </button>
-                        <button className="addCommentsButton"
-                          onClick={() => navigate(`/posts/${secondPost.id}/comment`)}
-                        >
-                          Add Comments
-                        </button>
-                      </div>
-                      <section className="reactionsContainer">
-                        <PostReactions postId={secondPost.id} />
-                      </section>
+                    <div className="buttonContainer">
+                      <button className="viewCommentsButton"
+                        onClick={() => navigate(`/posts/${secondPost.id}/comments`)}
+                      >
+                        View Comments
+                      </button>
+                      <button className="addCommentsButton"
+                        onClick={() => navigate(`/posts/${secondPost.id}/comment`)}
+                      >
+                        Add Comments
+                      </button>
+                    </div>
+                    <section className="reactionsContainer">
+                      <PostReactions postId={secondPost.id} />
                     </section>
                   </section>
                 </section>
@@ -135,7 +133,6 @@ export const SubscriptionList = ({ token }) => {
                           <HumanDate date={post.publication_date} />
                         </span>
                       </div>
-                      <section className="myposts__footer">
                         <div className="buttonContainer">
                           <button className="viewCommentsButton"
                             onClick={() => navigate(`/posts/${post.id}/comments`)}
@@ -151,7 +148,6 @@ export const SubscriptionList = ({ token }) => {
                             <PostReactions postId={post.id} />
                           </section>
                         </div>
-                      </section>
                     </div>
                     <div className="column is-three-fifth">{post.content}</div>
                     <div className="column is-two-fifth">
@@ -160,6 +156,7 @@ export const SubscriptionList = ({ token }) => {
                     <hr class="hr"></hr>
                   </div>
                 </div>
+
               )
               )}</div>
           </div>
