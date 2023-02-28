@@ -1,10 +1,10 @@
 .users__container {
   margin: 0 5rem;
   justify-content: left;
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
-  /* margin: 0.5rem 1em; */
   padding: 0.5rem 1rem;
 }
 
@@ -35,8 +35,10 @@
   margin-top: 1rem;
 }
 
-.users__container {
-  
+.userdetail__image {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
 }
 
 .user__card {
@@ -44,9 +46,9 @@
   max-width: 250px;
   min-width: 200px;
   padding: 0.5rem;
-  margin: .5rem;
+  padding-bottom: 0rem;
+  margin: 0.5rem 0.5rem 0.5rem 0rem;
   border-radius: 3%;
-  /* box-shadow: 2px 3px 5px 2px rgb(235, 235, 235); */
 }
 
 .users__follow_button {
@@ -77,5 +79,9 @@
 
 .card__subtitle {
   font-size: 11px;
+}
 
+.card__footer {
+  padding-top: 1rem;
+  padding-bottom: 0rem
 }

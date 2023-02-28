@@ -10,7 +10,9 @@ export const User = ({ user , setUsers }) => (
                 </Link>
                 <div className="user card__subtitle">{ user.followers_count } other users follow this author</div>
                 <div className="user card__subtitle">{ user.user.email }</div>
-                <SubscriptionForm user={user} setUsers={setUsers}/>
+                <section className="user card__footer">
+                    <SubscriptionForm user={user} setUsers={setUsers}/>
+                </section>
 
         </h3>
     </section>

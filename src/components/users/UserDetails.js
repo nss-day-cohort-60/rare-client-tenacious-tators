@@ -23,16 +23,21 @@ export const UserDetails = () => {
     getUserById(userId)
       .then(setUser)
   }, [userId])
+  
+  const date = user.user.date_joined
+  const formatted_date = new Date(date).toLocaleDateString("en-US")
 
   return (
-    <section className="user">
-        <img className="user__image" src={user.profile_image_url}/>
-            <article className="user__info">
-      <h3 className="user__name">Name: {user.full_name}</h3>
-      <div className="user__username">Username: {user.user.username}</div>
-      <div className="user__created">Account Created: {user.user.date_joined}</div>
-      <div className="user__bio">Bio: {user.bio}</div>
-      <SubscriptionForm user={user} setUser={setUser}/>
+    <section className="users__container">
+      <section className="userdetail__image">
+        <img className="userdetail__image" src={user.profile_image_url}/>
+      </section>
+      <article className="user__info">
+        <h3 className="user__name">Name: {user.full_name}</h3>
+        <div className="user__username">Username: {user.user.username}</div>
+        <div className="user__created">User Since: {formatted_date}</div>
+        <div className="user__bio">Bio: {user.bio}</div>
+        <SubscriptionForm user={user} setUser={setUser}/>
       </article>
     </section>
   )
