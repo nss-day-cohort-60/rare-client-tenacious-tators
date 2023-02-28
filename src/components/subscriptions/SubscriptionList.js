@@ -150,49 +150,49 @@ export const SubscriptionList = ({ token }) => {
                         </div>
                       </Link>
                       {post?.title}
-                    </p>
-                    <div className="title is-6 has-text-weight-semibold is-margin">
-                      {post?.author?.full_name}
-                    </div>
-                    <div className="subtitle is-custom">
-                      <span style={{ margin: 0, padding: 0 }}>
-                        <HumanDate date={post.publication_date} />
-                      </span>
-                    </div>
-                    <div className="buttonContainer">
-                      <button className="button is-link is-rounded is-small"
-                        onClick={() => navigate(`/posts/${post.id}/comments`)}
-                      >
-                        View Comments
-                      </button>
-                      <button className="button is-link is-rounded is-small"
-                        onClick={() => navigate(`/posts/${post.id}/comment`)}
-                      >
-                        Add Comments
-                      </button>
-                      <section className="reactionsContainer">
-                        <PostReactions postId={post.id} />
-                      </section>
-                    </div>
-                  </div>
-                  <div className="column is-three-fifth">
-                    <Link
-                      style={{ textDecoration: "none", color: "inherit" }}
-                      to={`/posts/${post?.id}`}
-                      className="hover"
-                    >{post.content}
-                    </Link></div>
-                  <div className="column is-two-fifth">
-                    <Link
-                      to={`/posts/${post?.id}`}
-                      className="subscribe__image"
-                    ><img id="image" src={post.image_url} alt="Image 1"></img></Link>
 
+                      <div className="title is-6 has-text-weight-semibold is-margin">
+                        {post?.author?.full_name}
+                      </div>
+                      <div className="subtitle is-custom">
+                        <span style={{ margin: 0, padding: 0 }}>
+                          <HumanDate date={post.publication_date} />
+                        </span>
+                      </div>
+                      <div className="buttonContainer">
+                        <button className="button is-link is-rounded is-small"
+                          onClick={() => navigate(`/posts/${post.id}/comments`)}
+                        >
+                          View Comments
+                        </button>
+                        <button className="button is-link is-rounded is-small"
+                          onClick={() => navigate(`/posts/${post.id}/comment`)}
+                        >
+                          Add Comments
+                        </button>
+                        <section className="reactionsContainer">
+                          <PostReactions postId={post.id} />
+                        </section>
+                      </div>
+                    </div>
+                    <div className="column is-three-fifth">
+                      <Link
+                        style={{ textDecoration: "none", color: "inherit" }}
+                        to={`/posts/${post?.id}`}
+                        className="hover"
+                      >{post.content}
+                      </Link></div>
+                    <div className="column is-two-fifth">
+                      <Link
+                        to={`/posts/${post?.id}`}
+                        className="subscribe__image"
+                      ><img id="image" src={post.image_url} alt="Image 1"></img></Link>
+
+                    </div>
+                    <hr class="hr"></hr>
                   </div>
-                  <hr class="hr"></hr>
+
                 </div>
-
-
               )
               )}</div>
           </div>
