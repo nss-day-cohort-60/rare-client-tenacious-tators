@@ -12,12 +12,17 @@ html, body {
 
 .subtitle.is-small {
   font-size: 1rem;
+  color: white; 
 }
 
 .navbar-item, .navbar-link { 
   color: #309875;
   padding-left: 10px; 
   background-color: #131313;
+}
+
+.navbar-item.is-active { 
+  background-color: #131313; 
 }
 
 .title{
