@@ -12,7 +12,15 @@
 }
 
 .button {
-  margin: 2px;
+  margin: -1px 3px 15px 3px;
+  border-radius: 10px;
+  font-size: small;
+}
+
+.button {
+  margin: -1px 3px 15px 3px;
+  border-radius: 10px;
+  font-size: small;
 }
 
 .single-my-post {
@@ -102,7 +110,6 @@
   float: left; 
   width: 33%;
   height: 15px;
- 
 }
 
 .tagLabel {
@@ -202,4 +209,8 @@
   border-radius: 20px;
   font-size: small;
   padding: 5px 10px; 
+}
+
+img {
+  padding: -30px;
 }

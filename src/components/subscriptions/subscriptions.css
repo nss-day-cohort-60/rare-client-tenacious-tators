@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
 }
 
 .subscribe__text {
@@ -37,10 +36,8 @@
   align-content: center;
   align-items: center;
   width: 100%;
-  padding: 50px;
-  margin: 20px;
+  padding: 20px 75px 20px 75px;
   border-radius: 3px;
-
 }
 
 img {
