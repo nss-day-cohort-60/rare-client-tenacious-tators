@@ -53,12 +53,12 @@ export const SubscriptionList = ({ token }) => {
                       </Link>
                     </h3>
                     <div className="buttonContainer">
-                      <button className="viewCommentsButton"
+                      <button className="button is-link is-rounded is-small"
                         onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
                       >
                         View Comments
                       </button>
-                      <button className="addCommentsButton"
+                      <button className="button is-link is-rounded is-small"
                         onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
                       >
                         Add Comments
@@ -93,12 +93,12 @@ export const SubscriptionList = ({ token }) => {
                       </Link>
                     </h3>
                     <div className="buttonContainer">
-                      <button className="viewCommentsButton"
+                      <button className="button is-link is-rounded is-small"
                         onClick={() => navigate(`/posts/${secondPost.id}/comments`)}
                       >
                         View Comments
                       </button>
-                      <button className="addCommentsButton"
+                      <button className="button is-link is-rounded is-small"
                         onClick={() => navigate(`/posts/${secondPost.id}/comment`)}
                       >
                         Add Comments
@@ -125,7 +125,7 @@ export const SubscriptionList = ({ token }) => {
                       >
                         {post?.title}
                       </p>
-                      <div className="subtitle is-6 has-text-weight-semibold is-custom-margin">
+                      <div className="title is-6 has-text-weight-semibold is-margin">
                         {post?.author?.full_name}
                       </div>
                       <div className="subtitle is-custom">
@@ -134,12 +134,12 @@ export const SubscriptionList = ({ token }) => {
                         </span>
                       </div>
                       <div className="buttonContainer">
-                        <button className="viewCommentsButton"
+                        <button className="button is-link is-rounded is-small"
                           onClick={() => navigate(`/posts/${post.id}/comments`)}
                         >
                           View Comments
                         </button>
-                        <button className="addCommentsButton"
+                        <button className="button is-link is-rounded is-small"
                           onClick={() => navigate(`/posts/${post.id}/comment`)}
                         >
                           Add Comments
