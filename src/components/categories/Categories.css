@@ -69,11 +69,11 @@
 }
 
 .grey-buttons{
-    color: rgb(96, 94, 94);
+    color: #949494;
 }
 
-a:hover .grey-buttons{
-    color: #efefef;
+.grey-buttons:hover {
+    cursor: pointer;
 }
 
 .category_name, Link{
