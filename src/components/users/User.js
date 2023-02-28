@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom"
+import { SubscriptionForm } from "./subscribe"
 
-export const User = ({ user }) => (
-    <section className="user">
+export const User = ({ user , setUsers }) => (
+    <section className="user__card" key={user.id}>
+        <img src={user.profile_image_url} className="user card__image"/>
         <h3 className="user__name">
                 <Link to={`/users/${user.user.id}`}>
-                    <h3>{ user.user.username }</h3>
+                    <h3 className="user__name">{ user.full_name }</h3>
                 </Link>
-                <div>{ user.full_name }</div>
-                <div>{ user.user.email }</div>
+                <div className="user card__subtitle">{ user.followers_count } other users follow this author</div>
+                <div className="user card__subtitle">{ user.user.email }</div>
+                <section className="user card__footer">
+                    <SubscriptionForm user={user} setUsers={setUsers}/>
+                </section>
+
         </h3>
     </section>
 )

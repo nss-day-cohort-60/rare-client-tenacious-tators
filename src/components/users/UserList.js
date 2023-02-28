@@ -15,11 +15,12 @@ export const UserList = ({ token }) => {
   return (
     <>
       <div style={{ marginTop: "2rem" }}>
-        <div className="users">
+        <section className="users__container">
+        <h1 className="users__title">Rare Authors</h1>
           {users.map((user) => (
-            <User key={user.id} user={user} />
+            <User key={user.id} user={user} setUsers={setUsers}/>
           ))}
-        </div>
+        </section>
       </div>
     </>
   )
