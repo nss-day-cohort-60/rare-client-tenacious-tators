@@ -61,10 +61,10 @@ export const Login = ({ setToken }) => {
         <div className="field is-grouped">
           <div className="control">
             {/*submission button*/}
-            <button className="button is-link" type="submit" >Submit</button>
+            <button className="button is-rounded is-link" type="submit" >Submit</button>
           </div>
           <div className="control">
-            <Link to="/register" className="button is-link is-light">Cancel</Link>
+            <Link to="/register" className="button is-rounded is-link is-light">Cancel</Link>
           </div>
         </div>
         {

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import { addNewTag } from "../../managers/tags"
+import "./Tag.css"
 
 export const NewTag = ({ token }) => {
   const [tag, setNewTag] = useState({})
@@ -17,8 +18,8 @@ export const NewTag = ({ token }) => {
   }
 
   return (
-    <form className="addNewTagForm">
-      <h2>Add New Tag</h2>
+    <form className="tagForm">
+      <h2 className="addTag">Add New Tag</h2>
       <fieldset>
         <div className="form-group">
           <input
@@ -38,7 +39,7 @@ export const NewTag = ({ token }) => {
           evt.preventDefault()
           createNewTag()
         }}
-        className="publishButton"
+        className="button is-link is-rounded is-small"
       >
         Create
       </button>

@@ -30,7 +30,7 @@
 
 .categoryHeader { 
     color: #cccccc;
-    font-size: 35px;
+    font-size: 30px;
     margin: 40px 0px 0px 50px; 
 }
 
@@ -80,3 +80,9 @@
     color:#309875;
     font-size: xx-large;
 }
+
+
+.addCat{
+    font-size: 30px;
+}
+

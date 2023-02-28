@@ -52,7 +52,7 @@ export const EditComment = ({token}) => {
                         updateComment(commentToUpdate, commentId)
                             .then(() => navigate(`/posts/${postId}/comments`))
                     }}
-                    className="btn btn-primary">Publish</button>
+                    className="button is-link is-rounded is-small">Publish</button>
             </section >
         </form>
     )

@@ -52,7 +52,7 @@ export const EditCategory = () => {
                     updateCategory(category, categoryId)
                         .then(() => navigate("/categories"))
                 }}
-                className="enlarge-button"/>
+                className="enlarge-button grey-buttons"/>
         </form>
     )
 }
