@@ -38,7 +38,7 @@ export const Posts = ({ posts, token }) => {
             <div className="column is-one-fifth">{limitedContent}</div>
             <div className="column is-one-fifth">
               <figure className="image is-16by9">
-                <img src={posts.image_url} alt="Image 1"></img>
+                <img className="postImg" src={posts.image_url} alt="Image 1"></img>
               </figure>
             </div>
             <div className="column is-one-fifth"></div>

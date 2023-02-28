@@ -22,7 +22,7 @@ export const PostContainer = () => {
             <PostByCategory setSelectedCategory={setSelectedCategory} />
           </div>
           <div className="column">
-            <button className="button" onClick={() => navigate("newpost")}>
+            <button className="button is-link is-rounded" onClick={() => navigate("newpost")}>
               New Post
             </button>
           </div>

@@ -25,7 +25,7 @@ export const CommentList = ({ token }) => {
       <div className="comment">
         <tbody>
         <div class="commentBtn">
-        <button className="button is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
+        <button className="button is-link is-rounded is-small" onClick={() => navigate(`/posts/${postId}/comment`)}>
                     ADD COMMENT
                   </button></div>
           <div className="comments_title">Comments for <i>{post.title}</i></div>

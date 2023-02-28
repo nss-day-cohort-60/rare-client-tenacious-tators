@@ -62,19 +62,19 @@ export const NavBar = ({ token, setToken }) => {
                   Posts          
                 </Link> 
                 <span className="padding">/</span>
-                <Link to="posts/myposts" className="navbar-item ">
+                <Link to="posts/myposts" className="navbar-item">
                   My Posts
                 </Link>
                 <span className="padding">/</span>
-                <Link to="/categories" className="navbar-item ">
+                <Link to="/categories" className="navbar-item">
                   Category Manager
                 </Link>
                 <span className="padding">/</span>
-                <Link to="/tags" className="navbar-item ">
+                <Link to="/tags" className="navbar-item">
                   Tag Manager
                 </Link>
                 <span className="padding">/</span>
-                <Link to="/users" className="navbar-item ">
+                <Link to="/users" className="navbar-item">
                   User Management
                 </Link>
               </>
@@ -92,7 +92,7 @@ export const NavBar = ({ token, setToken }) => {
                 // If true, a logout button will appear and will route back to the "/login" path when clicked
                 token ? (
                   <button
-                    className="button"
+                    className="button is-rounded"
                     onClick={() => {
                       setToken("");
                       navigate("/login");
@@ -102,10 +102,10 @@ export const NavBar = ({ token, setToken }) => {
                   </button>
                 ) : (
                   <>
-                    <Link to="/register" className="button is-link">
+                    <Link to="/register" className="button is-rounded is-link">
                       Register
                     </Link>
-                    <Link to="/login" className="button is-outlined">
+                    <Link to="/login" className="button is-rounded is-outlined">
                       Login
                     </Link>
                   </>

@@ -52,21 +52,21 @@ export const SubscriptionList = ({ token }) => {
                         <div className="authorName">{mostRecentPost?.author?.full_name}</div>
                       </Link>
                     </h3>
-                      <div className="buttonContainer">
-                        <button className="viewCommentsButton"
-                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
-                        >
-                          View Comments
-                        </button>
-                        <button className="addCommentsButton"
-                          onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
-                        >
-                          Add Comments
-                        </button>
-                      </div>
-                      <section className="reactionsContainer">
-                        <PostReactions postId={mostRecentPost.id} />
-                      </section>
+                    <div className="buttonContainer">
+                      <button className="viewCommentsButton"
+                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comments`)}
+                      >
+                        View Comments
+                      </button>
+                      <button className="addCommentsButton"
+                        onClick={() => navigate(`/posts/${mostRecentPost.id}/comment`)}
+                      >
+                        Add Comments
+                      </button>
+                    </div>
+                    <section className="reactionsContainer">
+                      <PostReactions postId={mostRecentPost.id} />
+                    </section>
                   </section>
                 </section>
               </div>
@@ -133,21 +133,21 @@ export const SubscriptionList = ({ token }) => {
                           <HumanDate date={post.publication_date} />
                         </span>
                       </div>
-                        <div className="buttonContainer">
-                          <button className="viewCommentsButton"
-                            onClick={() => navigate(`/posts/${post.id}/comments`)}
-                          >
-                            View Comments
-                          </button>
-                          <button className="addCommentsButton"
-                            onClick={() => navigate(`/posts/${post.id}/comment`)}
-                          >
-                            Add Comments
-                          </button>
-                          <section className="reactionsContainer">
-                            <PostReactions postId={post.id} />
-                          </section>
-                        </div>
+                      <div className="buttonContainer">
+                        <button className="viewCommentsButton"
+                          onClick={() => navigate(`/posts/${post.id}/comments`)}
+                        >
+                          View Comments
+                        </button>
+                        <button className="addCommentsButton"
+                          onClick={() => navigate(`/posts/${post.id}/comment`)}
+                        >
+                          Add Comments
+                        </button>
+                        <section className="reactionsContainer">
+                          <PostReactions postId={post.id} />
+                        </section>
+                      </div>
                     </div>
                     <div className="column is-three-fifth">{post.content}</div>
                     <div className="column is-two-fifth">
