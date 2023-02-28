@@ -21,11 +21,6 @@ html, body {
   background-color: #131313;
 }
 
-a.navbar-item:hover  { 
-  background-color: #131313; 
-  color: #309875;
-}
-
 .title{
   color: #cccccc
 }
