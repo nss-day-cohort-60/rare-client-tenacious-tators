@@ -41,7 +41,7 @@ export const NavBar = ({ token, setToken }) => {
           role="button"
           className="navbar-burger"
           aria-label="menu"
-          aria-expanded="false"
+          aria-expanded="true"
           data-target="navbarBasicExamplef"
           onClick={showMobileNavbar}
           ref={hamburger}
