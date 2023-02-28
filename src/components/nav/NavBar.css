@@ -24,6 +24,9 @@
    padding: 0px; 
 }
 
+.navbar-item, .navbar-menu.is-active  { 
+   background-color: #131313; 
+}
 
 .navbar-end { 
    padding-right: 75px; 
@@ -44,4 +47,3 @@
    font-size: 25px; 
    margin-left: 25px; 
 }
-
