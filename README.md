@@ -20,6 +20,10 @@ People who want to share ideas, opinions, topics, thoughts, and current events.
 It's a mutual space for anyone that wants to share and read other's ideas.
 Instead of searching Google you can now go to this site to read opinions(totally not like Twitter or Facebook).
 
+## Demo Video
+
+(https://drive.google.com/file/d/1j4MhPk-8XAOcEW-BVWEF81ohGrAFal73/view?usp=share_link)
+
 
 ## Getting Started:
 1. In the terminal, create a directory
