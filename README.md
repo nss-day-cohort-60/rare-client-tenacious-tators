@@ -52,6 +52,5 @@ npm start
 ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![CSS3](https://img.shields.io/badge/%20CSS3-0078d7.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JSON](https://img.shields.io/badge/%20JSON-36454F.svg?style=for-the-badge&logo=json&logoColor=white)
 ![BULMA](https://img.shields.io/badge/%20BULMA-36454F.svg?style=for-the-badge&logo=none&logoColor=white)
 
