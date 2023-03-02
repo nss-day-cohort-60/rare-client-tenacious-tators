@@ -1,12 +1,5 @@
 # Rare: The Publishing Platform for the Discerning Writer
 
-## Getting Started
-1. Install dependencies: `npm install`
-2. Run the code `npm start`
-3. Current server can be downloaded [HERE](https://github.com/nss-day-cohort-60/django-taters-api).
-4. This template is using [Bulma](https://bulma.io/documentation) for styling. Take a little bit of time to familiarize yourself with the framework if you would like to continue using it.
-
-
 ## Project Overview:
 Rare Publishing is a Full-Stack group project with collaboration from students in Cohort 60 of Nashville Software School.
 This app was initially supported by a server built with [Python](https://github.com/nss-day-cohort-60/rare-python-server-tyrannical-tators). The backend was then re-built using Django REST framework.
@@ -47,7 +40,7 @@ npm install
 ```bash
 npm start
 ```
-5. This will initialize the React app in your browser, but you won't be able to log into the site or access data without running the server side of this project. To download and start the server, go to https://github.com/nss-day-cohort-60/django-taters-api and follow the README there.
+5. This will initialize the React app in your browser, but you won't be able to log into the site or access data without running the server side of this project. To download and start the server, go [HERE](https://github.com/nss-day-cohort-60/django-taters-api) and follow the README there.
 
 6. Once you are running the server, create a new user, log in to view the site, and test out the features!
 
