@@ -21,8 +21,7 @@ It's a mutual space for anyone that wants to share and read other's ideas.
 Instead of searching Google you can now go to this site to read opinions(totally not like Twitter or Facebook).
 
 ## Demo Video
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1j4MhPk-8XAOcEW-BVWEF81ohGrAFal73/view?usp=share_link)
+[![Watch the video](https://drive.google.com/file/d/1vWJdBvzx3MgMcsQ1eOBOHM__jS0pjIEC/view?usp=sharing)](https://drive.google.com/file/d/1j4MhPk-8XAOcEW-BVWEF81ohGrAFal73/view?usp=share_link)
 
 
 
