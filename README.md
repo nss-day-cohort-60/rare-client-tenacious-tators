@@ -2,14 +2,17 @@
 
 ## Project Overview:
 Rare Publishing is a Full-Stack group project with collaboration from students in Cohort 60 of Nashville Software School.
-This app was initially supported by a server built with [Python](https://github.com/nss-day-cohort-60/rare-python-server-tyrannical-tators). The backend was then re-built using Django REST framework.
+This app was initially supported by a server built with [Python](https://github.com/nss-day-cohort-60/rare-python-server-tyrannical-tators). The backend was then re-built using [Django Rest](https://github.com/nss-day-cohort-60/django-taters-api)REST framework.
 
 
 ## Primary Features:
 The Goal of this web app is to allow authors to create blogposts.
 Authors can also view other's blogposts and their own in list form as well as in detail.
 They can edit and delete if they no longer like their blogposts.
-They can also create and delete categories that they can then assign to a blogpost.
+They can also create and delete categories that they can then assign to a blogpost, blogposts can be viewed by category.
+Tags can be created, edited, and deleted by any author and any user has the ability to create, edit, and delete their own comments.
+Users can react to blogposts using predetermined emojis that keep a running count of reactions to that specific post.
+Users can subscribe and unsubscribe to other users/authors.
 
 
 ## Target Audience:
