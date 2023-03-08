@@ -2,7 +2,7 @@
 
 ## Project Overview:
 Rare Publishing is a Full-Stack group project with collaboration from students in Cohort 60 of Nashville Software School.
-This app was initially supported by a server built with [Python](https://github.com/nss-day-cohort-60/rare-python-server-tyrannical-tators). The backend was then re-built using [Django Rest](https://github.com/nss-day-cohort-60/django-taters-api)REST framework.
+This app was initially supported by a server built with [Python](https://github.com/nss-day-cohort-60/rare-python-server-tyrannical-tators). The backend was then re-built using [Django Rest](https://github.com/nss-day-cohort-60/django-taters-api) framework.
 
 
 ## Primary Features:
